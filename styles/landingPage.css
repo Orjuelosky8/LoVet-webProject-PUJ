@@ -84,7 +84,7 @@
     position: relative;
     z-index: 1;
     font-family: 'Times New Roman', Times, serif;
-    font-weight: BOLD;
+    font-weight: bold;
 }
 
 #landingPageContainer img{
