@@ -19,12 +19,24 @@
 #navBar-leftSideContainer img{
     height: 90px;/*75*/
     transform: rotateZ(-25deg);
+    transition: 2s transform;
+}
+#navBar-leftSideContainer img:hover{
+    transform: rotate(335deg); /*360(Giro completo)-25(Rotacion Actual de la Img)*/
 }
 
 #navBar-leftSideContainer h1{
     padding-left: 15px;
     font-family: Pacifico, cursive, 'Arial Narrow', Arial, sans-serif;
     font-size: 69px;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 4s steps(69) infinite;
+}
+
+@keyframes typing {
+    from { text-indent: -5.4ch; } /* Establecemos el valor de text-indent en la longitud completa del texto negativa */
+    to { text-indent: 0; } /* Cambiamos el valor de text-indent a 0 para mostrar todo el texto */
 }
 
 #navLinks{
@@ -38,11 +50,11 @@
     font-weight: 900;
     padding: 5px 50px;
     margin-right: 10px;
-    font-size: 38px;/*33*/
     border-radius: 20px;
     border-bottom: 2px rgb(107, 46, 46) solid;
 }
 #navLinks li a{
+    font-size: 38px;/*33*/
     text-decoration: none;
     color: rgb(18, 18, 18);
     transition: 1.5s font-size, 1s color;
@@ -68,6 +80,8 @@
 
 #landingPageContainer div:first-child{
     margin: 50px;
+    position: relative;
+    z-index: 1;
 }
 #landingPageContainer div:first-child h2{
     padding-left: 25px;
@@ -81,8 +95,6 @@
     width: 85%;
     font-size: 35px;
     color: #3a3e41;
-    position: relative;
-    z-index: 1;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
 }
@@ -90,7 +102,83 @@
 #landingPageContainer img{
     position: fixed;
     bottom: 0;
+    z-index: 0;
     width: 100%;
     opacity: 0.8;
     user-select: none;
+}
+
+@media (max-width:1600px){
+    #navLinks li a{
+        font-size: 28px;
+    }
+    #navLinks li a:hover{
+        font-size: 33px;
+    }
+    #navLinks li{
+        padding: 5px 35px;
+    }
+}
+
+@media (max-width:1375px){
+    #landingPageContainer div:first-child h2{
+        margin-bottom: 20px;
+        font-size: 90px;
+    }
+}
+
+@media (max-width:1280px){
+    #navBar-leftSideContainer h1{
+        font-size: 55px;
+    }
+    #navLinks li a{
+        font-size: 24px;
+    }
+    #navLinks li a:hover{
+        font-size: 28px;
+    }
+    #navLinks li{
+        padding: 5px 25px;
+        margin-right: 5px;
+    }
+    #landingPageContainer div:first-child p{
+        font-size: 30px;
+    }
+}
+
+@media (max-width:1050px){
+    #navLinks li{
+        padding: 5px 10px;
+        margin-right: 2px;
+    }
+    #landingPageContainer div:first-child h2{
+        margin-bottom: 25px;
+        font-size: 80px;
+    }
+    #landingPageContainer div:first-child p{
+        font-size: 28px;
+    }
+}
+
+@media (max-width:880px){
+    #navBar-leftSideContainer{
+        padding-left: 15px;
+    }
+    #navBar-leftSideContainer img{
+        height: 70px;
+    }
+    #navBar-leftSideContainer h1{
+        padding-left: 5px;
+        font-size: 40px;
+    }
+    #navLinks li{
+        padding: 5px 10px;
+        margin-right: 2px;
+    }
+    #navLinks li a{
+        font-size: 22px;
+    }
+    #navLinks li a:hover{
+        font-size: 25px;
+    }
 }
