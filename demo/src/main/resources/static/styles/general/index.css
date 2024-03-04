@@ -19,3 +19,27 @@ body {
 ::-webkit-scrollbar-thumb {
     background: #9f8474; /* Color del "pulgador" (la parte que se arrastra) */
 }
+
+
+/* PARA REVISAR */
+.relleno{
+    height: 50px;
+}
+.rellenoInicial{
+    height: 125px;
+}
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+.titulos{
+    font-family: 'Contrail One', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #9f8474;
+    text-transform: bold;
+    font-size: 80px;
+    text-align: center;
+}
+.sectionTabla {
+    /*Forma de que cada sección no esté al margen de la página*/
+    padding: 1%;
+}
