@@ -1,4 +1,8 @@
 {
+<<<<<<< HEAD
     "java.configuration.updateBuildConfiguration": "interactive",
     "java.compile.nullAnalysis.mode": "automatic"
+=======
+    "liveServer.settings.port": 5501
+>>>>>>> 9d87f2a8838682e6780e70770de45a340122ea68
 }
