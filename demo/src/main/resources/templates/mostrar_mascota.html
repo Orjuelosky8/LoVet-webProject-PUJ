@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/styles/mascotasEstilos.css}">
+    <link rel="stylesheet" th:href="@{/styles/landingPage.css}">
+    <link rel="stylesheet" href="">
+    <link rel="shortcut icon" th:href="@{/media/icos/HuellaBlanca-editedGimp.ico}" type="image/x-icon">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Contrail+One&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
+    </head>
+<body>
+    <nav id="navBarContainer">
+        <div id="navBar-leftSideContainer">
+            <img th:src="@{/media/imgs/Huella.png}" alt="" id="logoNavBar">
+            <h1>LoVet</h1>
+        </div>
+        <div id="navBar-rightSideContainer">
+            <ol id="navLinks">
+                <li><a th:href="@{/loVet/Inicio}">Inicio</a></li>
+                <li><a th:href="@{/loVet/Servicios}">Servicios</a></li>
+                <li><a th:href="@{/loVet/Personal}">Personal</a></li>
+                <li><a th:href="@{/loVet/Experiencias}">Experiencias</a></li>
+            </ol>
+        </div>
+    </nav>
+    <section class="relleno"></section>
+    <section class="relleno"></section>
+    <section id="infoMascota">
+        <div class="infoMascotaLeft">
+            <h2 th:inline="text" > Conoce a 
+                [[${mascota.nombre}]]!
+            </br></h2>
+            
+            <h1 th:inline="text">¡Hola, soy [[${mascota.nombre}]]!
+                Soy un perro de la raza [[${mascota.raza}]], tengo [[${mascota.edad}]] añitos, he estado inscrito en LoVet por [[${mascota.permanencia}]] años, mido [[${mascota.altura}]] cm y estoy pesando [[${mascota.peso}]]kg.
+                Tengo antecedentes en [[${mascota.antecedentes}]].</br></h1>
+            
+        </div>
+        <div class="infoMascotaRight sectionMascotas flex">
+            <img th:src="${mascota.imagen}" width="100px"/>
+        </div>
+    </section>
+    
+</body>
+</html>

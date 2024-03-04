@@ -1,1 +1,0 @@
-# LoVet-webProject-PUJ
