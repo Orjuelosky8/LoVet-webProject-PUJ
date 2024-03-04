@@ -1,58 +1,59 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="generalLayouts/clientLayout">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
 </head>
 <body>
-    <form th:object="${mascota}" th:action="@{/mascotas/update/{id}(id=${mascota.id})}" method="post">
-        <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input th:field="*{nombre}" type="text" id="nombre" placeholder="Ingresa el nombre">
-        </div>
-        
-        <div class="form-group">
-            <label for="raza">Raza</label>
-            <input th:field="*{raza}" type="text" id="raza" placeholder="Ingresa la raza">
-        </div>
-
-        <div class="form-group">
-            <label for="edad">Edad</label>
-            <input th:field="*{edad}" type="number" id="edad" placeholder="Ingresa la edad">
-        </div>
-
-        <div class="form-group">
-            <label for="permanencia">Permanencia</label>
-            <input th:field="*{permanencia}" type="number" id="permanencia" placeholder="Ingresa la permanencia">
-        </div>
-
-        <div class="form-group">
-            <label for="altura">Altura</label>
-            <input th:field="*{altura}" type="number" id="altura" placeholder="Ingresa la altura">
-        </div>
-
-        <div class="form-group">
-            <label for="peso">Peso</label>
-            <input th:field="*{peso}" type="number" id="peso" placeholder="Ingresa el peso">
-        </div>
-
-        <div class="form-group">
-            <label for="imagen">Imagen</label>
-            <input th:field="*{imagen}" type="text" id="imagen" >
-        </div>
-
-        <div class="form-group">
-            <label for="antecedentes">Antecedentes</label>
-            <input th:field="*{antecedentes}" type="text" id="antecedentes" >
-        </div>
-
-
-        
-
-        <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
+    <div layout:fragment="content">
+        <form th:object="${mascota}" th:action="@{/mascotas/update/{id}(id=${mascota.id})}" method="post">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input th:field="*{nombre}" type="text" id="nombre" placeholder="Ingresa el nombre">
+            </div>
+            
+            <div class="form-group">
+                <label for="raza">Raza</label>
+                <input th:field="*{raza}" type="text" id="raza" placeholder="Ingresa la raza">
+            </div>
+    
+            <div class="form-group">
+                <label for="edad">Edad</label>
+                <input th:field="*{edad}" type="number" id="edad" placeholder="Ingresa la edad">
+            </div>
+    
+            <div class="form-group">
+                <label for="permanencia">Permanencia</label>
+                <input th:field="*{permanencia}" type="number" id="permanencia" placeholder="Ingresa la permanencia">
+            </div>
+    
+            <div class="form-group">
+                <label for="altura">Altura</label>
+                <input th:field="*{altura}" type="number" id="altura" placeholder="Ingresa la altura">
+            </div>
+    
+            <div class="form-group">
+                <label for="peso">Peso</label>
+                <input th:field="*{peso}" type="number" id="peso" placeholder="Ingresa el peso">
+            </div>
+    
+            <div class="form-group">
+                <label for="imagen">Imagen</label>
+                <input th:field="*{imagen}" type="text" id="imagen" >
+            </div>
+    
+            <div class="form-group">
+                <label for="antecedentes">Antecedentes</label>
+                <input th:field="*{antecedentes}" type="text" id="antecedentes" >
+            </div>
+    
+    
+            
+    
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
 </body>
 </html>

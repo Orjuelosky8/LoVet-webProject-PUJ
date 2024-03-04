@@ -1,105 +1,43 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="generalLayouts/clientLayout">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-    <meta name="author" content="Daniel Eduardo Orjuela">
-    <meta name="robots" content="noindex">
-    <!-- links css's -->
-    <link rel="stylesheet" th:href="@{/styles/landingPage.css}">
-    <link rel="stylesheet" th:href="@{/styles/index.css}">
-    <!-- ico -->
-    <link rel="shortcut icon" th:href="@{/media/icos/HuellaBlanca-editedGimp.ico}" type="image/x-icon">
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Contrail+One&family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
-    <!-- iconos footer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Experiencias</title>
 </head>
 
 <body>
+    <div layout:fragment="content">
 
-    <nav id="navBarContainer">
-        <div id="navBar-leftSideContainer">
-            <img th:src="@{/media/imgs/Huella.png}" alt="" id="logoNavBar">
-            <h1>LoVet</h1>
-        </div>
-        <div id="navBar-rightSideContainer">
-            <ol id="navLinks">
-                <li><a th:href="@{/loVet/Inicio}">Inicio</a></li>
-                <li><a th:href="@{/loVet/Servicios}">Servicios</a></li>
-                <li><a th:href="@{/loVet/Personal}">Personal</a></li>
-                <li><a th:href="@{/loVet/Experiencias}">Experiencias</a></li>
-            </ol>
-        </div>
-    </nav>
+        <section class="rellenoInicial"></section>
 
+        <section id="formContainer">
 
-    <section class="rellenoInicial"></section>
+            <h2 class="subtitulos" style="margin-bottom: 15px;">Registrate y cuéntanos tu experiencia!</h2>
+            <!-- Formulario Usuarios -->
+            <form method="post" id="formUser">
+                <label for="txtUser">Usuario</label>
+                <input type="text" name="user" id="txtUser" required><br>
+        
+                <label for="txtName">Nombre</label>
+                <input type="text" name="name" id="txtNombre" required><br>
+        
+                <label for="txtMascota">Mascota</label>
+                <input type="anchor" name="imagen" id="txtImg" minlength="4" required><br>
+        
+                <label for="txtExp">Experiencias</label>
+                <input type="text" name="mascota" id="txtMascota" minlength="4" required><br>
+        
+                <br>
+                <button type="submit" class="btn">Enviar formulario</button>
 
-    <section id="formContainer">
-
-        <h2 class="subtitulos" style="margin-bottom: 15px;">Registrate y cuéntanos tu experiencia!</h2>
-        <!-- Formulario Usuarios -->
-        <form method="post" id="formUser">
-            <label for="txtUser">Usuario</label>
-            <input type="text" name="user" id="txtUser" required><br>
-    
-            <label for="txtName">Nombre</label>
-            <input type="text" name="name" id="txtNombre" required><br>
-    
-            <label for="txtMascota">Mascota</label>
-            <input type="anchor" name="imagen" id="txtImg" minlength="4" required><br>
-    
-            <label for="txtExp">Experiencias</label>
-            <input type="text" name="mascota" id="txtMascota" minlength="4" required><br>
-    
-            <br>
-            <button type="submit" class="btn">Enviar formulario</button>
-
-        </form>
+            </form>
 
 
-    </section>
-    
-    
-    <footer id="footer">
-
-        <div id="footer-leftSideContainer">
-            <img th:src="@{/media/imgs/Huella.png}" alt="" id="logoNavBar">
-            <h1>LoVet</h1>
-        </div>
-        <div class="infoFooter">
-            <h2>Más Información</h2>
-            <p></br>En LoVet nos preocupamos por la salud, bienestar y cuidado de tu amigo perruno,
-                por ello contamos con profesionales capacitados para ofrecer una amplia variedad de servicios.</p>
-        </div>
-        <div class="infoFooter">
-            <h2>¡Contáctanos!</h2>
-            <p></br>Cel: 311209876 </br></br></p>
-            <p>Tel: 5184635 </br></br></p>
-            <p>Dirección: Cra122A #12-80</br></br></p>
-        </div>
-        <div id="footer-rightSideContainer">
-            <div class="iconos">
-                <a href=><i class="fa-brands fa-facebook-f"></i></a>
-                <a href=><i class="fa-brands fa-twitter"></i></a>
-                <a href=><i class="fa-brands fa-instagram"></i></a>
-                <a href=><i class="fa-brands fa-youtube"></i></a>
-            </div>
-        </div>
-    </footer>
-    <section id="copyright">
-        <p>© 2024 LoVet. Todos los derechos reservados.</p>
-    </section>
+        </section>
+    </div>
 
 </body>
-<script th:src="@{script.js}"></script>
 
 </html>

@@ -1,69 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="generalLayouts/clientLayout">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" th:href="@{/styles/mascotasEstilos.css}">
-    <link rel="stylesheet" th:href="@{/styles/landingPage.css}"><link rel="stylesheet" th:href="@{/styles/landingPage.css}">
-    <link rel="shortcut icon" th:href="@{/media/icos/HuellaBlanca-editedGimp.ico}" type="image/x-icon">
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Contrail+One&family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
 </head>
 <body class="bodyMascotas">
-    <nav id="navBarContainer">
-        <div id="navBar-leftSideContainer">
-            <img th:src="@{/media/imgs/Huella.png}" alt="" id="logoNavBar">
-            <h1>LoVet</h1>
-        </div>
-        <div id="navBar-rightSideContainer">
-            <ol id="navLinks">
-                <li><a th:href="@{/loVet/Inicio}">Inicio</a></li>
-                <li><a th:href="@{/loVet/Servicios}">Servicios</a></li>
-                <li><a th:href="@{/loVet/Personal}">Personal</a></li>
-                <li><a th:href="@{/loVet/Experiencias}">Experiencias</a></li>
-            </ol>
-        </div>
-    </nav>
-    <section class="relleno"></section>
-    <section class="relleno"></section>
-    <section class="relleno"></section>
 
-    <h1 class ="titulos">NUESTROS PELUDOS</h1>
-    
-    <table class="sectionTabla">
-        <thead >
-            <tr>
-                <th>Nombre</th>
-                <th>Raza</th>
-                <th>Edad</th>
-                <th>Imagen</th>
-                <th>Ver más</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="perro : ${mascotas}">
-                <td th:text="${perro.nombre}"></td>
-                <td th:text="${perro.raza}"></td>
-                <td th:text="${perro.edad}"></td>
-                <td > <img th:src="${perro.imagen}" width="100px"/></td> 
-                <td ><a th:href="@{/mascotas/find/{id}(id=${perro.id})}">Ver Info</a></td>
-                <td>
-                    <a  th:href="@{/mascotas/update/{id}(id=${perro.id})}">Editar</a> 
-                </td>
-                <td>
-                    <a  th:href="@{/mascotas/delete/{id}(id=${perro.id})}">Eliminar</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <section class="relleno"></section>
+    <div layout:fragment="content">
+        <section class="relleno"></section>
+        <section class="relleno"></section>
+        <section class="relleno"></section>
 
+        <h1 class ="titulos">NUESTROS PELUDOS</h1>
+        
+        <table class="sectionTabla">
+            <thead >
+                <tr>
+                    <th>Nombre</th>
+                    <th>Raza</th>
+                    <th>Edad</th>
+                    <th>Imagen</th>
+                    <th>Ver más</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="perro : ${mascotas}">
+                    <td th:text="${perro.nombre}"></td>
+                    <td th:text="${perro.raza}"></td>
+                    <td th:text="${perro.edad}"></td>
+                    <td > <img th:src="${perro.imagen}" width="100px"/></td> 
+                    <td ><a th:href="@{/mascotas/find/{id}(id=${perro.id})}">Ver Info</a></td>
+                    <td>
+                        <a  th:href="@{/mascotas/update/{id}(id=${perro.id})}">Editar</a> 
+                    </td>
+                    <td>
+                        <a  th:href="@{/mascotas/delete/{id}(id=${perro.id})}">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <section class="relleno"></section>
+    </div>
 </body>
 </html>

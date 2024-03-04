@@ -2,8 +2,6 @@ package com.example.demo.service;
 
 import java.util.Collection;
 
-import org.springframework.stereotype.Service;
-
 import com.example.demo.model.Cliente;
 
 public interface ClienteService {

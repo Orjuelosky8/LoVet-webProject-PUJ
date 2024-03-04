@@ -37,7 +37,6 @@ icons.forEach(function(icon) {
 });
 
 
-
 const textToType = "AGENDA TU CITA CON NOSOTROS!";
 // Function to type the text
 function typeText(element, text, delay = 0) {

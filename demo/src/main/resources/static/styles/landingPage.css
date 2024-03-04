@@ -1,21 +1,3 @@
-body {
-    height: 400px;
-    scroll-behavior: smooth;   
-    overflow: scroll;
-    overflow-x: hidden !important;
-}
-::-webkit-scrollbar {
-    width: 12px; /* Ancho de la barra de desplazamiento */
-}
-
-::-webkit-scrollbar-track {
-    background: #f3eeeb; /* Color del fondo de la barra de desplazamiento */
-}
-
-::-webkit-scrollbar-thumb {
-    background: #9f8474; /* Color del "pulgador" (la parte que se arrastra) */
-}
-
 #mainMoment{
     overflow: scroll;  
     background-image: url(./../media/imgs/LandinPageMainImg.png);
