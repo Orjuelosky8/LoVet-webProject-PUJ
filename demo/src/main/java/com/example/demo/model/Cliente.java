@@ -1,10 +1,16 @@
 package com.example.demo.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
+
+@Entity
 public class Cliente {
-    private int id;
     private String userName;
     private String password;
     private String correoElectronico;
@@ -12,12 +18,18 @@ public class Cliente {
     private String apellidos;
     private String telefono;
     private String telefonoAux;
-    private List<Integer> idMascotas;
 
+
+    @Id
+    @GeneratedValue
+    private Long id;
+    
+    @OneToMany(mappedBy = "cliente")
+    private List<Mascota> mascotas = new ArrayList<>();
 
     
-    public Cliente(int id, String userName, String password, String correoElectronico, String nombres, String apellidos,
-            String telefono, String telefonoAux, List<Integer> idMascotas) {
+    public Cliente(Long id, String userName, String password, String correoElectronico, String nombres, String apellidos,
+            String telefono, String telefonoAux) {
         this.id = id;
         this.userName = userName;
         this.password = password;
@@ -26,16 +38,30 @@ public class Cliente {
         this.apellidos = apellidos;
         this.telefono = telefono;
         this.telefonoAux = telefonoAux;
-        this.idMascotas = idMascotas;
+    }
+
+    public Cliente( String userName, String password, String correoElectronico, String nombres, String apellidos,
+            String telefono, String telefonoAux) {
+        this.userName = userName;
+        this.password = password;
+        this.correoElectronico = correoElectronico;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.telefono = telefono;
+        this.telefonoAux = telefonoAux;
+    }
+
+    public Cliente() {
+        
     }
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -109,13 +135,14 @@ public class Cliente {
         this.telefonoAux = telefonoAux;
     }
 
+    public List<Mascota> getMascotas() {
+        return mascotas;
+    }
 
-    public List<Integer> getIdMascotas() {
-        return idMascotas;
+    public void setMascotas(List<Mascota> mascotas) {
+        this.mascotas = mascotas;
     }
 
 
-    public void setIdMascotas(List<Integer> idMascotas) {
-        this.idMascotas = idMascotas;
-    }
+    
 }

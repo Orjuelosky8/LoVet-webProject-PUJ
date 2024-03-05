@@ -32,20 +32,20 @@ public class MascotaController {
 
     // http://localhost:8090/mascota/find/1
     @GetMapping("/find/{id}")
-    public String mostrarInfoMascota(Model model, @PathVariable("id") int identificacion){
+    public String mostrarInfoMascota(Model model, @PathVariable("id") Long identificacion){
         Mascota mascota = mascotaService.SearchById(identificacion);
 
         if(mascota!=null){
             model.addAttribute("mascota", mascotaService.SearchById(identificacion));
         }else{
-            throw new NotFoundException(identificacion);
+            //throw new NotFoundException(identificacion);
         }
         return "mostrar_mascota";
     }
 
         // http://localhost:8090/mascota/find?id=1
     @GetMapping("/find")
-    public String mostrarInfoMascota2(Model model, @RequestParam("id") int identificacion){
+    public String mostrarInfoMascota2(Model model, @RequestParam("id") Long identificacion){
 
         model.addAttribute("mascota", mascotaService.SearchById(identificacion));
         return "mostrar_mascota";
@@ -54,7 +54,7 @@ public class MascotaController {
     @GetMapping("/add")
     public String mostrarFormularioCrear(Model model) {
         
-        Mascota mascota = new Mascota( 0, "", "", 0, "", 0, 0, 0, "");
+        Mascota mascota = new Mascota(  "", "", 0, "", 0, 0, 0, "");
 
         model.addAttribute("mascota", mascota);
 
@@ -70,19 +70,19 @@ public class MascotaController {
     }
 
     @GetMapping("/delete/{id}")
-    public String borrarMascota(@PathVariable("id") int identificacion) {
+    public String borrarMascota(@PathVariable("id") Long identificacion) {
         mascotaService.deleteById(identificacion);
         return "redirect:/mascotas/all";
     }
 
     @GetMapping("/update/{id}")
-    public String mostrarFormularioUpdate(@PathVariable("id") int id, Model model) {
+    public String mostrarFormularioUpdate(@PathVariable("id") Long id, Model model) {
         model.addAttribute("mascota", mascotaService.SearchById(id));
         return "modificar_mascota";
     }
 
     @PostMapping("/update/{id}")
-    public String updateMascota(@PathVariable("id") int identificacion, @ModelAttribute("mascotaxx") Mascota mascota) {
+    public String updateMascota(@PathVariable("id") Long identificacion, @ModelAttribute("mascotaxx") Mascota mascota) {
 
         mascotaService.update(mascota);
         return "redirect:/mascotas/all";

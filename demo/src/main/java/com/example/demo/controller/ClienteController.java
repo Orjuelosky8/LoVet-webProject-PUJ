@@ -39,20 +39,20 @@ public class ClienteController {
 
     // http://localhost:8090/mascota/find/1
     @GetMapping("/find/{id}")
-    public String mostrarInfoCliente(Model model, @PathVariable("id") int identificacion) {
+    public String mostrarInfoCliente(Model model, @PathVariable("id") Long identificacion) {
         Cliente cliente = clienteService.SearchById(identificacion);
 
         if (cliente != null) {
             model.addAttribute("cliente", clienteService.SearchById(identificacion));
         } else {
-            throw new NotFoundException(identificacion);
+            //throw new NotFoundException(identificacion);
         }
         return "mostrar_cliente";
     }
 
     // http://localhost:8090/mascota/find?id=1
     @GetMapping("/find")
-    public String mostrarInfoCliente2(Model model, @RequestParam("id") int identificacion) {
+    public String mostrarInfoCliente2(Model model, @RequestParam("id") Long identificacion) {
 
         model.addAttribute("cliente", clienteService.SearchById(identificacion));
         return "mostrar_cliente";
@@ -60,7 +60,7 @@ public class ClienteController {
 
     @GetMapping("/add")
     public String mostrarFormularioCrear(Model model) {
-        Cliente cliente = new Cliente(1, "", "", "", "", "", "", "", new ArrayList<>());
+        Cliente cliente = new Cliente( "", "", "", "", "", "", "");
 
         model.addAttribute("cliente", cliente);
 
@@ -75,19 +75,19 @@ public class ClienteController {
     }
 
     @GetMapping("/delete/{id}")
-    public String borrarCliente(@PathVariable("id") int identificacion) {
+    public String borrarCliente(@PathVariable("id") Long identificacion) {
         clienteService.deleteById(identificacion);
         return "redirect:/clientes/all";
     }
 
     @GetMapping("/update/{id}")
-    public String mostrarFormularioUpdate(@PathVariable("id") int id, Model model) {
+    public String mostrarFormularioUpdate(@PathVariable("id") Long id, Model model) {
         model.addAttribute("cliente", clienteService.SearchById(id));
         return "modificar_cliente";
     }
 
     @PostMapping("/update/{id}")
-    public String updateCliente(@PathVariable("id") int identificacion, @ModelAttribute("clientexx") Cliente cliente) {
+    public String updateCliente(@PathVariable("id") Long identificacion, @ModelAttribute("clientexx") Cliente cliente) {
 
         clienteService.update(cliente);
         return "redirect:/clientes/all";
@@ -103,21 +103,24 @@ public class ClienteController {
     // }
     // return "mostrar_mascotas_cliente";
     // }
+    
+    // @GetMapping("/mascotas/{id}")
+    // public String mostrarMascotasCliente(Model model, @PathVariable("id") Long identificacion, Cliente cliente) {
+    //     model.addAttribute("mascotas", mascotaService.SearchByCliente(cliente));
+
+    //     return "mostrar_mascotas_cliente";
+    // }
+
     @GetMapping("/mascotas/{id}")
-    public String mostrarMascotasCliente(Model model, @PathVariable("id") int identificacion) {
+    public String mostrarMascotasCliente(Model model, @PathVariable("id") Long identificacion) {
         Cliente cliente = clienteService.SearchById(identificacion);
-        List<Integer> mascotasIds = cliente.getIdMascotas();
-        List<Mascota> mascotas = new ArrayList<>(); 
-
-        // Itera sobre los IDs de las mascotas y busca cada mascota por su ID
-        for (Integer mascotaId : mascotasIds) {
-            Mascota mascota = mascotaService.SearchById(mascotaId);
-            mascotas.add(mascota); 
+        if (cliente != null) {
+            model.addAttribute("mascotas", cliente.getMascotas());
+            model.addAttribute("id", identificacion); // Asegúrate de pasar el ID del cliente a la vista
+        } else {
+            // Considera redirigir a una página de error o mostrar un mensaje adecuado
         }
-
-        model.addAttribute("mascotas", mascotas);
-
         return "mostrar_mascotas_cliente";
     }
-
+    
 }

@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.model.Cliente;
 import com.example.demo.model.Mascota;
 import com.example.demo.repository.MascotaRepository;
 
@@ -15,8 +16,8 @@ public class MascotaServiceImpl implements MascotaService {
     MascotaRepository repo;
 
     @Override
-    public Mascota SearchById(int id) {
-        return repo.findById(id);
+    public Mascota SearchById(Long id) {
+        return repo.findById(id).get();
     }
 
     @Override
@@ -25,7 +26,7 @@ public class MascotaServiceImpl implements MascotaService {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         // TODO Auto-generated method stub
         repo.deleteById(id);
     }
@@ -33,13 +34,20 @@ public class MascotaServiceImpl implements MascotaService {
     @Override
     public void update(Mascota mascota) {
         // TODO Auto-generated method stub
-        repo.update(mascota);
+        repo.save(mascota);
     }
 
     @Override
     public void add(Mascota mascota) {
         // TODO Auto-generated method stub
-        repo.add(mascota);
+        repo.save(mascota);
     }
+
+    @Override
+    public Mascota SearchByCliente(Cliente cliente) {
+        // TODO Auto-generated method stub
+        return repo.searchByCliente(cliente).get(4);
+
     
+    }
 }

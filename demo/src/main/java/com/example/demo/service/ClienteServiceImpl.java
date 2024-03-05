@@ -15,9 +15,10 @@ public class ClienteServiceImpl implements ClienteService {
     ClienteRepository repo;
 
     @Override
-    public Cliente SearchById(int id) {
-        return repo.findById(id);
+    public Cliente SearchById(Long id) {
+        return repo.findById(id).get();
     }
+    
 
     @Override
     public Collection<Cliente> SearchAll() {
@@ -25,18 +26,18 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         repo.deleteById(id);
     }
 
     @Override
-    public void update(Cliente mascota) {
-        repo.update(mascota);
+    public void update(Cliente cliente) {
+        repo.save(cliente);
     }
 
     @Override
-    public void add(Cliente mascota) {
-        repo.add(mascota);
+    public void add(Cliente cliente) {
+        repo.save(cliente);
     }
-    
+
 }

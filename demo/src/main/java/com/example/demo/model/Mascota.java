@@ -1,8 +1,13 @@
 package com.example.demo.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+
+@Entity
 public class Mascota {
     
-    private int id;
     private String nombre;
     private String raza;
     private int edad;
@@ -12,8 +17,14 @@ public class Mascota {
     private int peso;
     private String antecedentes;
 
+    @Id
+    @GeneratedValue
+    private Long id;
 
-    public Mascota( int id, String nombre, String raza, int edad, String imagen, int permanencia, int altura, int peso, String antecedentes) {
+    @ManyToOne
+    private Cliente cliente;
+
+    public Mascota( Long id, String nombre, String raza, int edad, String imagen, int permanencia, int altura, int peso, String antecedentes) {
         this.id = id;
         this.nombre = nombre;
         this.raza = raza;
@@ -23,6 +34,23 @@ public class Mascota {
         this.altura = altura;
         this.peso = peso;
         this.antecedentes = antecedentes;
+    }
+
+    public Mascota( String nombre, String raza, int edad, String imagen, int permanencia, int altura, int peso, String antecedentes) {
+        this.nombre = nombre;
+        this.raza = raza;
+        this.edad = edad;
+        this.imagen = imagen;
+        this.permanencia = permanencia;
+        this.altura = altura;
+        this.peso = peso;
+        this.antecedentes = antecedentes;
+    }
+
+    
+
+    public Mascota() {
+        
     }
 
     public int getPermanencia() {
@@ -65,11 +93,11 @@ public class Mascota {
     }
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
     
@@ -103,6 +131,14 @@ public class Mascota {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     
