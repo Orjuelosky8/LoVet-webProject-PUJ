@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.errorHandling.NotFoundException;
 import com.example.demo.model.Cliente;
@@ -45,7 +46,7 @@ public class ClienteController {
         if (cliente != null) {
             model.addAttribute("cliente", clienteService.SearchById(identificacion));
         } else {
-            //throw new NotFoundException(identificacion);
+            // throw new NotFoundException(identificacion);
         }
         return "mostrar_cliente";
     }
@@ -60,7 +61,7 @@ public class ClienteController {
 
     @GetMapping("/add")
     public String mostrarFormularioCrear(Model model) {
-        Cliente cliente = new Cliente( "", "", "", "", "", "", "");
+        Cliente cliente = new Cliente("", "", "", "", "", "", "");
 
         model.addAttribute("cliente", cliente);
 
@@ -103,12 +104,13 @@ public class ClienteController {
     // }
     // return "mostrar_mascotas_cliente";
     // }
-    
-    // @GetMapping("/mascotas/{id}")
-    // public String mostrarMascotasCliente(Model model, @PathVariable("id") Long identificacion, Cliente cliente) {
-    //     model.addAttribute("mascotas", mascotaService.SearchByCliente(cliente));
 
-    //     return "mostrar_mascotas_cliente";
+    // @GetMapping("/mascotas/{id}")
+    // public String mostrarMascotasCliente(Model model, @PathVariable("id") Long
+    // identificacion, Cliente cliente) {
+    // model.addAttribute("mascotas", mascotaService.SearchByCliente(cliente));
+
+    // return "mostrar_mascotas_cliente";
     // }
 
     @GetMapping("/mascotas/{id}")
@@ -125,23 +127,26 @@ public class ClienteController {
 
     @GetMapping("/login")
     public String showLoginForm(Model model) {
-        Cliente cliente = new Cliente( "", "", "", "", "", "", "");
+        Cliente cliente = new Cliente("", "", "", "", "", "", "");
 
         model.addAttribute("cliente", cliente);
         return "Login";
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String userName, @RequestParam String password, Model model, @PathVariable("id") Long identificacion) {
+    public String login(@RequestParam String userName, @RequestParam String password,
+            RedirectAttributes redirectAttributes) {
         Cliente cliente = clienteService.SearchByUserName(userName);
-        identificacion = cliente.getId();
+
         if (cliente != null && cliente.getPassword().equals(password)) {
-            model.addAttribute("id", identificacion);
+            redirectAttributes.addAttribute("id", cliente.getId());
             return "redirect:/clientes/mascotas/{id}";
         } else {
-            model.addAttribute("error", "Usuario o contraseña incorrectos");
-            return "login";
+            // No es necesario el uso de model aquí, RedirectAttributes puede manejar esto.
+            redirectAttributes.addFlashAttribute("error", "Usuario o contraseña incorrectos");
+            return "redirect:/login"; // Asegúrate de tener una ruta mapeada para "/login" que muestre la página de
+                                      // login.
         }
     }
-    
+
 }
