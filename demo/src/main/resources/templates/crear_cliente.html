@@ -23,19 +23,19 @@
                         <div class="input-field" id="nameInput">
                             <i class="fa-solid fa-user"></i>
                             <label for="userName"></label>
-                            <input th:field="*{userName}" type="text" placeholder="Usuario">
+                            <input th:field="*{userName}" type="text" placeholder="Usuario" required="true">
                         </div>
     
                         <div class="input-field">
                             <i class="fa-solid fa-envelope"></i>
                             <label for="correoElectronico"></label>
-                            <input  th:field="*{correoElectronico}" type="email" placeholder="Correo">
+                            <input  th:field="*{correoElectronico}" type="email" placeholder="Correo" required="true">
                         </div>
     
                         <div class="input-field">
                             <i class="fa-solid fa-lock"></i>
                             <label for="password"></label>
-                            <input th:field="*{password}"type="password" placeholder="Contraseña">
+                            <input th:field="*{password}"type="password" placeholder="Contraseña" required="true">
                         </div>
                     </div>
                     <button type="submit" class="enviar">LogUp</button>
