@@ -23,19 +23,19 @@
                         <div class="input-field" id="nameInput">
                             <i class="fa-solid fa-user"></i>
                             <label for="userName"></label>
-                            <input th:field="*{userName}" type="text" placeholder="Usuario">
+                            <input th:field="*{userName}" type="text" placeholder="Usuario" id="userNameLogin">
                         </div>
     
                         <div class="input-field">
                             <i class="fa-solid fa-envelope"></i>
                             <label for="correoElectronico"></label>
-                            <input  th:field="*{correoElectronico}" type="email" placeholder="Correo">
+                            <input  th:field="*{correoElectronico}" type="email" placeholder="Correo" id="emailLogin">
                         </div>
     
                         <div class="input-field">
                             <i class="fa-solid fa-lock"></i>
                             <label for="password"></label>
-                            <input th:field="*{password}"type="password" placeholder="Contraseña">
+                            <input th:field="*{password}"type="password" placeholder="Contraseña" id="passwordLogin">
                         </div>
                         <p>No tienes cuenta?<a th:href="@{/clientes/add}">Registrate aquí</a></p>
                     </div>
@@ -45,7 +45,10 @@
                 </form>
             </div>
         </div>
-    
+        <div th:if="${error}" class="alert alert-danger">
+            <p th:text="${error}">Mensaje de error predeterminado</p>
+        </div>
+    </div>
     
         
     

@@ -46,7 +46,7 @@ public class ClienteController {
         if (cliente != null) {
             model.addAttribute("cliente", clienteService.SearchById(identificacion));
         } else {
-            // throw new NotFoundException(identificacion);
+            //throw new NotFoundException(identificacion);
         }
         return "mostrar_cliente";
     }
@@ -61,7 +61,7 @@ public class ClienteController {
 
     @GetMapping("/add")
     public String mostrarFormularioCrear(Model model) {
-        Cliente cliente = new Cliente("", "", "", "", "", "", "");
+        Cliente cliente = new Cliente( "", "", "", "", "", "", "");
 
         model.addAttribute("cliente", cliente);
 
@@ -104,13 +104,12 @@ public class ClienteController {
     // }
     // return "mostrar_mascotas_cliente";
     // }
-
+    
     // @GetMapping("/mascotas/{id}")
-    // public String mostrarMascotasCliente(Model model, @PathVariable("id") Long
-    // identificacion, Cliente cliente) {
-    // model.addAttribute("mascotas", mascotaService.SearchByCliente(cliente));
+    // public String mostrarMascotasCliente(Model model, @PathVariable("id") Long identificacion, Cliente cliente) {
+    //     model.addAttribute("mascotas", mascotaService.SearchByCliente(cliente));
 
-    // return "mostrar_mascotas_cliente";
+    //     return "mostrar_mascotas_cliente";
     // }
 
     @GetMapping("/mascotas/{id}")
@@ -127,15 +126,14 @@ public class ClienteController {
 
     @GetMapping("/login")
     public String showLoginForm(Model model) {
-        Cliente cliente = new Cliente("", "", "", "", "", "", "");
+        Cliente cliente = new Cliente( "", "", "", "", "", "", "");
 
         model.addAttribute("cliente", cliente);
         return "Login";
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String userName, @RequestParam String password,
-            RedirectAttributes redirectAttributes) {
+    public String login(@RequestParam String userName, @RequestParam String password, RedirectAttributes redirectAttributes) {
         Cliente cliente = clienteService.SearchByUserName(userName);
 
         if (cliente != null && cliente.getPassword().equals(password)) {
@@ -144,9 +142,8 @@ public class ClienteController {
         } else {
             // No es necesario el uso de model aquí, RedirectAttributes puede manejar esto.
             redirectAttributes.addFlashAttribute("error", "Usuario o contraseña incorrectos");
-            return "redirect:/login"; // Asegúrate de tener una ruta mapeada para "/login" que muestre la página de
-                                      // login.
+            return "redirect:/clientes/login"; // Asegúrate de tener una ruta mapeada para "/login" que muestre la página de login.
         }
     }
-
+    
 }
