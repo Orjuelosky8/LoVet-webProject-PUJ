@@ -15,7 +15,7 @@
         <div class="container">
 
             <div class="form-content">
-                <h1 id="title">Registro</h1>
+                <h1 id="title">Login</h1>
     
                 <form th:object="${cliente}" th:action="@{/clientes/login}" method="post">
                     <div class="input-group">
@@ -37,14 +37,11 @@
                             <label for="password"></label>
                             <input th:field="*{password}"type="password" placeholder="Contraseña">
                         </div>
-                        <p>Olvidaste tu contraseña <a href="#">click aqui</a></p>
+                        <p>No tienes cuenta?<a th:href="@{/clientes/add}">Registrate aquí</a></p>
                     </div>
-                    <button type="submit" class="enviar">Enviar</button>
+                    <button type="submit" class="enviar">LogIn</button>
     
-                    <div class="btn-field">
-                        <button id="signUp" type="button">Registrar</button>
-                        <button id="signIn" type="button" class="disable">Iniciar Sesion</button>
-                    </div>
+                    
                 </form>
             </div>
         </div>
