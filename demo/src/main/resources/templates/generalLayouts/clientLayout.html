@@ -29,8 +29,8 @@
     <div layout:fragment="header">
         <nav id="navBarContainer">
             <div id="navBar-leftSideContainer">
-                <img th:src="@{/media/imgs/Huella.png}" alt="" id="logoNavBar">
-                <h1>LoVet</h1>
+                    <img th:src="@{/media/imgs/Huella.png}" alt="" id="logoNavBar">
+                    <h1>LoVet</h1>
             </div>
             <div id="navBar-rightSideContainer">
                 <ol id="navLinks">
@@ -38,6 +38,11 @@
                     <li><a th:href="@{/Servicios}">Servicios</a></li>
                     <li><a th:href="@{/Personal}">Personal</a></li>
                     <li><a th:href="@{/Experiencias}">Experiencias</a></li>
+                    <li>
+                        <a th:href="@{/clientes/login}">
+                            <i class="fa-regular fa-user"></i>
+                        </a>
+                    </li>
                 </ol>
             </div>
         </nav>
