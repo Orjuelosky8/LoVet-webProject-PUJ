@@ -33,7 +33,7 @@
                     <td th:text="${persona.userName}"></td>
                     <td th:text="${persona.apellidos}"></td>
                     <td th:text="${persona.telefono}"></td>
-                    <td th:text="${persona.correoElectronico}"></td>
+                    <td th:text="${persona.correoElectronico}" style="overflow-x: auto;"></td>
                     <td ><a th:href="@{/clientes/find/{id}(id=${persona.id})}">Ver Info</a></td>
                     <td>
                         <a  th:href="@{/clientes/mascotas/{id}(id=${persona.id})}">Mascotas</a> 

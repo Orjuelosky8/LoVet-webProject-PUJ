@@ -57,3 +57,23 @@ const typingHeading = document.getElementById('subMainTitle');
 
 // Start typing
 typeText(typingHeading, textToType);
+
+
+let signUp = document.getElementById("signUp");
+let signIn = document.getElementById("signIn");
+let title = document.getElementById("title");
+let nameInput = document.getElementById("nameInput");
+
+signIn.onclick = function () {
+    nameInput.style.maxHeight = "0";
+    title.innerHTML = "Iniciar Sesion";
+    signIn.classList.add("disable");
+    signUp.classList.remove("disable");
+}
+
+signUp.onclick = function () {
+    nameInput.style.maxHeight = "60px";
+    title.innerHTML = "Registro";
+    signIn.classList.remove("disable");
+    signUp.classList.add("disable");
+}

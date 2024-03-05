@@ -1,13 +1,59 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="generalLayouts/clientLayout">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Experiencias</title>
 </head>
-<body>
+
+<body class="bodyLogin">
     <div layout:fragment="content" class="generalContent">
-        <h1>CREAR CLIENTE</h1>
-    </div>
+
+        <section class="rellenoInicial"></section>
+
+        <div class="container">
+
+            <div class="form-content">
+                <h1 id="title">Registro</h1>
+    
+                <form th:object="${cliente}" th:action="@{/clientes/agregar}" method="post">
+                    <div class="input-group">
+    
+                        <div class="input-field" id="nameInput">
+                            <i class="fa-solid fa-user"></i>
+                            <label for="userName"></label>
+                            <input th:field="*{userName}" type="text" placeholder="Usuario">
+                        </div>
+    
+                        <div class="input-field">
+                            <i class="fa-solid fa-envelope"></i>
+                            <label for="correoElectronico"></label>
+                            <input  th:field="*{correoElectronico}" type="email" placeholder="Correo">
+                        </div>
+    
+                        <div class="input-field">
+                            <i class="fa-solid fa-lock"></i>
+                            <label for="password"></label>
+                            <input th:field="*{password}"type="password" placeholder="Contraseña">
+                        </div>
+                        <p>Olvidaste tu contraseña <a href="#">click aqui</a></p>
+                    </div>
+                    <button type="submit" class="enviar">Enviar</button>
+    
+                    <div class="btn-field">
+                        <button id="signUp" type="button">Registrar</button>
+                        <button id="signIn" type="button" class="disable">Iniciar Sesion</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+    
+        
+    
+        <script src="script.js"></script>
+
 </body>
+
 </html>
