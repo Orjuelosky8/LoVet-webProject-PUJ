@@ -15,6 +15,7 @@ import com.example.demo.model.Mascota;
 @Repository
 public interface ClienteRepository extends JpaRepository <Cliente, Long>{
 
+    Cliente findByUserName(String userName);
     
 
 } 

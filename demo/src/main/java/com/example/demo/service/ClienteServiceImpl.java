@@ -18,6 +18,11 @@ public class ClienteServiceImpl implements ClienteService {
     public Cliente SearchById(Long id) {
         return repo.findById(id).get();
     }
+
+    @Override
+    public Cliente SearchByUserName(String userName) {
+        return repo.findByUserName(userName);
+    }
     
 
     @Override

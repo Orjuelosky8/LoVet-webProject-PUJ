@@ -19,5 +19,7 @@ public interface ClienteService {
 
     public void add(Cliente cliente);
 
+    public Cliente SearchByUserName(String userName);
+
     
 }

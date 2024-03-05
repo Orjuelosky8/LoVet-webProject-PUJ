@@ -122,5 +122,26 @@ public class ClienteController {
         }
         return "mostrar_mascotas_cliente";
     }
+
+    @GetMapping("/login")
+    public String showLoginForm(Model model) {
+        Cliente cliente = new Cliente( "", "", "", "", "", "", "");
+
+        model.addAttribute("cliente", cliente);
+        return "Login";
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestParam String userName, @RequestParam String password, Model model, @PathVariable("id") Long identificacion) {
+        Cliente cliente = clienteService.SearchByUserName(userName);
+        identificacion = cliente.getId();
+        if (cliente != null && cliente.getPassword().equals(password)) {
+            model.addAttribute("id", identificacion);
+            return "redirect:/clientes/mascotas/{id}";
+        } else {
+            model.addAttribute("error", "Usuario o contraseña incorrectos");
+            return "login";
+        }
+    }
     
 }
