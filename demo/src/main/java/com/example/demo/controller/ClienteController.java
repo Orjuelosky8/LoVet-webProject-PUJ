@@ -118,7 +118,7 @@ public class ClienteController {
             model.addAttribute("mascotas", cliente.getMascotas());
             model.addAttribute("id", identificacion); // Asegúrate de pasar el ID del cliente a la vista
         } else {
-            // Considera redirigir a una página de error o mostrar un mensaje adecuado
+            return "paginaErrorMascotaNotfound";
         }
         return "mostrar_mascotas_cliente";
     }

@@ -20,14 +20,21 @@ body {
     background: #9f8474; /* Color del "pulgador" (la parte que se arrastra) */
 }
 
+.generalContent{
+    /* min-height:  calc(100vh - var(--div-height)); */
+    min-height: 50vh; /* REVISAR LUEGO*/
+    margin-top: 150px;
+    margin-bottom: 40px;
+}
 
-/* PARA REVISAR */
-.relleno{
+
+/* .relleno{ YA NO ES NECESARIO
     height: 50px;
 }
-.rellenoInicial{
+.rellenoInicial{ YA NO
     height: 125px;
-}
+} */
+/* PARA REVISAR */
 .flex{
     display: flex;
     flex-wrap: wrap;
