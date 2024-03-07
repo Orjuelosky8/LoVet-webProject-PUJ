@@ -16,7 +16,7 @@
             <div class="form-content">
                 <h1 id="title">Registro</h1>
     
-                <form th:object="${cliente}" th:action="@{/clientes/agregar}" method="post">
+                <form id="miFormulariojejeje" th:object="${cliente}" th:action="@{/clientes/add}" method="post"  onsubmit="return validatedForm()">
                     <div class="input-group">
     
                         <div class="input-field" id="nameInput">

@@ -68,7 +68,7 @@ public class ClienteController {
         return "crear_cliente";
     }
 
-    @PostMapping("/agregar")
+    @PostMapping("/add")
     public String agregarEstudiante(@ModelAttribute("cliente") Cliente cliente) {
 
         clienteService.add(cliente);

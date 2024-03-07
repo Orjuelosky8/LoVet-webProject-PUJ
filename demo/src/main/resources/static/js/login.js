@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // errorMessage.style.color = 'red'; // Agrega más estilos según necesites
         Swal.fire({
             title: 'Error!',
-            text: 'Usuario o contraseña incorrectos, intentelo nuevamente.',
+            text: 'Usuario y/o contraseña incorrectos, intentelo nuevamente.',
             icon: 'error',
             confirmButtonText: 'Aceptar'
         });
