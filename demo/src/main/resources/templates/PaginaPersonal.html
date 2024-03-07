@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="generalLayouts/clientLayout">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="generalLayouts/clientLayout">
 
 <head>
     <meta charset="UTF-8">
@@ -7,14 +8,11 @@
     <title>Personal</title>
     <link rel="stylesheet" th:href="@{/styles/personalSection.css}">
 </head>
+
 <body>
     <div layout:fragment="content" class="generalContent">
 
-        <section class="rellenoInicial"></section>
-        <section class="sectionServicios flex">
-            <div class="columna">
-                <h2>Personal</h2>
-            </div>
+        <h2 class="sectionTitles" data-text="PERSONAL"></h2>
         </section>
 
         <div class="personalContainer">
@@ -87,7 +85,7 @@
                 </div>
             </div>
         </div>
-        
+
         <section class="sectionRelleno">
         </section>
     </div>

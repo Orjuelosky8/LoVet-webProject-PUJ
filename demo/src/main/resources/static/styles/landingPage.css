@@ -19,7 +19,7 @@
 }
 #landingPageContainer div:first-child h2{
     padding-left: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     font-size: 111px;
     color: #9f8474;
     font-family: 'Contrail One', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -33,9 +33,9 @@
 #cursor {
     display: inline-block;
     width: 0;
-    height: 1em;
+    height: 0.9em;
     padding-left: 15px;
-    border-right: .15em solid #9f8474;
+    border-right: .10em solid #9f8474;
     animation: cursor-blink 1s infinite;
 }
 @keyframes cursor-blink {
@@ -203,54 +203,6 @@
 .flex{
     display: flex;
     flex-wrap: wrap;
-}
-
-.columna{
-    /* background: rgb(red, green, blue) ; */
-    background-color: #fff9f6;
-    border: 1px solid black;
-    border-radius: 50px;
-    max-width: 30%;
-    margin: 25px;
-    padding: 10px;
-    box-shadow: 10px 10px 10px gray;
-}
-
-.columna img{
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-.columna h2{
-    margin-top: 10px;
-    padding: 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.columna > h2 > i{
-    font-size: 30px;
-    padding: 8px;
-    border-radius: 50%;
-    border: 3px solid #9f8474;
-}
-.columna > h2 > .ico1,
-.columna > h2 > .ico2,
-.columna > h2 > .ico3,
-.columna > h2 > .ico4
-{
-    display: none;
-}
-.columna > h2 > i:hover{
-    background-color: #9f8474;
-    color: #fff;
-    cursor: pointer;
 }
 
 .ico1, .ico2{

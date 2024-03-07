@@ -28,7 +28,7 @@ public class DataBaseInit implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
          /* CLIENTES */
-        for (int i = 0; i <= 123; i++) {
+        for (int i = 1; i <= 123; i++) {
             Cliente cliente = new Cliente(
                 i + "Pepe",                 // userName
                 i + "password" + i + (i+1),                // password
@@ -47,7 +47,7 @@ public class DataBaseInit implements ApplicationRunner {
 
         // Generar mascotas sin asignarlas todavía
         List<Mascota> mascotas = new ArrayList<>();
-        for (int i = 0; i <= 140; i++) {
+        for (int i = 1; i <= 140; i++) {
             Mascota mascota = new Mascota(
                 "Perrito" + i,                                          // nombre
                 razas[i % razas.length],                                // raza
@@ -68,12 +68,18 @@ public class DataBaseInit implements ApplicationRunner {
         for (Mascota mascota : mascotas) {
             if (!clientes.isEmpty()) {
                 // Asignar a un cliente aleatorio o dejar sin asignar
-                if (random.nextBoolean()) { // Decisión aleatoria de asignar o no
+                // if (random.nextBoolean()) { // Decisión aleatoria de asignar o no
                     Cliente clienteAleatorio = clientes.get(random.nextInt(clientes.size()));
                     mascota.setCliente(clienteAleatorio);
-                }
+                    clienteAleatorio.getMascotas().add(mascota);
+                // }
             }
             mascotaRepository.save(mascota);
+        }
+
+        /* Just for knowing wich clients have dogs and how many */
+        for (Cliente cliente : clientes) {
+            System.out.println("- Numero de mascotas cliente #"+cliente.getId()+": "+cliente.getMascotas().size());
         }
     }
 }

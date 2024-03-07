@@ -1,21 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="generalLayouts/clientLayout">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="generalLayouts/clientLayout">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" th:href="@{/styles/mascotasEstilos.css}">
 </head>
+
 <body class="bodyMascotas">
 
     <div layout:fragment="content" class="generalContent">
-        <section class="relleno"></section>
-        <section class="relleno"></section>
-        <h1 th:text="'MASCOTAS DEL CLIENTE: ' + ${id}" style="font-family: 'Contrail One', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 60px;;"></h1>
 
-        <table class="sectionTabla">
-            <thead >
-                <tr>
+
+        <div id="headerXSection">
+            <h1 class="sectionTitles" data-text="Mis Mascotas"></h1>
+            <h4>
+                ¡Bienvenido <span th:text="${cliente.nombres}"></span> <span th:text="${cliente.apellidos}"></span>! <br> Estas son las mascotas que tienes registradas:
+            </h4>            
+        </div>
+
+        <!-- <table class="sectionTabla">
+            <thead>
+                <tr rowspan="4">
                     <th>Nombre</th>
                     <th>Raza</th>
                     <th>Edad</th>
@@ -30,18 +38,32 @@
                     <td th:text="${perro.nombre}"></td>
                     <td th:text="${perro.raza}"></td>
                     <td th:text="${perro.edad}"></td>
-                    <td > <img th:src="${perro.imagen}" width="100px"/></td> 
-                    <td ><a th:href="@{/mascotas/find/{id}(id=${perro.id})}">Ver Info</a></td>
+                    <td> <img th:src="${perro.imagen}" width="100px" /></td>
+                    <td><a th:href="@{/mascotas/find/{id}(id=${perro.id})}">Ver Info</a></td>
                     <td>
-                        <a  th:href="@{/mascotas/update/{id}(id=${perro.id})}">Editar</a> 
+                        <a th:href="@{/mascotas/update/{id}(id=${perro.id})}">Editar</a>
                     </td>
                     <td>
-                        <a  th:href="@{/mascotas/delete/{id}(id=${perro.id})}">Eliminar</a>
+                        <a th:href="@{/mascotas/delete/{id}(id=${perro.id})}">Eliminar</a>
                     </td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
+
+        <div class="cardsPets">
+            <div th:each="perro : ${mascotas}" class="cardPet">
+                <img th:src="${perro.imagen}" width="100px" />
+                <h3 th:text="${perro.nombre}"></h3>
+                <p th:text="${perro.raza}"></p>
+                <p th:text="${perro.edad}"></p>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <button><a th:href="@{/mascotas/find/{id}(id=${perro.id})}">Ver Info</a></button>
+                <i class="fa-solid fa-trash"></i>
+            </div>
+        </div>
+
     </div>
 
 </body>
+
 </html>

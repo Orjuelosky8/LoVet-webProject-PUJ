@@ -116,8 +116,9 @@ public class ClienteController {
     public String mostrarMascotasCliente(Model model, @PathVariable("id") Long identificacion) {
         Cliente cliente = clienteService.SearchById(identificacion);
         if (cliente != null) {
+            model.addAttribute("cliente", cliente);
             model.addAttribute("mascotas", cliente.getMascotas());
-            model.addAttribute("id", identificacion); // Asegúrate de pasar el ID del cliente a la vista
+            // model.addAttribute("id", identificacion); // Asegúrate de pasar el ID del cliente a la vista
         } else {
             return "paginaErrorMascotaNotfound";
         }

@@ -8,6 +8,7 @@
 </head>
 <body>
     <div layout:fragment="content" class="generalContent">
+        <h2 class="sectionTitles"  data-text="MODIFICAR MASCOTA"></h2>
         <form th:object="${mascota}" th:action="@{/mascotas/update/{id}(id=${mascota.id})}" method="post">
             <div class="form-group">
                 <label for="nombre">Nombre</label>

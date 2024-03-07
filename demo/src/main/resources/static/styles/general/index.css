@@ -39,14 +39,76 @@ body {
     display: flex;
     flex-wrap: wrap;
 }
-.titulos{
+.sectionTitles{
     font-family: 'Contrail One', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #9f8474;
     text-transform: bold;
     font-size: 80px;
     text-align: center;
+    max-width: 30%;
+    margin: 0 auto;
+    padding: 2px;
+    box-shadow: 5px 10px 10px #7e6454;
 }
 .sectionTabla {
     /*Forma de que cada sección no esté al margen de la página*/
     padding: 1%;
+}
+
+/* revisar bien en que secciones aparece esto */
+.columna{
+    /* background: rgb(red, green, blue) ; */
+    background-color: #fff9f6;
+    border: 1px solid black;
+    border-radius: 50px;
+    max-width: 30%;
+    margin: 25px;
+    padding: 10px;
+    box-shadow: 10px 10px 10px gray;
+}
+
+.columna img{
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.columna h2{
+    margin-top: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.columna > h2 > i{
+    font-size: 30px;
+    padding: 8px;
+    border-radius: 50%;
+    border: 3px solid #9f8474;
+}
+.columna > h2 > .ico1,
+.columna > h2 > .ico2,
+.columna > h2 > .ico3,
+.columna > h2 > .ico4
+{
+    display: none;
+}
+.columna > h2 > i:hover{
+    background-color: #9f8474;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+#headerXSection h4{
+    margin: 30px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 35px;
+    text-align: center;
+    color: #3e1b06;
 }

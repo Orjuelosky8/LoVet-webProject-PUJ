@@ -9,6 +9,7 @@
 </head>
 <body>
     <div layout:fragment="content" class="generalContent">
+        <h2 class="sectionTitles"  data-text="AFILIAR MASCOTA"></h2>
         <form th:object="${mascota}" th:action="@{/mascotas/agregar}" method="post">
             <div class="form-group">
                 <label for="nombre">Nombre</label>

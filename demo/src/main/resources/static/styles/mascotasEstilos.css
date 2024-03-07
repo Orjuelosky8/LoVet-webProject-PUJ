@@ -114,3 +114,40 @@
     border: black;
 }
 
+.cardsPets{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.cardPet{
+    width: 35%;
+    border: black 2px solid;
+    border-radius: 35px;
+    margin: 25px;
+    padding: 10px;
+    box-shadow: 10px 10px 10px gray;
+    text-align: center;
+    background-color: #ebe3dc;
+}
+
+.cardPet img{
+    border-radius: 35px;
+    width: 450px;
+    height: 450px;
+    margin: 0 auto;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.cardPet h3{
+    font-family: cursive, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+}
+.cardPet p{
+    font-family: Roboto, Arial;
+    font-size: 40px;
+}
