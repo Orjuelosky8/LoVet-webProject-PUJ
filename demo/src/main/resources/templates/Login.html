@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experiencias</title>
+    
 </head>
-
 <body class="bodyLogin">
     <div layout:fragment="content" class="generalContent">
 
@@ -23,36 +23,26 @@
                         <div class="input-field" id="nameInput">
                             <i class="fa-solid fa-user"></i>
                             <label for="userName"></label>
-                            <input th:field="*{userName}" type="text" placeholder="Usuario" id="userNameLogin">
-                        </div>
-    
-                        <div class="input-field">
-                            <i class="fa-solid fa-envelope"></i>
-                            <label for="correoElectronico"></label>
-                            <input  th:field="*{correoElectronico}" type="email" placeholder="Correo" id="emailLogin">
+                            <input th:field="*{userName}" type="text" placeholder="Usuario" id="userNameLogin" required="true">
                         </div>
     
                         <div class="input-field">
                             <i class="fa-solid fa-lock"></i>
                             <label for="password"></label>
-                            <input th:field="*{password}"type="password" placeholder="Contraseña" id="passwordLogin">
+                            <input th:field="*{password}"type="password" placeholder="Contraseña" id="passwordLogin" required="true">
                         </div>
                         <p>No tienes cuenta?<a th:href="@{/clientes/add}">Registrate aquí</a></p>
                     </div>
-                    <button type="submit" class="enviar">LogIn</button>
+                    <button id="logInButton" type="submit" class="enviar">LogIn</button>
     
                     
                 </form>
             </div>
         </div>
-        <div th:if="${error}" class="alert alert-danger">
-            <p th:text="${error}">Mensaje de error predeterminado</p>
+        <div th:if="${error}" id="msgIncorrectLogin">
+            <p th:text="${error}" id="msgIncorrectLogin-p"></p>
         </div>
     </div>
-    
-        
-    
-        <script src="script.js"></script>
 
 </body>
 
