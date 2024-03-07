@@ -81,8 +81,13 @@
     justify-content: right;
 }
 #navLinks li:last-child{
+    padding: 5px 15px;
     background-color: #9f8474;
 }
 #navLinks li i{
     color: #fff;
+    transition: 1s color;
+}
+#navLinks li i:hover{
+    color: #e6c610;
 }

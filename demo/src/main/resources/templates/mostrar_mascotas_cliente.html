@@ -54,11 +54,13 @@
             <div th:each="perro : ${mascotas}" class="cardPet">
                 <img th:src="${perro.imagen}" width="100px" />
                 <h3 th:text="${perro.nombre}"></h3>
-                <p th:text="${perro.raza}"></p>
-                <p th:text="${perro.edad}"></p>
-                <i class="fa-solid fa-pen-to-square"></i>
-                <button><a th:href="@{/mascotas/find/{id}(id=${perro.id})}">Ver Info</a></button>
-                <i class="fa-solid fa-trash"></i>
+                <p><span>Raza: </span><span th:text="${perro.raza}"></span></p>
+                <p><span>Edad: </span><span th:text="${perro.edad}"></span></p>
+                <div id="iteractionPetButtons">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <a th:href="@{/mascotas/find/{id}(id=${perro.id})}">Más Información</a>
+                    <i class="fa-solid fa-trash"></i>
+                </div>
             </div>
         </div>
 

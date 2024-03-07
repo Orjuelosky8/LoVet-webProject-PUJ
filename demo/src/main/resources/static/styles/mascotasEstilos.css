@@ -11,45 +11,7 @@
     border-radius: 50%;
 }
 
-#infoMascota{
-    background-color: white;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-}
-.infoMascotaRight{
-    width: 50%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: right;
-    margin-right: 40px;
-}
-.infoMascotaLeft{
-    width: 50%;
-    align-items: center;
-    justify-content: left;
-    padding-left: 30px;
-    user-select: none;
-    text-align: center;
-}
 
-.infoMascotaLeft h2{
-    font-family: 'Contrail One', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-shadow: #9f8474 1px 0 10px;
-    text-align: center;
-    font-size: 100px;
-    color: #9f8474;
-    padding-left: 100px;
-}
-
-.infoMascotaLeft h1{
-    font-family: 'roboto', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-align: center;
-    font-size: 50px;
-    color: black;
-    padding-left: 100px;
-}
 
 .bodyMascotas table {
     /*Formato de diseño para todas las tablas de la página*/
@@ -114,15 +76,19 @@
     border: black;
 }
 
+
+
+/* cards Pets - mostrar Mascotas X Cliente*/
 .cardsPets{
     width: 90%;
     margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
 .cardPet{
-    width: 35%;
+    max-width: 35%;
     border: black 2px solid;
     border-radius: 35px;
     margin: 25px;
@@ -134,8 +100,7 @@
 
 .cardPet img{
     border-radius: 35px;
-    width: 450px;
-    height: 450px;
+    min-width: 90%;
     margin: 0 auto;
     display: block;
     margin-top: 15px;
@@ -143,11 +108,86 @@
 }
 
 .cardPet h3{
-    font-family: cursive, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    max-width: 80%;
+    margin: 0 auto;
     font-size: 50px;
     font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-variant: small-caps;
+    font-style: italic;
+    color: #1d474d;
+    border-bottom: solid 1px #1d474d;
+    border-width: 2px;
 }
 .cardPet p{
-    font-family: Roboto, Arial;
+    font-family: cursive, Arial;
     font-size: 40px;
+}
+.cardPet p span:first-child{
+    font-variant: small-caps;
+    font-style: italic;
+    text-shadow: 1px 1px 5px grey;
+}
+.cardPet p span:last-child{
+    text-shadow: 1px 1px 5px goldenrod;
+}
+
+#iteractionPetButtons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.cardPet #iteractionPetButtons a{
+    background-color: #1d474d;
+    color: lightgrey;
+    border: none;
+    border-radius: 35%;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 20px 30px 20px 30px;
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+}
+.cardPet #iteractionPetButtons a:hover{
+    color: white;
+    text-shadow: 2px 2px 5px black;
+    transition: 0.5s;
+}
+
+.cardPet #iteractionPetButtons i{
+    border: solid 2px;
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 25px;
+    transition: 2s color, 1s background-color, 1.5s transform;
+}
+.cardPet #iteractionPetButtons i:hover{
+    transform: rotate(-360deg);
+}
+
+.cardPet #iteractionPetButtons i:first-child{
+    margin-right: 10px;
+    color: #db7729;
+    border-color: #db7729;
+}
+.cardPet #iteractionPetButtons i:first-child:hover{
+    color: #fff;
+    background-color: #db7729;
+}
+.cardPet #iteractionPetButtons i:last-child{
+    margin-left: 10px;
+    color: rgb(189, 0, 0);
+    border-color: rgb(189, 0, 0);
+}
+.cardPet #iteractionPetButtons i:last-child:hover{
+    margin-left: 10px;
+    color: #fff;
+    border-color: rgb(189, 0, 0);
+    background-color: rgb(189, 0, 0);
 }
