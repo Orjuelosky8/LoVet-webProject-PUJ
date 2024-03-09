@@ -316,6 +316,7 @@
 
 .botonServicio:hover{
     background: rgb(126, 107, 46);
+    text-shadow: 2px 2px 20px black;
     transition: 0.3s;
 }
 
