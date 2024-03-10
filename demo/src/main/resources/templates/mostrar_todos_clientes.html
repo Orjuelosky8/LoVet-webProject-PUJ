@@ -10,6 +10,16 @@
     <div layout:fragment="content" class="generalContent">
 
         <h1 class="sectionTitles" data-text="NUESTROS CLIENTES"></h1>
+
+        <a th:href="@{/clientes/add}" style="background-color: #1d474d;
+        color: lightgrey;
+        border-radius: 50%;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 25px;
+        padding: 20px 30px 20px 30px;
+        font-family: 'roboto', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        margin-left: 300px;">+</a>
         
         <table class="sectionTabla">
             <thead >
@@ -31,7 +41,6 @@
                     <td th:text="${persona.apellidos}"></td>
                     <td th:text="${persona.telefono}"></td>
                     <td th:text="${persona.correoElectronico}" style="overflow-x: auto;"></td>
-                    <td ><a th:href="@{/clientes/find/{id}(id=${persona.id})}">Ver Info</a></td>
                     <td>
                         <a  th:href="@{/clientes/mascotas/{id}(id=${persona.id})}">Mascotas</a> 
                     </td>
