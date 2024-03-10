@@ -34,7 +34,14 @@
     100%{transform: rotate(335deg);}
 }
 
+.aNotSyle{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
 #navBar-leftSideContainer h1{
+    color: black;
     padding-left: 15px;
     font-family: Pacifico, cursive, 'Arial Narrow', Arial, sans-serif;
     font-size: 69px;
