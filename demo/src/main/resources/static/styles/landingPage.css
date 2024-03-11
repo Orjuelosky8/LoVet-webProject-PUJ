@@ -448,3 +448,27 @@ height: 250px;
     margin-top: -200px;
     text-align: center;
 }
+
+#infoMascota{
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.infoMascotaLeft{
+    width: 20%;
+    align-items: center;
+    justify-content: left;
+    padding-left: 30px;
+    user-select: none;
+    text-align: center;
+}
+
+.infoMascotaRight{
+    width: 80%;
+    align-items: center;
+    justify-content: right;
+    padding-right: 30px;
+    user-select: none;
+    text-align: center;
+}

@@ -11,46 +11,23 @@
 
 <body class="bodyMascotas">
 
-    <div layout:fragment="content" class="generalContent">
+    <div layout:fragment="content" class="generalContent" style="display: flex; flex-direction: row;">
 
-
-        <div id="headerXSection">
-            <h1 class="sectionTitles" data-text="Mis Mascotas"></h1>
+        <div id="headerXSection" style="width: 30%; align-items: center; justify-content: left;">
+            <h1 > Mis Mascotas</h1>
             <h4>
                 ¡Bienvenido <span th:text="${cliente.nombres}"></span> <span th:text="${cliente.apellidos}"></span>! <br> Estas son las mascotas que tienes registradas:
-            </h4>            
+            </h4>
+            <h2 th:inline="text">
+                Nombre: [[${cliente.nombres}]] [[${cliente.apellidos}]] </br>
+                User Name: [[${cliente.userName}]] </br>
+                Correo: [[${cliente.correoElectronico}]] </br>
+                Telefono: [[${cliente.telefono}]] </br>
+                Telefono Auxiliar: [[${cliente.telefonoAux}]] </br>
+            </br></h2>            
         </div>
 
-        <!-- <table class="sectionTabla">
-            <thead>
-                <tr rowspan="4">
-                    <th>Nombre</th>
-                    <th>Raza</th>
-                    <th>Edad</th>
-                    <th>Imagen</th>
-                    <th>Ver más</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="perro : ${mascotas}">
-                    <td th:text="${perro.nombre}"></td>
-                    <td th:text="${perro.raza}"></td>
-                    <td th:text="${perro.edad}"></td>
-                    <td> <img th:src="${perro.imagen}" width="100px" /></td>
-                    <td><a th:href="@{/mascotas/find/{id}(id=${perro.id})}">Ver Info</a></td>
-                    <td>
-                        <a th:href="@{/mascotas/update/{id}(id=${perro.id})}">Editar</a>
-                    </td>
-                    <td>
-                        <a th:href="@{/mascotas/delete/{id}(id=${perro.id})}">Eliminar</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table> -->
-
-        <div class="cardsPets">
+        <div class="cardsPets" style="width: 70%; align-items: center; ">
             <div th:each="perro : ${mascotas}" class="cardPet">
                 <img th:src="${perro.imagen}" width="100px" />
                 <h3 th:text="${perro.nombre}"></h3>

@@ -76,6 +76,20 @@
     border: black;
 }
 
+#headerXSection h1{
+    font-family: 'Contrail One', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 110px;
+    text-align: center;
+    color: #9f8474;
+}
+
+#headerXSection h2{
+    font-family: 'roboto', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 35px;
+    text-align: center;
+    color: gray;
+    
+}
 
 
 /* cards Pets - mostrar Mascotas X Cliente*/
