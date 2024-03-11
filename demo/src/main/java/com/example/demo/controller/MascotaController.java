@@ -1,6 +1,9 @@
 package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,10 +25,13 @@ public class MascotaController {
     MascotaService mascotaService;
 
     @GetMapping("/all")
-    public String mostrarMascotas(Model model){
-        model.addAttribute("mascotas", mascotaService.SearchAll());
+    public String mostrarMascotasPaginadas(Model model, 
+                                        @PageableDefault(size = 10) Pageable pageable) {
+        Page<Mascota> paginaMascotas = mascotaService.findAll(pageable);
+        model.addAttribute("pagina", paginaMascotas);
         return "mostrar_todas_mascotas";
     }
+
 
     // http://youtube.com/video/rock/canal/pepito/fecha/2022
     //http://youtube.com?video=rock&canal=pepito&fecha=2022

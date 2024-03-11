@@ -2,6 +2,8 @@ package com.example.demo.service;
 
 import java.util.Collection;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Cliente;
@@ -13,6 +15,8 @@ public interface MascotaService {
 
     public Collection<Mascota> SearchAll();
 
+    public Page<Mascota> findAll(Pageable pageable);
+    
     public void deleteById(Long id);
 
     public void update(Mascota mascota);

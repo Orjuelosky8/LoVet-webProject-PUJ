@@ -7,16 +7,11 @@
     <link rel="stylesheet" th:href="@{/styles/mascotasEstilos.css}">
 </head>
 <body class="bodyMascotas">
-
     <div layout:fragment="content" class="generalContent">
-         
-         
-         
-
-        <h1 class ="sectionTitles" data-text="NUESTROS PELUDOS"></h1>
+        <h1 class="sectionTitles" data-text="NUESTROS PELUDOS"></h1>
         
         <table class="sectionTabla">
-            <thead >
+            <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Raza</th>
@@ -28,23 +23,39 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="perro : ${mascotas}">
+                <tr th:each="perro : ${pagina.content}">
                     <td th:text="${perro.nombre}"></td>
                     <td th:text="${perro.raza}"></td>
                     <td th:text="${perro.edad}"></td>
-                    <td > <img th:src="${perro.imagen}" width="100px"/></td> 
-                    <td ><a th:href="@{/mascotas/find/{id}(id=${perro.id})}">Ver Info</a></td>
-                    <td>
-                        <a  th:href="@{/mascotas/update/{id}(id=${perro.id})}">Editar</a> 
-                    </td>
-                    <td>
-                        <a  th:href="@{/mascotas/delete/{id}(id=${perro.id})}">Eliminar</a>
-                    </td>
+                    <td><img th:src="${perro.imagen}" width="100px"/></td>
+                    <td><a th:href="@{/mascotas/find/{id}(id=${perro.id})}">Ver Info</a></td>
+                    <td><a th:href="@{/mascotas/update/{id}(id=${perro.id})}">Editar</a></td>
+                    <td><a th:href="@{/mascotas/delete/{id}(id=${perro.id})}">Eliminar</a></td>
                 </tr>
             </tbody>
         </table>
         
-         
-    </div>
+        <div class="paginationContainer">
+            <ul class="pagination">
+                <!-- Flecha hacia atrás solo si hay una página previa -->
+                <li th:if="${pagina.hasPrevious()}">
+                    <a th:href="@{/mascotas/all(page=${pagina.number - 1})}" class="page-link arrow prev" aria-label="Página anterior" data-tooltip="Página anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                </li>
+        
+                <!-- Generación dinámica de los números de página -->
+                <li th:each="i : ${#numbers.sequence(0, pagina.totalPages - 1)}">
+                    <a th:href="@{/mascotas/all(page=${i})}" th:text="${i + 1}" th:classappend="${i == pagina.number ? 'active' : ''}" class="page-link"></a>
+                </li>
+        
+                <!-- Flecha hacia adelante solo si hay una página siguiente -->
+                <li th:if="${pagina.hasNext()}">
+                    <a th:href="@{/mascotas/all(page=${pagina.number + 1})}" class="page-link arrow next" aria-label="Página siguiente" data-tooltip="Página siguiente">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>        
 </body>
 </html>
