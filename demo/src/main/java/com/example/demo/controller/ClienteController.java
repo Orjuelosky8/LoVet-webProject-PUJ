@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,8 +33,10 @@ public class ClienteController {
     MascotaService mascotaService;
 
     @GetMapping("/all")
-    public String mostrarClientes(Model model) {
-        model.addAttribute("clientes", clienteService.SearchAll());
+    public String mostrarMascotasPaginadas(Model model, 
+                                        @PageableDefault(size = 10) Pageable pageable) {
+        Page<Cliente> paginaClientes = clienteService.findAll(pageable);
+        model.addAttribute("clientes", paginaClientes);
         return "mostrar_todos_clientes";
     }
 

@@ -35,9 +35,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 // Start typing
 // typeText(typingHeading, textToType);
-
-
-let signUp = document.getElementById("signUp");
-let signIn = document.getElementById("signIn");
-let title = document.getElementById("title");
-let nameInput = document.getElementById("nameInput");

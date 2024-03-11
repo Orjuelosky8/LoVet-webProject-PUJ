@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="generalLayouts/clientLayout">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="generalLayouts/clientLayout">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" th:href="@{/styles/clientes.css}">
+    <link rel="stylesheet" th:href="@{/styles/mascotasEstilos.css}">
+    <link rel="stylesheet" th:href="@{/styles/pagination.css}">
 </head>
+
 <body class="bodyClientes">
     <div layout:fragment="content" class="generalContent">
 
         <h1 class="sectionTitles" data-text="NUESTROS CLIENTES"></h1>
 
-        <a th:href="@{/clientes/add}" style="background-color: #1d474d;
-        color: lightgrey;
-        border-radius: 50%;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 25px;
-        padding: 20px 30px 20px 30px;
-        font-family: 'roboto', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        margin-left: 300px;">+</a>
-        
+        <div id="agregarClienteButtonContainer">
+            <a th:href="@{/clientes/add}" title="Añadir nuevo cliente">
+                <i class="fas fa-user-plus"></i>
+            </a>
+        </div>
+
         <table class="sectionTabla">
-            <thead >
+            <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>user Name</th>
@@ -30,29 +31,52 @@
                     <th>Teléfono</th>
                     <th>Correo</th>
                     <th>Ver más</th>
-                    <th>Mascotas</th>
                     <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="persona : ${clientes}">
+                <tr th:each="persona : ${clientes.content}">
                     <td th:text="${persona.nombres}"></td>
                     <td th:text="${persona.userName}"></td>
                     <td th:text="${persona.apellidos}"></td>
                     <td th:text="${persona.telefono}"></td>
                     <td th:text="${persona.correoElectronico}" style="overflow-x: auto;"></td>
                     <td>
-                        <a  th:href="@{/clientes/mascotas/{id}(id=${persona.id})}">Mascotas</a> 
+                        <a th:href="@{/clientes/mascotas/{id}(id=${persona.id})}">Mascotas</a>
                     </td>
                     <td>
-                        <a  th:href="@{/clientes/delete/{id}(id=${persona.id})}">Eliminar</a>
+                        <a th:href="@{/clientes/delete/{id}(id=${persona.id})}">Eliminar</a>
                     </td>
                 </tr>
             </tbody>
         </table>
-        
-         
+
+        <div class="paginationContainer">
+            <ul class="pagination">
+                <!-- Flecha hacia atrás solo si hay una página previa -->
+                <li th:if="${clientes.hasPrevious()}">
+                    <a th:href="@{/clientes/all(page=${clientes.number - 1})}" class="page-link arrow prev"
+                        aria-label="Página anterior" data-tooltip="Página anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                </li>
+
+                <!-- Generación dinámica de los números de página -->
+                <li th:each="i : ${#numbers.sequence(0, clientes.totalPages - 1)}">
+                    <a th:href="@{/clientes/all(page=${i})}" th:text="${i + 1}"
+                        th:classappend="${i == clientes.number ? 'active' : ''}" class="page-link"></a>
+                </li>
+
+                <!-- Flecha hacia adelante solo si hay una página siguiente -->
+                <li th:if="${clientes.hasNext()}">
+                    <a th:href="@{/clientes/all(page=${clientes.number + 1})}" class="page-link arrow next"
+                        aria-label="Página siguiente" data-tooltip="Página siguiente">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 </body>
-</html>
 
+</html>

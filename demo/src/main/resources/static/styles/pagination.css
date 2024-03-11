@@ -1,0 +1,127 @@
+.paginationContainer{
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    background-color: #ebe3dc;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.pagination {
+    display: flex;
+    flex-wrap: wrap; /* Permite múltiples líneas si hay muchas páginas */
+    list-style-type: none;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; /* Espacio entre los enlaces */
+    font-size: 15px;
+}
+
+.pagination li {
+    margin: 0;
+    padding: 0;
+}
+
+.pagination a {
+    text-decoration: none;
+    padding: 6px 10px; /* Ajuste de tamaño para mejor manejo de espacio */
+    color: #6b594e;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 50%;
+    transition: color 0.2s, background-color 0.2s, transform 0.2s;
+    cursor: pointer;
+    position: relative; /* Necesario para los tooltips */
+}
+
+.pagination a:hover,
+.pagination a:focus {
+    background-color: #6b594e;
+    color: white;
+}
+
+.pagination a.active {
+    background-color: #813107;
+    color: white;
+    cursor: default;
+    transform: translateY(-2px); /* Eleva ligeramente el enlace activo */
+}
+
+/* Estados deshabilitados y no interactivos */
+.pagination span,
+.pagination a.disabled {
+    color: #adb5bd;
+    cursor: not-allowed;
+    background-color: #e9e9e9;
+    border-color: #adb5bd;
+}
+
+/* Estilizado de flechas usando pseudo-elementos */
+.pagination a.arrow::before {
+    content: '';
+    border: solid transparent;
+    border-width: 0.35em 0.35em 0 0.35em;
+    display: inline-block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 50%;
+    margin-top: -0.35em;
+    transition: border-color 0.2s;
+}
+
+.pagination a.prev.arrow::before {
+    left: 0.5em;
+    transform: rotate(-90deg);
+}
+
+.pagination a.next.arrow::before {
+    right: 0.5em;
+    transform: rotate(90deg);
+}
+
+/* Tooltips */
+.pagination a[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    background-color: #6b594e;
+    color: white;
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    display: none;
+    z-index: 10;
+}
+
+.pagination a[data-tooltip]:hover::after,
+.pagination a[data-tooltip]:focus::after {
+    display: block;
+}
+
+/* Posicionamiento de los Tooltips */
+.pagination a[data-tooltip]:hover::after,
+.pagination a[data-tooltip]:focus::after {
+    left: calc(100% + 5px); /* Tooltip a la derecha por defecto */
+}
+
+.pagination a.prev[data-tooltip]:hover::after,
+.pagination a.prev[data-tooltip]:focus::after {
+    right: calc(100% + 5px); /* Tooltip a la izquierda para "anterior" */
+    left: auto;
+}
+
+
+/* Adaptaciones para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+    .pagination a {
+        padding: 5px 8px; /* Tamaños más pequeños para mejor ajuste */
+    }
+}

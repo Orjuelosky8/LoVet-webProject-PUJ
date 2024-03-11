@@ -59,3 +59,27 @@
     background-color: #9f8474;
     border: black;
 }
+
+#agregarClienteButtonContainer{
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    margin-right: 12%;
+    margin-top: -50px;
+}
+#agregarClienteButtonContainer a{
+    background-color: #813107;
+    color: whitesmoke;
+    border-radius: 50%;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 25px;
+    font-family: 'roboto', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 300px;
+    transition: .3s ease-in-out;
+}
+#agregarClienteButtonContainer a:hover{
+    text-shadow: 0px 0px 5px white;
+    box-shadow: 0px 0px 15px #9f8474;
+}
