@@ -39,6 +39,9 @@
     align-items: center;
     text-decoration: none;
 }
+.aNotSyle:hover{
+    text-decoration: none !important;
+}
 
 #navBar-leftSideContainer h1{
     color: black;

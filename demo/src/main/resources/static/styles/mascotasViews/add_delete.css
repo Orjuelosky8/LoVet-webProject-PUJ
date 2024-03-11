@@ -1,0 +1,67 @@
+
+.formCrudPet {
+    /* max-width: 600px; */
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ebe3dc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.formIndividualItem {
+    margin-bottom: 15px;
+}
+
+.formLabel {
+    font-size: 20px;
+    margin-left: 10%;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #E07A5F;
+    text-shadow: 1px 1px 0px rgb(114, 72, 29);
+    font-family: Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.formInput {
+    width: 76%;
+    height: 60px;
+    padding: 10px;
+    padding-left: 20px;
+    border: none;
+    border-bottom: 2px solid #a7958a;
+    border-right: 3px solid #a7958a;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out;
+    margin-left: 12%;
+    font-family: cursive, Arial;
+    font-size: 20px;
+}
+
+.formInput:focus {
+    border-color: #007bff;
+}
+
+.formButtons{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.petsFormButton {
+    padding: 10px 20px;
+    background-color: #E07A5F;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.petsFormButton:hover {
+    background-color: #ca5f26;
+}
