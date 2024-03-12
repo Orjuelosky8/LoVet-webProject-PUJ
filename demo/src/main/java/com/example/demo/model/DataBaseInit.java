@@ -49,7 +49,7 @@ public class DataBaseInit implements ApplicationRunner {
         String[] razas = {"Terrier", "Beagle", "Schnauzer", "Pitbull", "Golden", "Chihuahua", "Labrador", "Dálmata", "Boxer", 
         "Caniche", "Husky", "Poodle","Golden", "Pastor Alemaño", "Pomerania", "Chow chow", "Cocker Spaniel", "Shih Tzu", 
         "Pug", "Yorkshire", "Bulldog", "Bedlington", "Bichón", "Boston","Labrador", "Salchicha", "Fox Terrier", "Ainu", "Border Collie",
-        "Shar Pei","Chihuahua", "Chesapeake", "Pit Bull", "Havanese", "Rottweiler", "Cavalier King Charles", "Cane Corso", "Husky", "Poodle",
+        "Shar Pei","Chihuahua", "Chesapeake", "Pit Bull", "Havanese", "Rottweiler", "Cavalier King", "Cane Corso", "Husky", "Poodle",
         "Dóberman", "Dogo Argentino", "Galgo", "Samoyedo"};
         String[] problemas = {"Higiene bucal", "Displasia de cadera", "Glandulas oculares", "Sarna de la piel", "Rotura de pata izquierda posterior", 
                 "Ingesta de plásticos", "Alergias", "Problemas de corazón", "Ansiedad", "Sobrepeso", "Problemas de piel", "Problemas de oido",

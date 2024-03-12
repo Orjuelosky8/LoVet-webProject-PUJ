@@ -28,7 +28,7 @@
                     <td th:text="${perro.nombre}"></td>
                     <td th:text="${perro.raza}"></td>
                     <td th:text="${perro.edad}"></td>
-                    <td><img th:src="${perro.imagen}" width="100px"/></td>
+                    <td><img th:src="${perro.imagen}" width="100px" height="100px"/></td>
                     <td><a th:href="@{/mascotas/find/{id}(id=${perro.id})}">Ver Info</a></td>
                     <td><a th:href="@{/mascotas/update/{id}(id=${perro.id})}">Editar</a></td>
                     <td><a th:href="@{/mascotas/delete/{id}(id=${perro.id})}">Eliminar</a></td>
