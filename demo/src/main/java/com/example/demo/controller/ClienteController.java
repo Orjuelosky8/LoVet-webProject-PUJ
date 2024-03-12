@@ -66,7 +66,7 @@ public class ClienteController {
 
     @GetMapping("/add")
     public String mostrarFormularioCrear(Model model) {
-        Cliente cliente = new Cliente( "", "", "", "", "", "", "");
+        Cliente cliente = new Cliente( "", "", "", "", "", "", "", "");
 
         model.addAttribute("cliente", cliente);
 
@@ -132,7 +132,7 @@ public class ClienteController {
 
     @GetMapping("/login")
     public String showLoginForm(Model model) {
-        Cliente cliente = new Cliente( "", "", "", "", "", "", "");
+        Cliente cliente = new Cliente( "", "", "", "", "", "", "", "");
 
         model.addAttribute("cliente", cliente);
         return "Login";

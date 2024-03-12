@@ -36,7 +36,8 @@ public class DataBaseInit implements ApplicationRunner {
                 "Pepe" + i,                  // nombres
                 "Gonzalez" + i,                // apellidos
                 "90000" + i,                   // telefono
-                "80000" + i                    // telefonoAux
+                "80000" + i,                    // telefonoAux
+                "Activo"
             );
             clienteRepository.save(cliente);
         }
@@ -56,7 +57,8 @@ public class DataBaseInit implements ApplicationRunner {
                 i,                                                      // permanencia
                 10 + i,                                                 // altura
                 5 + i * 2,                                              // peso
-                problemas[i % problemas.length]                         // antecedentes
+                problemas[i % problemas.length],                         // antecedentes
+                "Activo"
             );
             mascotas.add(mascota);
         }

@@ -19,6 +19,7 @@ public class Cliente {
     private String apellidos;
     private String telefono;
     private String telefonoAux;
+    private String estado;
 
 
     @Id
@@ -30,7 +31,7 @@ public class Cliente {
 
     
     public Cliente(Long id, String userName, String password, String correoElectronico, String nombres, String apellidos,
-            String telefono, String telefonoAux) {
+            String telefono, String telefonoAux, String estado) {
         this.id = id;
         this.userName = userName;
         this.password = password;
@@ -39,10 +40,11 @@ public class Cliente {
         this.apellidos = apellidos;
         this.telefono = telefono;
         this.telefonoAux = telefonoAux;
+        this.estado = estado;
     }
 
     public Cliente( String userName, String password, String correoElectronico, String nombres, String apellidos,
-            String telefono, String telefonoAux) {
+            String telefono, String telefonoAux, String estado) {
         this.userName = userName;
         this.password = password;
         this.correoElectronico = correoElectronico;
@@ -50,6 +52,7 @@ public class Cliente {
         this.apellidos = apellidos;
         this.telefono = telefono;
         this.telefonoAux = telefonoAux;
+        this.estado = estado;
     }
 
     public Cliente() {
@@ -144,6 +147,12 @@ public class Cliente {
         this.mascotas = mascotas;
     }
 
+    public String getEstado() {
+        return estado;
+    }
 
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
     
 }

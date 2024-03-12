@@ -16,6 +16,7 @@ public class Mascota {
     private int altura;
     private int peso;
     private String antecedentes;
+    private String estado;
 
     @Id
     @GeneratedValue
@@ -24,7 +25,7 @@ public class Mascota {
     @ManyToOne
     private Cliente cliente;
 
-    public Mascota( Long id, String nombre, String raza, int edad, String imagen, int permanencia, int altura, int peso, String antecedentes) {
+    public Mascota( Long id, String nombre, String raza, int edad, String imagen, int permanencia, int altura, int peso, String antecedentes, String estado) {
         this.id = id;
         this.nombre = nombre;
         this.raza = raza;
@@ -34,9 +35,10 @@ public class Mascota {
         this.altura = altura;
         this.peso = peso;
         this.antecedentes = antecedentes;
+        this.estado = estado;
     }
 
-    public Mascota( String nombre, String raza, int edad, String imagen, int permanencia, int altura, int peso, String antecedentes) {
+    public Mascota( String nombre, String raza, int edad, String imagen, int permanencia, int altura, int peso, String antecedentes, String estado) {
         this.nombre = nombre;
         this.raza = raza;
         this.edad = edad;
@@ -45,6 +47,7 @@ public class Mascota {
         this.altura = altura;
         this.peso = peso;
         this.antecedentes = antecedentes;
+        this.estado = estado;
     }
 
     
@@ -141,8 +144,14 @@ public class Mascota {
         this.cliente = cliente;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
     
-        
 }
 
     
