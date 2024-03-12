@@ -6,10 +6,17 @@
     <title>Document</title>
     <link rel="stylesheet" th:href="@{/styles/mascotasEstilos.css}">
     <link rel="stylesheet" th:href="@{/styles/pagination.css}">
+    <link rel="stylesheet" th:href="@{/styles/clientes.css}">
 </head>
 <body class="bodyMascotas">
     <div layout:fragment="content" class="generalContent">
         <h1 class="sectionTitles" data-text="NUESTROS PELUDOS"></h1>
+
+        <div id="agregarClienteButtonContainer">
+            <a th:href="@{/mascotas/add}" title="Añadir nuevo cliente">
+                <i class="fas fa-user-plus"></i>
+            </a>
+        </div>
         
         <table class="sectionTabla">
             <thead>

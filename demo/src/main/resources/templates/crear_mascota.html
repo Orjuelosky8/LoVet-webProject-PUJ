@@ -35,6 +35,18 @@
                 <label for="peso" class="formLabel">Peso</label>
                 <input class="formInput" th:field="*{peso}" type="number" id="peso" placeholder="Ingresa el peso">
             </div>
+            <div class="formIndividualItem">
+                <label for="imagen" class="formLabel">Imagen</label>
+                <input class="formInput" th:field="*{imagen}" type="text" id="imagen" placeholder="Ingresa la imagen">
+            </div>
+            <div class="formIndividualItem">
+                <label for="permanencia" class="formLabel">Permanencia</label>
+                <input class="formInput" th:field="*{permanencia}" type="number" id="permanencia" placeholder="Ingresa la permanencia">
+            </div>
+            <div class="formIndividualItem">
+                <label for="antecedentes" class="formLabel">Antecedentes</label>
+                <input class="formInput" th:field="*{antecedentes}" type="text" id="antecedentes" placeholder="Ingresa los antecedentes">
+            </div>
             <div class="formButtons">
                 <button onclick="window.location.href='http://localhost:8088/mascotas/all';" type="reset" class="petsFormButton">
                     <i class="fa-solid fa-arrow-left"></i>
