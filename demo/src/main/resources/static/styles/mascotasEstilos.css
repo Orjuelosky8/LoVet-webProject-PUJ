@@ -60,19 +60,20 @@
 
 .bodyMascotas table a{
     text-decoration: none;
-    color: black;
-    transition: 0.5s font-size, 1s color;
+    color: #4f4037;
+    transition: 0.5s font-size, 1s color, 1s transform;
     border-radius: 5px;
     background-color: white;
     padding: 4px 8px 4px 8px;
-    border: black 1px solid;
+    border: #9f8474 1px solid;
+    font-size: 38px;/*38*/
 }
 
 .bodyMascotas table a:hover{
     color: white;
-    font-size: 35px;/*38*/
+    font-size: 40px;/*38*/
     transition: 0.3s font-size, 0.3s color;
-    background-color: #9f8474;
+    background-color: #4f4037;
     border: black;
 }
 

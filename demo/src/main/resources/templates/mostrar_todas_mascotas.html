@@ -25,9 +25,8 @@
                     <th>Raza</th>
                     <th>Edad</th>
                     <th>Imagen</th>
-                    <th>Ver más</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
+                    <th>Estado</th>
+                    <th>Opciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,10 +34,13 @@
                     <td th:text="${perro.nombre}"></td>
                     <td th:text="${perro.raza}"></td>
                     <td th:text="${perro.edad}"></td>
-                    <td><img th:src="${perro.imagen}" width="100px" height="100px"/></td>
-                    <td><a th:href="@{/mascotas/find/{id}(id=${perro.id})}">Ver Info</a></td>
-                    <td><a th:href="@{/mascotas/update/{id}(id=${perro.id})}">Editar</a></td>
-                    <td><a th:href="@{/mascotas/delete/{id}(id=${perro.id})}">Eliminar</a></td>
+                    <td style="display: flex; justify-content: center; align-items: center; padding: 4px;"><img th:src="${perro.imagen}" width="100px" height="100px"/></td>
+                    <td th:text="${perro.estado}" style="color: brown;"></td>
+                    <td>
+                        <a th:href="@{/mascotas/find/{id}(id=${perro.id})}"><i class="fa-solid fa-circle-info"></i></a>
+                        <a th:href="@{/mascotas/update/{id}(id=${perro.id})}"><i class="fas fa-edit"></i></a>
+                        <a th:href="@{/mascotas/delete/{id}(id=${perro.id})}"><i class="fas fa-trash-alt"></i></a>
+                    </td>
                 </tr>
             </tbody>
         </table>

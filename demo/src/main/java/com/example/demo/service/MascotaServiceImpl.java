@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -33,10 +34,17 @@ public class MascotaServiceImpl implements MascotaService {
         return repo.findAll(pageable);
     }
 
+    @SuppressWarnings("null")
     @Override
     public void deleteById(Long id) {
-        // TODO Auto-generated method stub
-        repo.deleteById(id);
+        Optional<Mascota> mascotaOptional = repo.findById(id);
+        if (mascotaOptional.isPresent()) {
+            Mascota mascota = mascotaOptional.get();
+            mascota.setEstado("Inactivo");
+            repo.save(mascota);
+        } else {
+            System.out.println("Mascota no encontrada con ID: " + id);
+        }
     }
 
     @Override
@@ -56,6 +64,5 @@ public class MascotaServiceImpl implements MascotaService {
         // TODO Auto-generated method stub
         return repo.searchByCliente(cliente).get(4);
 
-    
     }
 }
