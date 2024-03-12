@@ -20,17 +20,13 @@
                 <form th:object="${cliente}" th:action="@{/clientes/login}" method="post">
                     <div class="input-group">
     
+                        <p style="font-size: 25px; color: #6b594e; font-family: cursive;">Ingresa tu Cedula:</p>
                         <div class="input-field" id="nameInput">
                             <i class="fa-solid fa-user"></i>
-                            <label for="userName"></label>
-                            <input th:field="*{userName}" type="text" placeholder="Usuario" id="userNameLogin" required="true">
+                            <label for="cedula"></label>
+                            <input th:field="*{cedula}" type="number" placeholder="Cedula" id="userNameLogin" required="true">
                         </div>
-    
-                        <div class="input-field">
-                            <i class="fa-solid fa-lock"></i>
-                            <label for="password"></label>
-                            <input th:field="*{password}"type="password" placeholder="Contraseña" id="passwordLogin" required="true">
-                        </div>
+
                     </div>
                     <button id="logInButton" type="submit" class="enviar">LogIn</button>
     

@@ -13,6 +13,7 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class Cliente {
     private String userName;
+    private Long cedula;
     private String password;
     private String correoElectronico;
     private String nombres;
@@ -30,10 +31,11 @@ public class Cliente {
     private List<Mascota> mascotas = new ArrayList<>();
 
     
-    public Cliente(Long id, String userName, String password, String correoElectronico, String nombres, String apellidos,
+    public Cliente(Long id, String userName, Long cedula, String password, String correoElectronico, String nombres, String apellidos,
             String telefono, String telefonoAux, String estado) {
         this.id = id;
         this.userName = userName;
+        this.cedula = cedula;
         this.password = password;
         this.correoElectronico = correoElectronico;
         this.nombres = nombres;
@@ -43,9 +45,10 @@ public class Cliente {
         this.estado = estado;
     }
 
-    public Cliente( String userName, String password, String correoElectronico, String nombres, String apellidos,
+    public Cliente( String userName, Long cedula, String password, String correoElectronico, String nombres, String apellidos,
             String telefono, String telefonoAux, String estado) {
         this.userName = userName;
+        this.cedula = cedula;
         this.password = password;
         this.correoElectronico = correoElectronico;
         this.nombres = nombres;
@@ -79,6 +82,14 @@ public class Cliente {
         this.userName = userName;
     }
 
+
+    public Long getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(Long cedula) {
+        this.cedula = cedula;
+    }
 
     public String getPassword() {
         return password;
@@ -154,5 +165,5 @@ public class Cliente {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
+   
 }

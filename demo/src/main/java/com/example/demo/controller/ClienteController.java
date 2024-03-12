@@ -66,7 +66,7 @@ public class ClienteController {
 
     @GetMapping("/add")
     public String mostrarFormularioCrear(Model model) {
-        Cliente cliente = new Cliente( "", "", "", "", "", "", "", "");
+        Cliente cliente = new Cliente( "", 0L, "", "", "", "", "", "", "");
 
         model.addAttribute("cliente", cliente);
 
@@ -132,14 +132,35 @@ public class ClienteController {
 
     @GetMapping("/login")
     public String showLoginForm(Model model) {
-        Cliente cliente = new Cliente( "", "", "", "", "", "", "", "");
+        Cliente cliente = new Cliente( "", 0L, "", "", "", "", "", "", "");
 
         model.addAttribute("cliente", cliente);
         return "Login";
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String userName, @RequestParam String password, RedirectAttributes redirectAttributes) {
+    public String login(@RequestParam Long cedula, RedirectAttributes redirectAttributes) {
+        Cliente cliente = clienteService.findByCedula(cedula);
+    
+        if (cliente != null) {
+            redirectAttributes.addAttribute("id", cliente.getId());
+            return "redirect:/clientes/mascotas/{id}";
+        } else {
+            redirectAttributes.addFlashAttribute("error", "Usuario o contraseña incorrectos");
+            return "redirect:/clientes/login"; // Asegúrate de tener una ruta mapeada para "/login" que muestre la página de login.
+        }
+    }
+    
+    @GetMapping("/login2")
+    public String showLoginForm2(Model model) {
+        Cliente cliente = new Cliente( "", 0L, "", "", "", "", "", "", "");
+
+        model.addAttribute("cliente", cliente);
+        return "Login";
+    }
+
+    @PostMapping("/login2")
+    public String login2(@RequestParam String userName, @RequestParam String password, RedirectAttributes redirectAttributes) {
         Cliente cliente = clienteService.SearchByUserName(userName);
 
         if (cliente != null && cliente.getPassword().equals(password)) {

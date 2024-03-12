@@ -13,6 +13,10 @@ public interface ClienteService {
     
     public Cliente SearchById(Long id);
 
+    public Cliente findByCedula(Long cedula);
+
+    // public Cliente SearchByCedula(Long cedula);
+
     public Collection<Cliente> SearchAll();
 
     public Page<Cliente> findAll(Pageable pageable);

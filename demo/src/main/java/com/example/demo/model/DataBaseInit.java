@@ -31,6 +31,7 @@ public class DataBaseInit implements ApplicationRunner {
         for (int i = 1; i <= 123; i++) {
             Cliente cliente = new Cliente(
                 i + "Pepe",                 // userName
+                (long)i+1000,
                 i + "password" + i + (i+1),                // password
                 "pepe123" + i + "@example.com", // correoElectronico
                 "Pepe" + i,                  // nombres

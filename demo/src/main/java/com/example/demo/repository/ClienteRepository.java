@@ -16,6 +16,6 @@ import com.example.demo.model.Mascota;
 public interface ClienteRepository extends JpaRepository <Cliente, Long>{
 
     Cliente findByUserName(String userName);
-    
 
+    Cliente findByCedula(Long cedula);
 } 

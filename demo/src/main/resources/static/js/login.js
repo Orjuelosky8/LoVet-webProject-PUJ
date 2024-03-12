@@ -3,14 +3,6 @@ let mail = document.getElementById("emailLogin");
 let pass = document.getElementById("passwordLogin");
 
 
-// // or via CommonJS
-// const Swal = require('sweetalert2')
-
-// document.getElementById("msgIncorrectLogin-p").addEventListener("click", (event) => {
-//     alert("hola")
-// })
-
-
 document.addEventListener('DOMContentLoaded', (event) => {
     const errorMessage = document.getElementById('msgIncorrectLogin-p');
     if (errorMessage && errorMessage.textContent.trim() !== '') {

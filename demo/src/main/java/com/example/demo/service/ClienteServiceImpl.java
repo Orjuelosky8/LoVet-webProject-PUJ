@@ -23,6 +23,16 @@ public class ClienteServiceImpl implements ClienteService {
         return repo.findById(id).get();
     }
 
+    // @Override
+    // public Cliente SearchByCedula(Long cedula) {
+    //     return repo.findByCedula(cedula).get();
+    // }
+
+    @Override
+    public Cliente findByCedula(Long cedula) {
+        return repo.findByCedula(cedula);
+    }
+
     @Override
     public Cliente SearchByUserName(String userName) {
         return repo.findByUserName(userName);
