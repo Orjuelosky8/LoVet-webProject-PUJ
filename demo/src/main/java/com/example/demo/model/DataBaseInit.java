@@ -100,11 +100,11 @@ public class DataBaseInit implements ApplicationRunner {
             Mascota mascota = new Mascota(
                 nombres[i % nombres.length],                                          // nombre
                 razas[i % razas.length],                                // raza
-                i * 2,                                                  // edad
-                "https://img.freepik.com/fotos-premium/lindo-perro-posando-aislado-sobre-fondo-hermoso_639785-1155.jpg" /*+ i + ".jpg"*/,              // imagen
-                i,                                                      // permanencia
-                10 + i,                                                 // altura
-                5 + i * 2,                                              // peso
+                edad,                                                  // edad
+                imagenes[i % imagenes.length]/*+ i + ".jpg*/,              // imagen
+                permanencia,                                                      // permanencia
+                altura,                                                 // altura
+                altura/2+1,                                              // peso
                 problemas[i % problemas.length],                         // antecedentes
                 "Activo"
             );
