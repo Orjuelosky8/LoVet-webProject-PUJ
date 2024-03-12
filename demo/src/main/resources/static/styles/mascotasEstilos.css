@@ -114,7 +114,8 @@
 
 .cardPet img{
     border-radius: 35px;
-    min-width: 90%;
+    width: 350px;
+    height: 350px;
     margin: 0 auto;
     display: block;
     margin-top: 15px;

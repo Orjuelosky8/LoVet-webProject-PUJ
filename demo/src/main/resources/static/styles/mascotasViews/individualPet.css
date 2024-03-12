@@ -16,6 +16,8 @@
 }
 .infoMascotaRight img{
     max-width: 35%;
+    height: 600px;
+    width: 600px;
     position: fixed;
     top: 150px;
     z-index: 0;
