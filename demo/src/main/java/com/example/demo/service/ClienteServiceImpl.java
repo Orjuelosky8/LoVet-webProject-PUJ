@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,7 +27,6 @@ public class ClienteServiceImpl implements ClienteService {
     public Cliente SearchByUserName(String userName) {
         return repo.findByUserName(userName);
     }
-    
 
     @Override
     public Collection<Cliente> SearchAll() {
@@ -41,7 +41,18 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public void deleteById(Long id) {
-        repo.deleteById(id);
+        // Encuentra el cliente por ID
+        Optional<Cliente> clienteOptional = repo.findById(id);
+        if (clienteOptional.isPresent()) {
+            Cliente cliente = clienteOptional.get();
+            // Cambia el estado a inactivo
+            cliente.setEstado("Inactivo");
+            // Guarda el cliente modificado en la base de datos
+            repo.save(cliente);
+        } else {
+            // Manejo de la situación donde el cliente no se encuentra, opcional
+            System.out.println("Cliente no encontrado con ID: " + id);
+        }
     }
 
     @Override

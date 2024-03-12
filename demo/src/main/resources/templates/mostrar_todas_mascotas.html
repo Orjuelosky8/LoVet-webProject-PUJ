@@ -13,7 +13,7 @@
         <h1 class="sectionTitles" data-text="NUESTROS PELUDOS"></h1>
 
         <div id="agregarClienteButtonContainer">
-            <a th:href="@{/mascotas/add}" title="Añadir nuevo cliente">
+            <a th:href="@{/mascotas/add}" title="Añadir nueva mascota">
                 <i class="fas fa-user-plus"></i>
             </a>
         </div>
@@ -37,9 +37,9 @@
                     <td style="display: flex; justify-content: center; align-items: center; padding: 4px;"><img th:src="${perro.imagen}" width="100px" height="100px"/></td>
                     <td th:text="${perro.estado}" style="color: brown;"></td>
                     <td>
-                        <a th:href="@{/mascotas/find/{id}(id=${perro.id})}"><i class="fa-solid fa-circle-info"></i></a>
-                        <a th:href="@{/mascotas/update/{id}(id=${perro.id})}"><i class="fas fa-edit"></i></a>
-                        <a th:href="@{/mascotas/delete/{id}(id=${perro.id})}"><i class="fas fa-trash-alt"></i></a>
+                        <a th:href="@{/mascotas/find/{id}(id=${perro.id})}" title="Ver mas info"><i class="fa-solid fa-circle-info"></i></a>
+                        <a th:href="@{/mascotas/update/{id}(id=${perro.id})}" title="Editar"><i class="fas fa-edit"></i></a>
+                        <a th:href="@{/mascotas/delete/{id}(id=${perro.id})}" title="Eliminar"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
             </tbody>

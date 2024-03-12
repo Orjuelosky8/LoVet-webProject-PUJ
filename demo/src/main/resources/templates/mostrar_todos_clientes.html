@@ -26,29 +26,21 @@
             <thead>
                 <tr>
                     <th>Nombre</th>
-                    <th>user Name</th>
                     <th>Apellidos</th>
-                    <th>Teléfono</th>
                     <th>Correo</th>
-                    <th>Ver más</th>
-                    <th>Eliminar</th>
+                    <th>Estado</th>
+                    <th>Opciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="persona : ${clientes.content}">
                     <td th:text="${persona.nombres}"></td>
-                    <td th:text="${persona.userName}"></td>
                     <td th:text="${persona.apellidos}"></td>
-                    <td th:text="${persona.telefono}"></td>
                     <td th:text="${persona.correoElectronico}" style="overflow-x: auto;"></td>
+                    <td th:text="${persona.estado}" style="color: brown;"></td>
                     <td>
-                        <a th:href="@{/clientes/mascotas/{id}(id=${persona.id})}">Mascotas</a>
-                    </td>
-                    <td>
-                        <a th:href="@{/clientes/delete/{id}(id=${persona.id})}">
-                            Eliminar
-                            <i class="fas fa-trash-alt"></i>
-                        </a>
+                        <a th:href="@{/clientes/mascotas/{id}(id=${persona.id})}"><i class="fas fa-paw" title="Detalles"></i></a>
+                        <a th:href="@{/clientes/delete/{id}(id=${persona.id})}"><i class="fas fa-trash-alt" title="Eliminar"></i></a>
                     </td>
                 </tr>
             </tbody>
