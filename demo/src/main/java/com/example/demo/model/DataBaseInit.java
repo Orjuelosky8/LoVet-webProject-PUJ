@@ -28,7 +28,7 @@ public class DataBaseInit implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
          /* CLIENTES */
-        for (int i = 1; i <= 123; i++) {
+        for (int i = 1; i <= 100; i++) {
             Cliente cliente = new Cliente(
                 i + "Pepe",                 // userName
                 (long)i+1000,

@@ -34,9 +34,18 @@
                 <p><span>Raza: </span><span th:text="${perro.raza}"></span></p>
                 <p><span>Edad: </span><span th:text="${perro.edad}"></span></p>
                 <div id="iteractionPetButtons">
-                    <i class="fa-solid fa-pen-to-square"><a th:href="@{/mascotas/find/{id}(id=${perro.id})}"></a></i>
-                    <a th:href="@{/mascotas/find/{id}(id=${perro.id})}">Más Información</a>
-                    <i class="fa-solid fa-trash"></i>
+                    <a th:href="@{/mascotas/update/{id}(id=${perro.id})}"><i class="fa-solid fa-pen-to-square" style="color: orange;"></i></a>
+                    <a th:href="@{/mascotas/find/{id}(id=${perro.id})}" style="background-color: #1d474d;
+                    color: lightgrey;
+                    border: none;
+                    border-radius: 35%;
+                    text-decoration: none;
+                    font-weight: bold;
+                    font-size: 25px;
+                    padding: 20px 30px 20px 30px;
+                    display: flex;
+                    font-family: 'Courier New', Courier, monospace;">Más Información</a>
+                    <a th:href="@{/mascotas/delete/{id}(id=${perro.id})}"><i class="fa-solid fa-trash"></i></a>
                 </div>
             </div>
         </div>
