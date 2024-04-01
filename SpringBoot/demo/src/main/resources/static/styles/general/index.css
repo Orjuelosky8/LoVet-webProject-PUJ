@@ -2,12 +2,7 @@
     margin: 0;
 }
 
-html{
-    min-width: 100%;
-}
-
 body {
-    min-width: 100%;
     height: 400px;
     scroll-behavior: smooth;   
     overflow: scroll;
@@ -30,7 +25,6 @@ body {
     min-height: 50vh; /* REVISAR LUEGO*/
     margin-top: 150px;
     margin-bottom: 40px;
-    min-width: 100%;
 }
 
 
@@ -51,10 +45,10 @@ body {
     text-transform: bold;
     font-size: 80px;
     text-align: center;
-    max-width: 33%;
+    max-width: 0%;
     margin: 0 auto;
-    padding: 2px;
-    box-shadow: 5px 10px 10px #7e6454;
+    padding: 10px;
+    box-shadow: 10px 10px 10px gray;
 }
 .sectionTabla {
     /*Forma de que cada sección no esté al margen de la página*/
@@ -108,13 +102,4 @@ body {
     background-color: #9f8474;
     color: #fff;
     cursor: pointer;
-}
-
-
-#headerXSection h4{
-    margin: 30px;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 35px;
-    text-align: center;
-    color: #3e1b06;
 }
