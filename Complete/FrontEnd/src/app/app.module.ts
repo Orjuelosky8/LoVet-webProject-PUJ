@@ -20,6 +20,7 @@ import { ManagePetsComponent } from './components/admin/manage-pets/manage-pets.
 import { ListaMascotasComponent } from './components/crud-mascotas/lista-mascotas/lista-mascotas.component';
 import { DetallesMascotaComponent } from './components/crud-mascotas/detalles-mascota/detalles-mascota.component';
 import { CrearMascotaComponent } from './components/crud-mascotas/crear-mascota/crear-mascota.component';
+import { ServiciosComponent } from './components/home/servicios/servicios.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { CrearMascotaComponent } from './components/crud-mascotas/crear-mascota/
     ManagePetsComponent,
     ListaMascotasComponent,
     DetallesMascotaComponent,
-    CrearMascotaComponent
+    CrearMascotaComponent,
+    ServiciosComponent
   ],
   imports: [
     BrowserModule,
