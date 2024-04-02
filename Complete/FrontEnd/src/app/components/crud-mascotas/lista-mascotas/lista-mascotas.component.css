@@ -1,0 +1,193 @@
+.sectionMascotas{
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 2%;
+}
+.sectionMascotas img{
+    height: auto;
+    margin: 20px;
+    margin-top: 40px;
+    width: 80%;
+    border-radius: 50%;
+}
+
+
+
+.bodyMascotas table {
+    /*Formato de diseño para todas las tablas de la página*/
+    color: black;
+    font-size: 20px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background: #ebe3dc;
+    margin: auto;
+    font-family: 'roboto', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+    border: black 2px solid;
+    width: 80%;
+    margin-top: 30px;
+    padding-bottom: 60px;
+}
+
+
+.bodyMascotas th{
+    /*Header de la tabla*/
+    padding: 20px 15px;
+    font-size: 50px;
+    text-transform: uppercase;
+    background-color: #9f8474;
+    font-family: 'Contrail One', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    text-transform: bold;
+}
+
+.bodyMascotas td{
+    padding: min-content ;
+    border-bottom: solid 1px rgba(255,255,255,0.2);
+
+}
+.bodyMascotas td img{
+    border-radius: 50%;
+}
+.bodyMascotas tbody{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.bodyMascotas tbody tr:nth-child(2n){
+    /*Las filas pares de la tabla*/
+    background-color: white;
+}
+
+.bodyMascotas table a{
+    text-decoration: none;
+    color: black;
+    transition: 0.5s font-size, 1s color;
+    border-radius: 5px;
+    background-color: white;
+    padding: 4px 8px 4px 8px;
+    border: black 1px solid;
+}
+
+.bodyMascotas table a:hover{
+    color: white;
+    font-size: 35px;/*38*/
+    transition: 0.3s font-size, 0.3s color;
+    background-color: #9f8474;
+    border: black;
+}
+
+
+
+/* cards Pets - mostrar Mascotas X Cliente*/
+.cardsPets{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cardPet{
+    max-width: 35%;
+    border: black 2px solid;
+    border-radius: 35px;
+    margin: 25px;
+    padding: 10px;
+    box-shadow: 10px 10px 10px gray;
+    text-align: center;
+    background-color: #ebe3dc;
+}
+
+.cardPet img{
+    border-radius: 35px;
+    min-width: 90%;
+    margin: 0 auto;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.cardPet h3{
+    max-width: 80%;
+    margin: 0 auto;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-variant: small-caps;
+    font-style: italic;
+    color: #1d474d;
+    border-bottom: solid 1px #1d474d;
+    border-width: 2px;
+}
+.cardPet p{
+    font-family: cursive, Arial;
+    font-size: 40px;
+}
+.cardPet p span:first-child{
+    font-variant: small-caps;
+    font-style: italic;
+    text-shadow: 1px 1px 5px grey;
+}
+.cardPet p span:last-child{
+    text-shadow: 1px 1px 5px goldenrod;
+}
+
+#iteractionPetButtons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.cardPet #iteractionPetButtons a{
+    background-color: #1d474d;
+    color: lightgrey;
+    border: none;
+    border-radius: 35%;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 20px 30px 20px 30px;
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+}
+.cardPet #iteractionPetButtons a:hover{
+    color: white;
+    text-shadow: 2px 2px 5px black;
+    transition: 0.5s;
+}
+
+.cardPet #iteractionPetButtons i{
+    border: solid 2px;
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 25px;
+    transition: 2s color, 1s background-color, 1.5s transform;
+}
+.cardPet #iteractionPetButtons i:hover{
+    transform: rotate(-360deg);
+}
+
+.cardPet #iteractionPetButtons i:first-child{
+    margin-right: 10px;
+    color: #db7729;
+    border-color: #db7729;
+}
+.cardPet #iteractionPetButtons i:first-child:hover{
+    color: #fff;
+    background-color: #db7729;
+}
+.cardPet #iteractionPetButtons i:last-child{
+    margin-left: 10px;
+    color: rgb(189, 0, 0);
+    border-color: rgb(189, 0, 0);
+}
+.cardPet #iteractionPetButtons i:last-child:hover{
+    margin-left: 10px;
+    color: #fff;
+    border-color: rgb(189, 0, 0);
+    background-color: rgb(189, 0, 0);
+}

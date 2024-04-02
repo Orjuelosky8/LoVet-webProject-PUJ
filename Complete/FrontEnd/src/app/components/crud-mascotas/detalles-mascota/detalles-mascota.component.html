@@ -1,1 +1,21 @@
-<p>detalles-mascota works!</p>
+<app-nav-bar></app-nav-bar>
+<div layout:fragment="content" class="generalContent">
+        
+    <section id="infoMascota">
+        <div class="infoMascotaLeft">
+            
+            
+        
+            
+            <br><br><br><br>
+            
+            <div class="historialClinico">
+                <h2>Historial Clinico</h2>
+            </div>
+        </div>
+        <div class="infoMascotaRight sectionMascotas flex">
+            <img th:src="${mascota.imagen}" width="100px" />
+        </div>
+    </section>
+</div>
+<app-footer></app-footer>

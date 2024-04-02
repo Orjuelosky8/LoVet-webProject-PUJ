@@ -1,1 +1,40 @@
-<p>lista-mascotas works!</p>
+<app-nav-bar></app-nav-bar>
+<div class = "bodyMascotas">
+    <div layout:fragment="content" class="generalContent">
+            
+            
+            
+
+        <h1 class ="sectionTitles" data-text="NUESTROS PELUDOS">NUESTROS PELUDOS</h1>
+        
+        <table class="sectionTabla">
+            <thead >
+                <tr>
+                    <th>Nombre</th>
+                    <th>Raza</th>
+                    <th>Edad</th>
+                    <th>Imagen</th>
+                    <th>Estado</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let mascota of mascotaList">
+                    <td>{{mascota.nombre}}</td>
+                    <td>{{mascota.raza}}</td>
+                    <td>{{mascota.edad}}</td>
+                    <td style="display: flex; justify-content: center; align-items: center; padding: 4px;"><img src="{{mascota.imagen}}" width="100px" height="100px"/></td>
+                    <td style="color: brown;">{{mascota.estado}}</td>
+                    <td>
+                        <a href="/mascotas/{id}(id=${mascota.id})" title="Ver mas info"><i class="fa-solid fa-circle-info"></i></a>
+                        <a th:href="@{/mascotas/update/{id}(id=${perro.id})}" title="Editar"><i class="fas fa-edit"></i></a>
+                        <a th:href="@{/mascotas/delete/{id}(id=${perro.id})}" title="Eliminar"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        
+    </div>
+</div>
+<app-footer></app-footer>
