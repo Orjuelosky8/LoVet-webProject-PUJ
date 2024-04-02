@@ -21,6 +21,7 @@ import { ListaMascotasComponent } from './components/crud-mascotas/lista-mascota
 import { DetallesMascotaComponent } from './components/crud-mascotas/detalles-mascota/detalles-mascota.component';
 import { CrearMascotaComponent } from './components/crud-mascotas/crear-mascota/crear-mascota.component';
 import { ServiciosComponent } from './components/home/servicios/servicios.component';
+import { PersonalComponent } from './components/home/personal/personal.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ServiciosComponent } from './components/home/servicios/servicios.compon
     ListaMascotasComponent,
     DetallesMascotaComponent,
     CrearMascotaComponent,
-    ServiciosComponent
+    ServiciosComponent,
+    PersonalComponent
   ],
   imports: [
     BrowserModule,

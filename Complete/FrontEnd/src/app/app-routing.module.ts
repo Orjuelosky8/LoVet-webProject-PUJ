@@ -5,6 +5,7 @@ import { CrearMascotaComponent } from './components/crud-mascotas/crear-mascota/
 import { DetallesMascotaComponent } from './components/crud-mascotas/detalles-mascota/detalles-mascota.component';
 import { LandingPageComponent } from './components/home/landing-page/landing-page.component';
 import { ServiciosComponent } from './components/home/servicios/servicios.component';
+import { PersonalComponent } from './components/home/personal/personal.component';
 // Importa otros componentes que necesitas para las rutas
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'mascotas', component: ListaMascotasComponent },
   { path: 'mascotas/agregar', component: CrearMascotaComponent },
   { path: 'mascotas/:id', component: DetallesMascotaComponent },
+  { path: 'Personal', component: PersonalComponent },
   // Agrega rutas para otros componentes como editar o eliminar
 ];
 
