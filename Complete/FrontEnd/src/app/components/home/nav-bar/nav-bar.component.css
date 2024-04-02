@@ -1,0 +1,103 @@
+#navBarContainer{
+    width: 100%;
+    background-color: #ebe3dc;
+    height: 125px;/*100*/
+    display: flex;
+    flex-direction: row;
+    position: sticky;
+    top: 0;
+     position: fixed; 
+    z-index: 1000; 
+}
+
+#navBar-leftSideContainer{
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    padding-left: 30px;
+    user-select: none;
+}
+#navBar-leftSideContainer img{
+    height: 90px;/*75*/
+    transform: rotateZ(-25deg);
+    animation: logoTranslation 4s infinite linear;
+    animation-delay: 1s;
+}
+#navBar-leftSideContainer img:hover{
+    transform: rotate(335deg);/*360(Giro completo)-25(Rotacion Actual de la Img) */
+}
+@keyframes logoTranslation {
+    0%{transform: rotate(-25deg);}
+    30%{transform: rotate(335deg);}
+    100%{transform: rotate(335deg);}
+}
+
+.aNotSyle{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+.aNotSyle:hover{
+    text-decoration: none !important;
+}
+
+#navBar-leftSideContainer h1{
+    color: black;
+    padding-left: 15px;
+    font-family: Pacifico, cursive, 'Arial Narrow', Arial, sans-serif;
+    font-size: 69px;
+    text-shadow: 6px 6px 1px whitesmoke;
+    cursor: pointer;
+}
+
+#navLinks{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding-right: 10px;
+}
+#navLinks li{
+    font-family: 'roboto', 'sans-serif';
+    font-weight: 900;
+    padding: 5px 50px;
+    margin-right: 30px;
+    font-size: 38px;/*33*/
+    border-radius: 5px;
+    border-bottom: 2px rgb(107, 46, 46) solid;
+}
+#navLinks li a{
+    text-decoration: none;
+    color: rgb(18, 18, 18);
+    transition: 0.5s font-size, 1s color;
+}
+#navLinks li:hover{
+    background-color: white;
+    transition: 0.3s;
+}
+#navLinks li a:hover{
+    text-decoration: overline;
+    color: rgb(87, 57, 57);
+    font-size: 44px;/*38*/
+    transition: 0.3s font-size, 0.3s color;
+}
+
+#navBar-rightSideContainer{
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+}
+#navLinks li:last-child{
+    padding: 5px 15px;
+    background-color: #9f8474;
+}
+#navLinks li i{
+    color: #fff;
+    transition: 1s color;
+}
+#navLinks li i:hover{
+    color: #e6c610;
+}
