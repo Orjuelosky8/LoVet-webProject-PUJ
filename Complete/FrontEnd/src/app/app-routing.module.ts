@@ -1,7 +1,16 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { ListaMascotasComponent } from './components/crud-mascotas/lista-mascotas/lista-mascotas.component';
+import { CrearMascotaComponent } from './components/crud-mascotas/crear-mascota/crear-mascota.component';
+import { DetallesMascotaComponent } from './components/crud-mascotas/detalles-mascota/detalles-mascota.component';
+// Importa otros componentes que necesitas para las rutas
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'mascotas', component: ListaMascotasComponent },
+  { path: 'mascotas/agregar', component: CrearMascotaComponent },
+  { path: 'mascotas/:id', component: DetallesMascotaComponent },
+  // Agrega rutas para otros componentes como editar o eliminar
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
