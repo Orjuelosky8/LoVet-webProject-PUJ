@@ -17,5 +17,18 @@ export class ListaClientesComponent implements OnInit {
       this.clientesList = clientes;
     });
   }
+
+  cargarClientes(): void {
+    this.clienteService.obtenerClientes().subscribe(clientes => {
+      this.clientesList = clientes;
+    });
+  }
+  eliminarCliente(id: number): void {
+    if (confirm('¿Estás seguro de que quieres eliminar este cliente?')) {
+    this.clienteService.eliminarCliente(id).subscribe(() => {
+      this.cargarClientes(); // Asume que tienes una función cargarClientes que obtiene todos los clientes
+    });
+  }
+}
 }
 

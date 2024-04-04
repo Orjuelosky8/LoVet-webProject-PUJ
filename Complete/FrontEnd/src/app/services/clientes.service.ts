@@ -199,4 +199,25 @@ export class ClienteService {
     const usuarioEncontrado = this.clientesList.find(usuario => usuario.userName === userName && usuario.password === password);
     return of(!!usuarioEncontrado);
   }
+
+  agregarCliente(cliente: Cliente): Observable<Cliente> {
+    this.clientesList.push(cliente);
+    return of(cliente);
+  }
+
+  actualizarCliente(cliente: Cliente): Observable<Cliente> {
+    const index = this.clientesList.findIndex(c => c.id === cliente.id);
+    if (index !== -1) {
+      this.clientesList[index] = cliente;
+    }
+    return of(cliente);
+  }
+
+  eliminarCliente(id: number): Observable<{}> {
+    const index = this.clientesList.findIndex(c => c.id === id);
+    if (index !== -1) {
+      this.clientesList.splice(index, 1);
+    }
+    return of({});
+  }
 }

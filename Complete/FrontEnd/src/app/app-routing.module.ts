@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'LoVet' },
   { path: 'LoVet', component: LandingPageComponent},
   { path: 'clientes/login', component: LoginComponent},
+  { path: 'clientes/agregar', component: CrearClienteComponent},
   { path: 'Servicios', component: ServiciosComponent},
   { path: 'mascotas', component: ListaMascotasComponent },
   { path: 'mascotas/agregar', component: CrearMascotaComponent },

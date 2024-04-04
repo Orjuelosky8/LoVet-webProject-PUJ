@@ -27,7 +27,7 @@
                         <a [routerLink]="['/clientes/ver', cliente.id]" title="Detalles">
                             <i class="fa fa-eye"></i>
                         </a>
-                        <a [routerLink]="['/clientes/eliminar/{id}', cliente.id]" title="Eliminar">
+                        <a href="javascript:void(0);" (click)="eliminarCliente(cliente.id!)" title="Eliminar">
                             <i class="fa fa-trash"></i>
                         </a>
                         <a [routerLink]="['/clientes/mascotas/{id}', cliente.id]" title="Mis Mascotas">

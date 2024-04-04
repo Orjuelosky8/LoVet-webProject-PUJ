@@ -1,1 +1,23 @@
-<p>crear-cliente works!</p>
+<app-nav-bar></app-nav-bar>
+<div layout:fragment="content" class="generalContent">
+
+    <h2 class="sectionTitles" data-text="REGISTRAR NUEVO CLIENTE"></h2>
+    <div class="container">
+
+        <div class="form-content">
+            <h1 id="title">Registro</h1>
+
+            <!-- Ejemplo simple de un formulario para agregar cliente -->
+            <form #clienteForm="ngForm" (ngSubmit)="guardarCliente()">
+                <input type="text" [(ngModel)]="cliente.userName" name="userName" required>
+                <input type="password" [(ngModel)]="cliente.password" name="password" required>
+                <input type="text" [(ngModel)]="cliente.nombres" name="nombres" required>
+                <input type="text" [(ngModel)]="cliente.apellidos" name="apellidos" required>
+                
+                <button type="submit" [disabled]="!clienteForm.valid">Agregar Cliente</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
