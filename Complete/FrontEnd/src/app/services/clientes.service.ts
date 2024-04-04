@@ -8,6 +8,7 @@ import { Cliente } from '../models/cliente';
 export class ClienteService {
   private clientesList: Cliente[] = [
     {
+      "id": 1,
       "userName": "1Pepe",
       "password": "abc1",
       "correoElectronico": "jsadz847@example.com",
@@ -17,6 +18,7 @@ export class ClienteService {
       "telefonoAux": "556-0232"
     },
     {
+      "id": 2,
       "userName": "jPerez847",
       "password": "P@ssw0rd!234",
       "correoElectronico": "juan.perez847@example.com",
@@ -26,6 +28,7 @@ export class ClienteService {
       "telefonoAux": "555-0102"
     },
     {
+      "id": 3,
       "userName": "lGomez321",
       "password": "G0mez!Secure",
       "correoElectronico": "laura.g321@correo.com",
@@ -35,6 +38,7 @@ export class ClienteService {
       "telefonoAux": "555-0202"
     },
     {
+      "id": 4,
       "userName": "sTorres2024",
       "password": "T0rresSammy",
       "correoElectronico": "samuel.torres@vetmail.com",
@@ -44,6 +48,7 @@ export class ClienteService {
       "telefonoAux": "555-0302"
     },
     {
+      "id": 5,
       "userName": "sofiRamz44",
       "password": "Spark4Sof!",
       "correoElectronico": "sofia.ramirez@sparkmail.com",
@@ -53,6 +58,7 @@ export class ClienteService {
       "telefonoAux": "555-0402"
     },
     {
+      "id": 6,
       "userName": "nMartinez5",
       "password": "N1n@P@ss",
       "correoElectronico": "nina.martinez@dogworld.com",
@@ -62,6 +68,7 @@ export class ClienteService {
       "telefonoAux": "555-0502"
     },
     {
+      "id": 7,
       "userName": "rayoV222",
       "password": "R4yo2024",
       "correoElectronico": "rayo.valdez@fastmail.com",
@@ -71,6 +78,7 @@ export class ClienteService {
       "telefonoAux": "555-0602"
     },
     {
+      "id": 8,
       "userName": "tobyLunatic",
       "password": "TobyTreats!",
       "correoElectronico": "tobias.luna@tinydogs.com",
@@ -80,6 +88,7 @@ export class ClienteService {
       "telefonoAux": "555-0702"
     },
     {
+      "id": 9,
       "userName": "chiFernandez",
       "password": "Chiqui!Lab",
       "correoElectronico": "chiara.fernandez@lablove.com",
@@ -89,6 +98,7 @@ export class ClienteService {
       "telefonoAux": "555-0802"
     },
     {
+      "id": 10,
       "userName": "rocioDalmata",
       "password": "RockyD!az",
       "correoElectronico": "rocio.diaz@dalmail.com",
@@ -98,6 +108,7 @@ export class ClienteService {
       "telefonoAux": "555-0902"
     },
     {
+      "id": 11,
       "userName": "pedroN_Boxer",
       "password": "Plut0nBox!",
       "correoElectronico": "pedro.nava@boxerfan.com",
@@ -107,6 +118,7 @@ export class ClienteService {
       "telefonoAux": "555-1002"
     },
     {
+      "id": 12,
       "userName": "theresa_O",
       "password": "Th0rThunder!",
       "correoElectronico": "theresa.ortega@canichecloud.com",
@@ -116,6 +128,7 @@ export class ClienteService {
       "telefonoAux": "555-1102"
     },
     {
+      "id": 13,
       "userName": "franHusky",
       "password": "Ch1c0Cool",
       "correoElectronico": "francisco.hernandez@coldmail.com",
@@ -125,6 +138,7 @@ export class ClienteService {
       "telefonoAux": "555-1202"
     },
     {
+      "id": 14,
       "userName": "simonB_Az",
       "password": "SimbaKing!",
       "correoElectronico": "simon.barrera@lionking.com",
@@ -134,6 +148,7 @@ export class ClienteService {
       "telefonoAux": "555-1302"
     },
     {
+      "id": 15,
       "userName": "lunaMStar",
       "password": "MoonSh1n3",
       "correoElectronico": "luna.mendez@moonshine.com",
@@ -143,6 +158,7 @@ export class ClienteService {
       "telefonoAux": "555-1402"
     },
     {
+      "id": 16,
       "userName": "brunoV_Guard",
       "password": "Brun0V!Vega",
       "correoElectronico": "bruno.vega@shepherdmail.com",
@@ -152,6 +168,7 @@ export class ClienteService {
       "telefonoAux": "555-1502"
     },
     {
+      "id": 17,
       "userName": "dLolaCruz",
       "password": "L0laFluff!",
       "correoElectronico": "dolores.cruz@pompride.com",
@@ -161,6 +178,7 @@ export class ClienteService {
       "telefonoAux": "555-1602"
     },
     {
+      "id": 18,
       "userName": "nicoJ_Chow",
       "password": "N1c0Chow!",
       "correoElectronico": "nicolas.jimenez@chowchowspace.com",
@@ -170,6 +188,7 @@ export class ClienteService {
       "telefonoAux": "555-1702"
     },
     {
+      "id": 19,
       "userName": "cocoCastillo",
       "password": "C0c0Spaniel",
       "correoElectronico": "jacobo.castillo@spanielstars.com",
@@ -179,6 +198,7 @@ export class ClienteService {
       "telefonoAux": "555-1802"
     },
     {
+      "id": 20,
       "userName": "biancaMor_Tzu",
       "password": "B1mbaTzu!",
       "correoElectronico": "bianca.morales@shihmail.com",
