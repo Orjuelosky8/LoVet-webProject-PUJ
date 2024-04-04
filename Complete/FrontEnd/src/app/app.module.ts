@@ -22,6 +22,9 @@ import { DetallesMascotaComponent } from './components/crud-mascotas/detalles-ma
 import { CrearMascotaComponent } from './components/crud-mascotas/crear-mascota/crear-mascota.component';
 import { ServiciosComponent } from './components/home/servicios/servicios.component';
 import { PersonalComponent } from './components/home/personal/personal.component';
+import { CrearClienteComponent } from './components/crud-clientes/crear-cliente/crear-cliente.component';
+import { DetallesClienteComponent } from './components/crud-clientes/detalles-cliente/detalles-cliente.component';
+import { ListaClientesComponent } from './components/crud-clientes/lista-clientes/lista-clientes.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,10 @@ import { PersonalComponent } from './components/home/personal/personal.component
     DetallesMascotaComponent,
     CrearMascotaComponent,
     ServiciosComponent,
-    PersonalComponent
+    PersonalComponent,
+    CrearClienteComponent,
+    DetallesClienteComponent,
+    ListaClientesComponent
   ],
   imports: [
     BrowserModule,
