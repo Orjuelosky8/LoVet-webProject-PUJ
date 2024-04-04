@@ -2,7 +2,7 @@
 <div class = "bodyClientes">
     <div layout:fragment="content" class="generalContent">
 
-        <h1 class ="sectionTitles" data-text="NUESTROS PELUDOS">NUESTROS PELUDOS</h1>
+        <h1 class ="sectionTitles" data-text="NUESTROS CLIENTES">NUESTROS CLIENTES</h1>
         
         <table class="sectionTabla">
             <thead >
@@ -21,16 +21,16 @@
                     <td style="overflow-x: auto;">{{ cliente.correoElectronico }}</td> 
                     <td>{{ cliente.telefono }}</td>
                     <td style="display: flex; justify-content: center;">
-                        <a [routerLink]="['/clientes/editar', cliente.id]">
+                        <a [routerLink]="['/clientes/editar', cliente.id]" title="Editar">
                             <i class="fa fa-edit"></i>
                         </a>
-                        <a [routerLink]="['/clientes/ver', cliente.id]">
+                        <a [routerLink]="['/clientes/ver', cliente.id]" title="Detalles">
                             <i class="fa fa-eye"></i>
                         </a>
-                        <a [routerLink]="['/clientes/eliminar/{id}', cliente.id]">
+                        <a [routerLink]="['/clientes/eliminar/{id}', cliente.id]" title="Eliminar">
                             <i class="fa fa-trash"></i>
                         </a>
-                        <a [routerLink]="['/clientes/mascotas/{id}', cliente.id]">
+                        <a [routerLink]="['/clientes/mascotas/{id}', cliente.id]" title="Mis Mascotas">
                             <i class="fa fa-paw"></i>
                         </a>
                     </td>
