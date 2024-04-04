@@ -7,7 +7,7 @@ import { Cliente } from 'src/app/models/cliente';
   styleUrls: ['./lista-clientes.component.css']
 })
 export class ListaClientesComponent {
-  clienteList: Cliente[] = [
+  clientesList: Cliente[] = [
     {
         "userName": "jPerez847",
         "password": "P@ssw0rd!234",

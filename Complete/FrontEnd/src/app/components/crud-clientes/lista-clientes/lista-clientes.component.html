@@ -1,1 +1,44 @@
-<p>lista-clientes works!</p>
+<app-nav-bar></app-nav-bar>
+<div class = "bodyClientes">
+    <div layout:fragment="content" class="generalContent">
+
+        <h1 class ="sectionTitles" data-text="NUESTROS PELUDOS">NUESTROS PELUDOS</h1>
+        
+        <table class="sectionTabla">
+            <thead >
+                <tr>
+                    <th>UserName</th>
+                    <th>Nombre Completo </th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cliente of clientesList">
+                    <td>{{ cliente.userName }}</td>
+                    <td>{{ cliente.nombres }}  {{ cliente.apellidos }}</td>
+                    <td style="overflow-x: auto;">{{ cliente.correoElectronico }}</td> 
+                    <td>{{ cliente.telefono }}</td>
+                    <td style="display: flex; justify-content: center;">
+                        <a [routerLink]="['/clientes/editar', cliente.id]">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a [routerLink]="['/clientes/ver', cliente.id]">
+                            <i class="fa fa-eye"></i>
+                        </a>
+                        <a [routerLink]="['/clientes/eliminar/{id}', cliente.id]">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                        <a [routerLink]="['/clientes/mascotas/{id}', cliente.id]">
+                            <i class="fa fa-paw"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        
+    </div>
+</div>
+<app-footer></app-footer>
