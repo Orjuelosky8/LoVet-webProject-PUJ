@@ -197,7 +197,6 @@ export class ClienteService {
 
   verificarCredenciales(userName: string, password: string): Observable<boolean> {
     const usuarioEncontrado = this.clientesList.find(usuario => usuario.userName === userName && usuario.password === password);
-    alert("res: " + usuarioEncontrado);
     return of(!!usuarioEncontrado);
   }
 }

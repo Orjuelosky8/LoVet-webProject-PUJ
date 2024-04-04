@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ClienteService } from './../../../services/clientes.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,12 @@ export class LoginComponent {
           console.log("Login exitoso");
           this.router.navigate(['/clientes']);
         } else {
+          Swal.fire({
+            title: 'Error!',
+            text: 'Usuario y/o contraseña incorrectos, intentelo nuevamente.',
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+          });
           console.log("Credenciales incorrectas");
         }
       },
