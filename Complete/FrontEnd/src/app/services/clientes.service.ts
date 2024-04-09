@@ -215,6 +215,11 @@ export class ClienteService {
     return of(this.clientesList);
   }
 
+  obtenerClientePorId(id: number): Observable<Cliente | undefined> {
+    const cliente = this.clientesList.find(c => c.id === id);
+    return of(cliente);
+  }
+
   verificarCredenciales(userName: string, password: string): Observable<boolean> {
     const usuarioEncontrado = this.clientesList.find(usuario => usuario.userName === userName && usuario.password === password);
     return of(!!usuarioEncontrado);

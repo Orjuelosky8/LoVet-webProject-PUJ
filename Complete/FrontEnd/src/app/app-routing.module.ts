@@ -23,7 +23,8 @@ const routes: Routes = [
   { path: 'mascotas/agregar', component: CrearMascotaComponent },
   { path: 'mascotas/:id', component: DetallesMascotaComponent },
   { path: 'clientes', component: ListaClientesComponent },
-  { path: 'clientes/mascotas/:id', component: DetallesClienteComponent },
+  { path: 'cliente/:id', component: DetallesClienteComponent },
+  // { path: 'clientes/mascotas/:id', component: DetallesClienteComponent },
   { path: 'Personal', component: PersonalComponent },
   // Agrega rutas para otros componentes como editar o eliminar
 ];
