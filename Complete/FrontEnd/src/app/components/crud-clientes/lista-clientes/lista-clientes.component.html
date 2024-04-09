@@ -3,7 +3,21 @@
     <div layout:fragment="content" class="generalContent">
 
         <h1 class ="sectionTitles" data-text="NUESTROS CLIENTES">NUESTROS CLIENTES</h1>
-        
+        <div id="actionButtons">
+
+            <button>
+                <a [routerLink]="['/mascotas']" title="Mascotas">
+                    LISTA MASCOTAS
+                    <i class="fa fa-paw"></i>
+                </a>
+            </button>
+            <button>
+                <a [routerLink]="['/clientes/agregar']" title="Agregar">
+                    AGREGAR USUARIO
+                    <i class="fa fa-add"></i>
+                </a>
+            </button>
+        </div>
         <table class="sectionTabla">
             <thead >
                 <tr>
@@ -29,9 +43,6 @@
                         </a>
                         <a href="javascript:void(0);" (click)="eliminarCliente(cliente.id!)" title="Eliminar">
                             <i class="fa fa-trash"></i>
-                        </a>
-                        <a [routerLink]="['/clientes/mascotas/{id}', cliente.id]" title="Mis Mascotas">
-                            <i class="fa fa-paw"></i>
                         </a>
                     </td>
                 </tr>
