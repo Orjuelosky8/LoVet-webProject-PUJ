@@ -26,7 +26,7 @@
                     <td style="display: flex; justify-content: center; align-items: center; padding: 4px;"><img src="{{mascota.imagen}}" width="100px" height="100px"/></td>
                     <td style="color: brown;">{{mascota.estado}}</td>
                     <td>
-                        <a href="/mascotas/{id}(id=${mascota.id})" title="Ver mas info"><i class="fa-solid fa-circle-info"></i></a>
+                        <a [routerLink]="['/mascota', mascota.id]" title="Ver mas info"><i class="fa-solid fa-circle-info"></i></a>
                         <a th:href="@{/mascotas/update/{id}(id=${perro.id})}" title="Editar"><i class="fas fa-edit"></i></a>
                         <a href="javascript:void(0);" (click)="eliminarMascota(mascota.id!)" title="Eliminar">
                             <i class="fa fa-trash"></i>
