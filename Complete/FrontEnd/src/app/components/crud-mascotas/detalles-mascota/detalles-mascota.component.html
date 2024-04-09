@@ -1,20 +1,30 @@
 <app-nav-bar></app-nav-bar>
 <div layout:fragment="content" class="generalContent">
         
-    <section id="infoMascota">
+    <section id="infoMascota" style="display: flex;">
         <div class="infoMascotaLeft">
-            
-            
-        
             
             <br><br><br><br>
             
+            <div>
+                <h2>Informacion general:</h2>
+                <ul>
+                    <li>Nombre: {{mascota.nombre}}</li>
+                    <li>Raza: {{mascota.raza}}</li>
+                    <li>Edad: {{mascota.edad}}</li>
+                    <li>Altura: {{mascota.altura}}</li>
+                    <li>Peso: {{mascota.peso}}</li>
+                    <li>Antecedentes: {{mascota.antecedentes}}</li>
+                    <li>Estado: {{mascota.estado}}</li>
+                    <li>Permanencia: {{mascota.permanencia}}</li>
+                </ul>
+            </div>
             <div class="historialClinico">
                 <h2>Historial Clinico</h2>
             </div>
         </div>
         <div class="infoMascotaRight sectionMascotas flex">
-            <img th:src="${mascota.imagen}" width="100px" />
+            <img style="width: 500px;" src="{{mascota.imagen}}" alt="">
         </div>
     </section>
 </div>

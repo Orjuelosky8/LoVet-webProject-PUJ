@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Mascota } from '../../../models/mascota';
-import { MascotaMockService } from '../../../services/mascotas/mascota-mock.service';
+import { MascotasService } from 'src/app/services/mascotas.service';
 
 @Component({
   selector: 'app-detalles-mascota',
@@ -13,14 +13,14 @@ export class DetallesMascotaComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private mascotaService: MascotaMockService
+    private mascotaService: MascotasService
   ) {}
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('idMascota');
     if (id) {
-      this.mascotaService.obtenerMascotaPorId(+id).subscribe(data => {
-        this.mascota = data;
+      this.mascotaService.obtenerMascotasPorIds([+id]).subscribe(data => {
+        this.mascota = data[0];
       });
     } else {
       // Manejar el caso de que 'id' sea null

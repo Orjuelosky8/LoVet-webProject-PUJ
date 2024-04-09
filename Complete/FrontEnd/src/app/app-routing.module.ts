@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'Servicios', component: ServiciosComponent},
   { path: 'mascotas', component: ListaMascotasComponent },
   { path: 'mascotas/agregar', component: CrearMascotaComponent },
-  { path: 'mascotas/:id', component: DetallesMascotaComponent },
+  { path: 'mascota/:idMascota', component: DetallesMascotaComponent },
   { path: 'clientes', component: ListaClientesComponent },
   { path: 'cliente/:id', component: DetallesClienteComponent },
   // { path: 'clientes/mascotas/:id', component: DetallesClienteComponent },
