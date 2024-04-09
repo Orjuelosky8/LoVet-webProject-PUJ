@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'cliente/:id', component: DetallesClienteComponent },
   // { path: 'clientes/mascotas/:id', component: DetallesClienteComponent },
   { path: 'Personal', component: PersonalComponent },
-  // Agrega rutas para otros componentes como editar o eliminar
+  
 ];
 
 @NgModule({

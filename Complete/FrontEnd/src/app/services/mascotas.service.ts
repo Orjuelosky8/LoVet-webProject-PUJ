@@ -247,6 +247,10 @@
     return of(this.mascotasList);
   }
 
+  obtenerMascotasPorIds(ids: number[]): Observable<Mascota[]> {
+    const mascotas = this.mascotasList.filter(mascota => ids.includes(mascota.id!));
+    return of(mascotas);
+  }
 
   agregarmascota(mascota: Mascota): Observable<Mascota> {
     this.mascotasList.push(mascota);

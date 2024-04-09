@@ -7,4 +7,5 @@ export interface Cliente{
     apellidos: string;
     telefono: string;
     telefonoAux: string;
+    mascotasIds?: number[];
 }

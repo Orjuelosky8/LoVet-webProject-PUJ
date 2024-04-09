@@ -15,7 +15,8 @@ export class ClienteService {
       "nombres": "abc",
       "apellidos": "def",
       "telefono": "521-0101",
-      "telefonoAux": "556-0232"
+      "telefonoAux": "556-0232",
+      "mascotasIds": [1, 2]
     },
     {
       "id": 2,
@@ -25,7 +26,8 @@ export class ClienteService {
       "nombres": "Juan",
       "apellidos": "Pérez",
       "telefono": "555-0101",
-      "telefonoAux": "555-0102"
+      "telefonoAux": "555-0102",
+      "mascotasIds": [3]
     },
     {
       "id": 3,
@@ -35,7 +37,8 @@ export class ClienteService {
       "nombres": "Laura",
       "apellidos": "Gómez",
       "telefono": "555-0201",
-      "telefonoAux": "555-0202"
+      "telefonoAux": "555-0202",
+      "mascotasIds": [4, 5, 6]
     },
     {
       "id": 4,
@@ -45,7 +48,8 @@ export class ClienteService {
       "nombres": "Samuel",
       "apellidos": "Torres",
       "telefono": "555-0301",
-      "telefonoAux": "555-0302"
+      "telefonoAux": "555-0302",
+      "mascotasIds": [7, 8, 9, 10]
     },
     {
       "id": 5,
@@ -55,7 +59,8 @@ export class ClienteService {
       "nombres": "Sofía",
       "apellidos": "Ramírez",
       "telefono": "555-0401",
-      "telefonoAux": "555-0402"
+      "telefonoAux": "555-0402",
+      "mascotasIds": [11]
     },
     {
       "id": 6,
@@ -245,4 +250,14 @@ export class ClienteService {
     }
     return of({});
   }
+
+  // obtenerMascotasDeCliente(clienteId: number): Observable<Mascota[]> {
+  //   // Aquí iría la lógica para filtrar y devolver las mascotas correspondientes a los IDs
+  //   const cliente = this.clientesList.find(c => c.id === clienteId);
+  //   if (cliente && cliente.mascotasIds) {
+  //     // Suponiendo que tienes un servicio de mascotas que puede obtener mascotas por ID
+  //     return this.mascotasService.obtenerMascotasPorIds(cliente.mascotasIds);
+  //   }
+  //   return of([]);
+  // }
 }

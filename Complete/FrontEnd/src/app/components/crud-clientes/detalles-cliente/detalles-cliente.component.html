@@ -5,8 +5,9 @@
     <div id="headerXSection">
         <h1 class="sectionTitles" data-text="Mis Mascotas"></h1>
         <h4>
-            ¡Bienvenid@ {{ cliente?.nombres }} {{ cliente?.apellidos }} ! <br> Estas son las mascotas que tienes registradas:
-        </h4>            
+            ¡Bienvenid@ {{ cliente?.nombres }} {{ cliente?.apellidos }} ! <br> Estas son las mascotas que tienes
+            registradas:
+        </h4>
     </div>
 
     <!-- <table class="sectionTabla">
@@ -37,37 +38,41 @@
             </tr>
         </tbody>
     </table> -->
+
+
+    <div style="display: flex;">
+        <div *ngIf="!loading; else loadingTemplate" style="width: 50%;">
+            <br>
+            <h2 style="padding-left: 20px;">Esta es tu Informacion Registrada en nuestro sistema:</h2>
+            <br>
+            <ul>
+                <li>Nombre: {{ cliente?.nombres }} {{ cliente?.apellidos }}</li>
+                <li>Usuario: {{ cliente?.userName }}</li>
+                <li>Correo: {{ cliente?.correoElectronico }}</li>
+                <li>Telef.: {{ cliente?.telefono }}</li>
+                <li>Telef. Aux.: {{ cliente?.telefonoAux }}</li>
+            </ul>
+        </div>
     
-    <!-- <div class="cardsPets">
-        <div th:each="perro : ${mascotas}" class="cardPet">
-            <img th:src="${perro.imagen}" width="100px" />
-            <h3 th:text="${perro.nombre}"></h3>
-            <p><span>Raza: </span><span th:text="${perro.raza}"></span></p>
-            <p><span>Edad: </span><span th:text="${perro.edad}"></span></p>
-            <div id="iteractionPetButtons">
-                <i class="fa-solid fa-pen-to-square"></i>
-                <a th:href="@{/mascotas/find/{id}(id=${perro.id})}">Más Información</a>
-                <i class="fa-solid fa-trash"></i>
+        <ng-template #loadingTemplate>
+            <p>Cargando detalles del cliente...</p>
+        </ng-template>
+    
+        <h3 style="padding-left: 100px;">Mascotas:</h3>
+        <div *ngIf="mascotas && mascotas.length" class="cardsPets">
+            <div *ngFor="let mascota of mascotas" class="cardPet">
+                <img [src]="mascota.imagen" width="100px" alt="Imagen de la mascota">
+                <h3>{{ mascota.nombre }}</h3>
+                <p><span>Raza: </span><span>{{ mascota.raza }}</span></p>
+                <p><span>Edad: </span><span>{{ mascota.edad }}</span></p>
+                <div id="interactionPetButtons" class="interactionPetButtons">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <a [routerLink]="['/mascotas/find', mascota.id]">Más Información</a>
+                    <i class="fa-solid fa-trash"></i>
+                </div>
             </div>
         </div>
-    </div> -->
-
-    <div *ngIf="!loading; else loadingTemplate">
-        <br>
-        <h2 style="padding-left: 20px;">Esta es tu Informacion Registrada en nuestro sistema:</h2>
-        <br>
-        <ul>
-            <li>Nombre: {{ cliente?.nombres }} {{ cliente?.apellidos }}</li>
-            <li>Usuario: {{ cliente?.userName }}</li>
-            <li>Correo: {{ cliente?.correoElectronico }}</li>
-            <li>Telef.: {{ cliente?.telefono }}</li>
-            <li>Telef. Aux.: {{ cliente?.telefonoAux }}</li>
-        </ul>
-      </div>
-      
-    <ng-template #loadingTemplate>
-    <p>Cargando detalles del cliente...</p>
-    </ng-template>
+    </div>
 
 </div>
 
