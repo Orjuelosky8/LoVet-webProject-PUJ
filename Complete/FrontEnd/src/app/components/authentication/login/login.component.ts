@@ -15,8 +15,8 @@ export class LoginComponent {
   constructor(private clienteService: ClienteService, private router: Router) {}
 
   login() {
-    this.clienteService.verificarCredenciales(this.userName, this.password).subscribe({
-      next: (resultado) => {
+    this.clienteService.findClienteByCredentials(this.userName, this.password).subscribe({
+      next: (resultado: any) => {
         if (resultado) {
           console.log("Login exitoso");
           this.router.navigate(['/clientes']);
@@ -30,7 +30,7 @@ export class LoginComponent {
           console.log("Credenciales incorrectas");
         }
       },
-      error: (error) => {
+      error: (error: any) => {
         console.error("Error al verificar credenciales", error);
         alert("Error al verificar credenciales");
       }

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ClienteService } from './../../../services/clientes.service';
+import { Component } from '@angular/core';
+import { ClienteService } from 'src/app/services/clientes.service';
 import { Cliente } from 'src/app/models/cliente';
 
 @Component({
@@ -7,28 +7,51 @@ import { Cliente } from 'src/app/models/cliente';
   templateUrl: './lista-clientes.component.html',
   styleUrls: ['./lista-clientes.component.css']
 })
-export class ListaClientesComponent implements OnInit {
-  clientesList: Cliente[] = [];
+export class ListaClientesComponent  {
+  mostrarForm: boolean = false;
 
-  constructor(private clienteService: ClienteService) {}
+  //atributos
+  selectedClient!: Cliente;
 
-  ngOnInit() {
-    this.clienteService.obtenerClientes().subscribe(clientes => {
-      this.clientesList = clientes;
-    });
+  //Base de datos falsa con varios estudiantes.
+  clientesList!: Cliente[];
+
+  constructor(
+    private clienteService: ClienteService
+  ) {
   }
 
-  cargarClientes(): void {
-    this.clienteService.obtenerClientes().subscribe(clientes => {
-      this.clientesList = clientes;
-    });
+  ngOnInit(): void {
+    //this.studentList = this.studentService.findAll();
+    this.clienteService.findAll().subscribe(
+      data => this.clientesList = data
+    )
   }
-  eliminarCliente(id: number): void {
-    if (confirm('¿Estás seguro de que quieres eliminar el cliente #' + id + '?')) {
-    this.clienteService.eliminarCliente(id).subscribe(() => {
-      this.cargarClientes(); // Asume que tienes una función cargarClientes que obtiene todos los clientes
-    });
+
+  //metodos
+  mostrarCLiente(cliente: Cliente){
+    this.selectedClient = cliente;
   }
-}
+
+  //este metodo se llama cuando se emite un evento desde el hijo.
+  agregarCliente(cliente: Cliente){
+      this.clientesList.push(cliente);
+      this.clienteService.addStudent(cliente);
+  }
+
+  /*eliminarEstudiante(cliente: Cliente){
+    var index = this.clientesList.indexOf(cliente);
+    this.clientesList.splice(index, 1);
+    this.clienteService.deleteById(cliente.id);
+    console.log(cliente.id)
+  }*/
+
+  mostrarFormulario(){
+    this.mostrarForm = true;
+  }
+
+  ocultarFormulario(mostrar: boolean){
+    this.mostrarForm = false;    
+  }
 }
 

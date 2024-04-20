@@ -10,36 +10,6 @@
         </h4>
     </div>
 
-    <!-- <table class="sectionTabla">
-        <thead>
-            <tr rowspan="4">
-                <th>Nombre</th>
-                <th>Raza</th>
-                <th>Edad</th>
-                <th>Imagen</th>
-                <th>Ver más</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="perro : ${mascotas}">
-                <td th:text="${perro.nombre}"></td>
-                <td th:text="${perro.raza}"></td>
-                <td th:text="${perro.edad}"></td>
-                <td> <img th:src="${perro.imagen}" width="100px" /></td>
-                <td><a th:href="@{/mascotas/find/{id}(id=${perro.id})}">Ver Info</a></td>
-                <td>
-                    <a th:href="@{/mascotas/update/{id}(id=${perro.id})}">Editar</a>
-                </td>
-                <td>
-                    <a th:href="@{/mascotas/delete/{id}(id=${perro.id})}">Eliminar</a>
-                </td>
-            </tr>
-        </tbody>
-    </table> -->
-
-
     <div style="display: flex;">
         <div *ngIf="!loading; else loadingTemplate" style="width: 50%;">
             <br>
@@ -75,5 +45,6 @@
     </div>
 
 </div>
+
 
 <app-footer></app-footer>

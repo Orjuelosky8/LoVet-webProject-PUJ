@@ -3,21 +3,7 @@
     <div layout:fragment="content" class="generalContent">
 
         <h1 class ="sectionTitles" data-text="NUESTROS CLIENTES">NUESTROS CLIENTES</h1>
-        <div id="actionButtons">
-
-            <button>
-                <a [routerLink]="['/mascotas']" title="Mascotas">
-                    LISTA MASCOTAS
-                    <i class="fa fa-paw"></i>
-                </a>
-            </button>
-            <button>
-                <a [routerLink]="['/clientes/agregar']" title="Agregar">
-                    AGREGAR USUARIO
-                    <i class="fa fa-add"></i>
-                </a>
-            </button>
-        </div>
+        
         <table class="sectionTabla">
             <thead >
                 <tr>
@@ -34,17 +20,11 @@
                     <td>{{ cliente.nombres }}  {{ cliente.apellidos }}</td>
                     <td style="overflow-x: auto;">{{ cliente.correoElectronico }}</td> 
                     <td>{{ cliente.telefono }}</td>
-                    <td style="display: flex; justify-content: center;">
-                        <a [routerLink]="['/clientes/editar', cliente.id]" title="Editar">
-                            <i class="fa fa-edit"></i>
-                        </a>
-                        <a [routerLink]="['/cliente', cliente.id]" title="Detalles">
-                            <i class="fa fa-eye"></i>
-                        </a>
-                        <a href="javascript:void(0);" (click)="eliminarCliente(cliente.id!)" title="Eliminar">
-                            <i class="fa fa-trash"></i>
-                        </a>
+                    <td>
+                        <a [routerLink]="['/clientes', cliente.id]" title="Ver mas info"><i class="fa-solid fa-circle-info"></i></a>
+                        
                     </td>
+                    
                 </tr>
             </tbody>
         </table>

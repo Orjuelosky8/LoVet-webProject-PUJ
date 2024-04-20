@@ -12,26 +12,47 @@ export class ListaMascotasComponent implements OnInit {
 
   constructor(private mascotaService: MascotasService) { }
 
-  ngOnInit() {
-    this.mascotaService.obtenermascotas().subscribe(mascotas => {
-      this.mascotasList = mascotas;
-    });
+  mostrarForm: boolean = false;
+
+  //atributos
+  selectedMascota!: Mascota;
+
+  ngOnInit(): void {
+    //this.studentList = this.studentService.findAll();
+    this.mascotaService.findAll().subscribe(
+      data => this.mascotasList = data
+    )
   }
-  
-    cargarMascotas(): void {
-      this.mascotaService.obtenermascotas().subscribe(mascotas => {
-        this.mascotasList = mascotas;
-        alert(mascotas);
-      });
-    }
-    eliminarMascota(id: number): void {
-      if (confirm('¿Estás seguro de que quieres eliminar la mascota #' + id + '?')) {
-      this.mascotaService.eliminarmascota(id).subscribe(() => {
-        this.cargarMascotas(); // Asume que tienes una función cargarClientes que obtiene todos los clientes
-      });
-    }
+
+  //metodos
+  mostrarMascota(mascota: Mascota){
+    this.selectedMascota = mascota;
+  }
+
+  //este metodo se llama cuando se emite un evento desde el hijo.
+  agregarMascota(mascota: Mascota){
+      this.mascotasList.push(mascota);
+      this.mascotaService.addMascota(mascota);
+  }
+
+  /*eliminarEstudiante(cliente: Cliente){
+    var index = this.clientesList.indexOf(cliente);
+    this.clientesList.splice(index, 1);
+    this.clienteService.deleteById(cliente.id);
+    console.log(cliente.id)
+  }*/
+
+  mostrarFormulario(){
+    this.mostrarForm = true;
+  }
+
+  ocultarFormulario(mostrar: boolean){
+    this.mostrarForm = false;    
   }
   }
+
+
+
   
 
 

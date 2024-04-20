@@ -1,10 +1,6 @@
 <app-nav-bar></app-nav-bar>
 <div class = "bodyMascotas">
     <div class="generalContent">
-            
-            
-            
-
         <h1 class ="sectionTitles" data-text="NUESTROS PELUDOS">NUESTROS PELUDOS</h1>
         
         <table class="sectionTabla">
@@ -27,10 +23,7 @@
                     <td style="color: brown;">{{mascota.estado}}</td>
                     <td>
                         <a [routerLink]="['/mascota', mascota.id]" title="Ver mas info"><i class="fa-solid fa-circle-info"></i></a>
-                        <a th:href="@{/mascotas/update/{id}(id=${perro.id})}" title="Editar"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:void(0);" (click)="eliminarMascota(mascota.id!)" title="Eliminar">
-                            <i class="fa fa-trash"></i>
-                        </a>
+                        
                     </td>
                     
                 </tr>
