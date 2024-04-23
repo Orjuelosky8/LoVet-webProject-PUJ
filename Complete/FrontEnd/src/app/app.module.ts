@@ -27,6 +27,8 @@ import { PersonalComponent } from './components/home/personal/personal.component
 //import { CrearClienteComponent } from './components/crud-clientes/crear-cliente/crear-cliente.component';
 import { DetallesClienteComponent } from './components/crud-clientes/detalles-cliente/detalles-cliente.component';
 import { ListaClientesComponent } from './components/crud-clientes/lista-clientes/lista-clientes.component';
+import { ListTratamientosComponent } from './components/crud-tratamiento/lista-tratamientos/list-tratamientos/list-tratamientos.component';
+import { ListVeterinariosComponent } from './components/crud-veterinario/lista-veterinarios/list-veterinarios/list-veterinarios.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { ListaClientesComponent } from './components/crud-clientes/lista-cliente
     PersonalComponent,
     //CrearClienteComponent,
     DetallesClienteComponent,
-    ListaClientesComponent
+    ListaClientesComponent,
+    ListTratamientosComponent,
+    ListVeterinariosComponent
   ],
   imports: [
     BrowserModule,

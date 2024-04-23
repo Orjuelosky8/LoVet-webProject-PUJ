@@ -1,0 +1,16 @@
+<app-nav-bar></app-nav-bar>
+
+<form class="generalContent" [formGroup]="editMascotaForm" (ngSubmit)="guardarMascota()">
+    <input formControlName="nombre" placeholder="Nombre" required="true" />
+    <input formControlName="raza" placeholder="Raza" required="true" />
+    <input formControlName="edad" placeholder="Edad" required="true" />
+    <input formControlName="imagen" placeholder="Imagen" required="true" />
+    <input formControlName="permanencia" placeholder="Permanencia" required="true" />
+    <input formControlName="altura" placeholder="Altura" required="true" />
+    <input formControlName="peso" placeholder="Peso" required="true"/>
+    <br>
+    <textarea name="antcdnt" formControlName="antecedentes" id="" cols="30" rows="10" placeholder="Antecedentes"></textarea>
+    <button type="submit">Guardar Cambios</button>
+</form>
+
+<app-footer></app-footer>

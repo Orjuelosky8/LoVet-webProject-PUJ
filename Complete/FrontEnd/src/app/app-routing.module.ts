@@ -9,6 +9,8 @@ import { PersonalComponent } from './components/home/personal/personal.component
 import { ListaClientesComponent } from './components/crud-clientes/lista-clientes/lista-clientes.component';
 //import { CrearClienteComponent } from './components/crud-clientes/crear-cliente/crear-cliente.component';
 import { DetallesClienteComponent } from './components/crud-clientes/detalles-cliente/detalles-cliente.component';
+import { ListVeterinariosComponent } from './components/crud-veterinario/lista-veterinarios/list-veterinarios/list-veterinarios.component';
+import { ListTratamientosComponent } from './components/crud-tratamiento/lista-tratamientos/list-tratamientos/list-tratamientos.component';
 //import { LoginComponent } from './components/authentication/login/login.component';
 //import { LogupComponent } from './components/authentication/logup/logup.component';
 // Importa otros componentes que necesitas para las rutas
@@ -20,6 +22,8 @@ const routes: Routes = [
   //{ path: 'clientes/agregar', component: CrearClienteComponent},
   { path: 'Servicios', component: ServiciosComponent},
   { path: 'mascotas', component: ListaMascotasComponent },
+  { path: 'veterinarios', component: ListVeterinariosComponent },
+  { path: 'tratamientos', component: ListTratamientosComponent },
   { path: 'mascotas/agregar', component: CrearMascotaComponent },
   { path: 'mascota/:idMascota', component: DetallesMascotaComponent },
   { path: 'clientes', component: ListaClientesComponent },

@@ -2,7 +2,10 @@ export interface Medicamento{
     id?: number;
     nombre: string;
     laboratorio: string;
+    descripcion: string;
+    clasificacion: string;
     precio: number;
-    imagen: string;
+    dosis: string;
     stock: number;
+    indicacionesAdicionales: string;
 }

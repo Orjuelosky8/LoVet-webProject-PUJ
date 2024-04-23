@@ -1,0 +1,36 @@
+<app-nav-bar></app-nav-bar>
+<div class = "bodyveterinarios">
+    <div layout:fragment="content" class="generalContent">
+
+        <h1 class ="sectionTitles" data-text="NUESTROS VETERINARIOS">NUESTROS VETERINARIOS</h1>
+        
+        <table class="sectionTabla">
+            <thead >
+                <tr>
+                    <th>UserName</th>
+                    <th>Nombre Completo </th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let veterinario of veterinariosList">
+                    <td>{{ veterinario.id }}</td>
+                    <td>{{ veterinario.nombres }}  {{ veterinario.apellidos }}</td>
+                    <td>{{ veterinario.especialidad }}</td>
+                    <td style="overflow-x: auto;">{{ veterinario.correo }}</td> 
+                    <td>{{ veterinario.numeroContacto }}</td>
+                    <!-- <td>
+                        <a [routerLink]="['/veterinarios', veterinario.id]" title="Ver mas info"><i class="fa-solid fa-circle-info"></i></a>
+                        
+                    </td> -->
+                    
+                </tr>
+            </tbody>
+        </table>
+        
+        
+    </div>
+</div>
+<app-footer></app-footer>
