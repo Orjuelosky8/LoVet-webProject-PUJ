@@ -1,1 +1,36 @@
-<p>list-tratamientos works!</p>
+<app-nav-bar></app-nav-bar>
+<div class = "bodyveterinarios">
+    <div layout:fragment="content" class="generalContent">
+
+        <h1 class ="sectionTitles" data-text="NUESTROS VETERINARIOS">NUESTROS VETERINARIOS</h1>
+        
+        <table class="sectionTabla">
+            <thead >
+                <tr>
+                    <th>Id</th>
+                    <th>Titulo </th>
+                    <th>Descripcion</th>
+                    <th>Estado</th>
+                    <th>Medicamentos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tratamiento of tratamientosList">
+                    <td>{{ tratamiento.id }}</td>
+                    <td>{{ tratamiento.titulo }} </td>
+                    <td>{{ tratamiento.descripcion }}</td>
+                    <td style="overflow-x: auto;">{{ tratamiento.estado }}</td> 
+                    <td>{{ tratamiento.veterinarioId }}</td>
+                    <!-- <td>
+                        <a [routerLink]="['/veterinarios', veterinario.id]" title="Ver mas info"><i class="fa-solid fa-circle-info"></i></a>
+                        
+                    </td> -->
+                    
+                </tr>
+            </tbody>
+        </table>
+        
+        
+    </div>
+</div>
+<app-footer></app-footer>

@@ -23,7 +23,7 @@ export class VeterinarioService {
 
   deleteById(id:number){
     console.log("ID:" + id)
-    this.http.delete("http://localhost:8090/veterinarios/delete/" + id).subscribe();
+    this.http.delete("http://localhost:8090/veterinarios/" + id).subscribe();
   }
 
   addStudent(veterinario:Veterinario){
