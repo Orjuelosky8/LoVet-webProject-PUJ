@@ -16,8 +16,9 @@ export class ListVeterinariosComponent {
     //this.studentList = this.studentService.findAll();
     this.veterinarioService.findAll().subscribe(
       data => this.veterinariosList = data
-    )
+    );
+    console.log(this.veterinarioService.findAll());
   }
 
-  
+
 }

@@ -13,20 +13,20 @@ export class VeterinarioService {
   ) { }
 
   findAll(): Observable<Veterinario[]>{
-    return this.http.get<Veterinario[]>('http://localhost:8090/tratamientos');
+    return this.http.get<Veterinario[]>('http://localhost:8090/veterinarios');
   }
 
   async findById(id:number): Promise<Veterinario>{
-    const veterinario = await axios.get<Veterinario>("http://localhost:8090/tratamientos/" + id);
+    const veterinario = await axios.get<Veterinario>("http://localhost:8090/veterinarios/" + id);
     return veterinario.data;
   }
 
   deleteById(id:number){
     console.log("ID:" + id)
-    this.http.delete("http://localhost:8090/clientes/delete/" + id).subscribe();
+    this.http.delete("http://localhost:8090/veterinarios/delete/" + id).subscribe();
   }
 
   addStudent(veterinario:Veterinario){
-    this.http.post("http://localhost:8090/clientes/add", veterinario).subscribe();
+    this.http.post("http://localhost:8090/veterinarios/add", veterinario).subscribe();
   }
 }
