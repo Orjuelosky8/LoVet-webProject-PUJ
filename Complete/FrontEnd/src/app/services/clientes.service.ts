@@ -32,11 +32,11 @@ export class ClienteService {
     this.http.post("http://localhost:8090/clientes/add", cliente).subscribe();
   }
 
-  async findClienteByCredentials(usuario: string, contraseña: string): Promise<Cliente | null> {
+ /* async findClienteByCredentials(usuario: string, contraseña: string): Promise<Cliente | null> {
     const clientes = await this.findAll().toPromise(); // Obtener todos los clientes
     // Buscar cliente con las credenciales proporcionadas
     const clienteEncontrado = clientes?.find(cliente => cliente.userName === usuario && cliente.password === contraseña);
     return clienteEncontrado || null; // Devolver el cliente encontrado o null si no se encuentra ninguno
-  }
+  }*/
 }
 

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-//import { LoginComponent } from './components/authentication/login/login.component';
+import { LoginComponent } from './components/authentication/login/login.component';
 import { LogupComponent } from './components/authentication/logup/logup.component';
 import { NavBarComponent } from './components/home/nav-bar/nav-bar.component';
 import { FooterComponent } from './components/home/footer/footer.component';
@@ -29,11 +29,12 @@ import { DetallesClienteComponent } from './components/crud-clientes/detalles-cl
 import { ListaClientesComponent } from './components/crud-clientes/lista-clientes/lista-clientes.component';
 import { ListTratamientosComponent } from './components/crud-tratamiento/lista-tratamientos/list-tratamientos/list-tratamientos.component';
 import { ListVeterinariosComponent } from './components/crud-veterinario/lista-veterinarios/list-veterinarios/list-veterinarios.component';
+import { NavBarVetsComponent } from './components/home/nav-bar-vets/nav-bar-vets.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    //LoginComponent,
+    LoginComponent,
     LogupComponent,
     LandingPageComponent,
     NavBarComponent,
@@ -56,7 +57,8 @@ import { ListVeterinariosComponent } from './components/crud-veterinario/lista-v
     DetallesClienteComponent,
     ListaClientesComponent,
     ListTratamientosComponent,
-    ListVeterinariosComponent
+    ListVeterinariosComponent,
+    NavBarVetsComponent
   ],
   imports: [
     BrowserModule,
