@@ -3,7 +3,7 @@ export interface Tratamiento{
     titulo: string;
     descripcion: string;
     estado: string;
-    mascotaId?: number;
-    veterinarioId?: number;
-    medicamentosIds?: number[];
+    mascotaId: number;
+    veterinarioId: number;
+    medicamentosIds: number[];
 }

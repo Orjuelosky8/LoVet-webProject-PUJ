@@ -22,12 +22,13 @@ export class DetallesMascotaComponent  {
   ) {}
 
   ngOnInit(): void {
-    console.log("ngOnInit de detail");
+    alert("ngOnInit de detail");
     //LLamar un API   
     this.route.paramMap.subscribe(async params => {
       const id = Number(params.get('id')); 
       this.mascota = await this.mascotaService.findById(id)
-    })
+    });
+    alert(this.mascota);
   }
 
   
