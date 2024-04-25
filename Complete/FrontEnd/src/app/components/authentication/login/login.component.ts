@@ -14,7 +14,7 @@ export class LoginComponent {
 
   constructor(private clienteService: ClienteService, private router: Router) {}
 
-  login() {
+  login() {/*
     this.clienteService.findClienteByCredentials(this.userName, this.password).subscribe({
       next: (resultado: any) => {
         if (resultado) {
@@ -34,7 +34,7 @@ export class LoginComponent {
         console.error("Error al verificar credenciales", error);
         alert("Error al verificar credenciales");
       }
-    });
+    });*/
   }
   
 }
