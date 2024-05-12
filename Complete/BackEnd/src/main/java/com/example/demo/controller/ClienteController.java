@@ -24,8 +24,6 @@ import com.example.demo.service.MascotaService;
 
 import io.swagger.v3.oas.annotations.Operation;
 
-// REVISAR BIEN TODO
-
 @RestController
 @RequestMapping("/clientes")
 @CrossOrigin(origins = "http://localhost:4200")

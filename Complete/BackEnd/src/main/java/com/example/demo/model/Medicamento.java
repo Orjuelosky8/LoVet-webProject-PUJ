@@ -1,8 +1,11 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Medicamento {
@@ -18,6 +21,8 @@ public class Medicamento {
     @Id
     @GeneratedValue
     private Long id;
+    
+    
 
     public Medicamento(String nombre, String laboratorio, String descripcion, String clasificacion, Double precio, String dosis,
             Integer stock, Long id, String indicacionesAdicionales) {

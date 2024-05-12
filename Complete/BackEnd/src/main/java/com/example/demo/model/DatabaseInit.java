@@ -1,10 +1,13 @@
 package com.example.demo.model;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -16,6 +19,11 @@ import com.example.demo.repository.HomeWorkRepository;
 import com.example.demo.repository.MascotaRepository;
 import com.example.demo.repository.StudentRepository;
 import com.example.demo.repository.TeacherRepository;
+import com.example.demo.repository.TratamientoRepository;
+import com.example.demo.repository.VeterinarioRepository;
+import com.example.demo.service.ExcelLoadService;
+import com.example.demo.service.MedicamentoService;
+import com.example.demo.repository.MedsRepository;
 
 import jakarta.transaction.Transactional;
 
@@ -41,6 +49,20 @@ public class DatabaseInit implements ApplicationRunner {
     @Autowired
     CourseRepository courseRepository;
 
+    @Autowired
+    MedsRepository medsRepository;
+
+    @Autowired
+    VeterinarioRepository veterinarioRepository;
+
+    @Autowired
+    TratamientoRepository tratamientoRepository;
+
+    private static final Logger logger = LoggerFactory.getLogger(MedicamentoService.class);
+
+
+    
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
@@ -51,7 +73,7 @@ public class DatabaseInit implements ApplicationRunner {
 
         for (int i = 1; i <= 123; i++) {
             Cliente cliente = new Cliente(
-                i + "Pepe",                 // userNameaaa
+                i + "Pepe",                 // userName
                 i + "password" + i + (i+1),                // password
                 "pepe123" + i + "@example.com", // correoElectronico
                 "Pepe" + i,                  // nombres
@@ -101,7 +123,25 @@ public class DatabaseInit implements ApplicationRunner {
         // for (Cliente cliente : clientes) {
         //     System.out.println("- Numero de mascotas cliente #"+cliente.getId()+": "+cliente.getMascotas().size());
         // }
+        
+        //Cargando los Medicamentos desde el EXCEL
+        List<Medicamento> list = ExcelLoadService.loadExcelFile();
+        medsRepository.saveAll(list);
+        
 
+        // GENERACION DE VETERINARIOS
+        for (int i = 1; i <= 123; i++) {
+            Veterinario veterinario = new Veterinario(
+                "Carlos" + i,
+                "Gutierrez" + i,
+                "Cirujano" + i,
+                Long.parseLong("90000" + i),
+                "bettervet" + i + "@lovet.com"
+            );
+            veterinarioRepository.save(veterinario);
+        }
+        
+        
         //Generacion de estudiantes
         studentRepository.save(new Student("Sebastian Angarita","Sistemas",3,"juseanto@javeriana.edu.co"));
         studentRepository.save(new Student("Margarita Mendoza","Filosofia",2,"margarita@javeriana.edu.co"));
@@ -135,6 +175,8 @@ public class DatabaseInit implements ApplicationRunner {
         courseRepository.save(new Course("CALCULO INTEGRAL"));
         courseRepository.save(new Course("CALCULO MULTIVARIABLE"));
 
+
+
         //Asignacion de tareas a estudiantes
         int CANTIDAD_ESTUDIANTES = 5;
         for(HomeWork homeWork: homeWorkRepository.findAll()){
@@ -157,7 +199,31 @@ public class DatabaseInit implements ApplicationRunner {
 
         
         
+        List<Veterinario> veterinarios = veterinarioRepository.findAll();
+        List<Mascota> pets = mascotaRepository.findAll();
+        List<Medicamento> medicamentos = medsRepository.findAll();
 
+        // Crear tratamientos
+        for (int i = 0; i < 4; i++) {  // Ejemplo: Crear 10 tratamientos
+            Tratamiento tratamiento = new Tratamiento(
+                "Tratamiento " + i,
+                "Descripción del tratamiento " + i,
+                "Activo",
+                pets.get(i % pets.size()),  // Asignar mascota de manera cíclica
+                veterinarios.get(i % veterinarios.size())  // Asignar veterinario de manera cíclica
+            );
+            
+            // Asignar medicamentos (puedes asignar múltiples medicamentos a un tratamiento)
+            tratamiento.getMedicamentos().add(medicamentos.get(i % medicamentos.size()));
+            if (i % 2 == 0) {  // Cada segundo tratamiento, añadir un segundo medicamento
+                tratamiento.getMedicamentos().add(medicamentos.get((i+1) % medicamentos.size()));
+            }
+
+            // Guardar el tratamiento
+            tratamientoRepository.save(tratamiento);
+        }
+
+        logger.debug("\n\n   tratamiento 1/2. *******************************************************" + tratamientoRepository.findAll().get(2).getMascota().getNombre() + "\n\n");
     }
 
 }
