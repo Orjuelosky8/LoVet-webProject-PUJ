@@ -31,8 +31,8 @@ import jakarta.transaction.Transactional;
 @Transactional
 public class DatabaseInit implements ApplicationRunner {
 
-    @Autowired
-    StudentRepository studentRepository;
+    //@Autowired
+    //StudentRepository studentRepository;
 
     @Autowired
     ClienteRepository clienteRepository;
@@ -40,14 +40,14 @@ public class DatabaseInit implements ApplicationRunner {
     @Autowired
     MascotaRepository mascotaRepository;
 
-    @Autowired
-    HomeWorkRepository homeWorkRepository;
+    //@Autowired
+    //HomeWorkRepository homeWorkRepository;
 
-    @Autowired
-    TeacherRepository teacherRepository;
+    //@Autowired
+    //TeacherRepository teacherRepository;
 
-    @Autowired
-    CourseRepository courseRepository;
+    //@Autowired
+    //CourseRepository courseRepository;
 
     @Autowired
     MedsRepository medsRepository;
@@ -69,35 +69,55 @@ public class DatabaseInit implements ApplicationRunner {
         //Pnemos una semilla para los datos random
         Random random = new Random(42);
 
-        //Generacion de estudiantes
+        String[] nombrePersonas = {"Antonio", "Arturo", "Armando", "Alissa", "Ana", "Adán", "Azul", "Bárbara", "Bastidas", "Bartolomé", "Betzaida", "Betania", "Berta", "Bernarda", "Carlos", "Castillo", "Costa", "Celeste", "Cindy", "Cecilia", "Carmona", "Constantino", "Edgardo", "Fátima", "Florencia", "Fausto", "Fernando", "Francisco", "Franyer", "Gerardo", "Gustavo", "Gabriela", "González", "Guzmán", "Juan", "José", "Jacinto", "Juvenal", "Julián", "Juliana", "Jesús", "Julio", "Luis", "López", "Luisana", "Maria", "Marcos", "Mariana", "Montenegro", "Rodriguez", "Rosa", "Ricardo", "Rebeca", "Raúl", "Renata", "Roberto", "Roxana", "Ramón", "Rosario", "Rubén", "Rita", "Rafael", "Romina", "Rodrigo", "Regina", "Rolando", "Ruth", "Rogelio", "Rosita", "Rafaela", "Ricardina"};
+        String[] apellidos = { "García", "González", "Rodríguez", "Fernández", "López", "Martínez", "Sánchez", "Pérez", "Gómez", "Martin", "Jiménez", "Ruiz", "Hernández", "Diaz", "Moreno", "Muñoz", "Álvarez", "Romero", "Alonso", "Gutiérrez", "Navarro", "Torres", "Domínguez", "Vázquez", "Ramos", "Gil", "Ramírez", "Serrano", "Blanco", "Molina", "Morales", "Suarez", "Ortega", "Delgado", "Castro", "Ortiz", "Rubio", "Cabrera", "Nieto", "Reyes", "Mendez", "Iglesias", "Guerrero", "Santos", "Castillo", "Cortés", "Lozano", "Peña", "Cano", "Prieto", "Cruz", "Calvo", "Gallego", "Herrera", "Marín", "Soto", "Mora", "Esteban", "Parra", "Bravo", "Aguilar", "Pascual", "Vega", "Campos", "Flores", "Vidal", "Carrasco", "Fuentes", "Caballero", "Diez", "Rey", "Núñez", "León", "Carrillo", "Merino", "Peinado", "Redondo", "Rojas", "Soria", "Rivas", "Paredes", "Crespo", "Bueno", "Galán", "Moya", "Villar", "Sanz", "Peralta"};
 
         for (int i = 1; i <= 123; i++) {
             Cliente cliente = new Cliente(
-                i + "Pepe",                 // userName
-                i + "password" + i + (i+1),                // password
-                "pepe123" + i + "@example.com", // correoElectronico
-                "Pepe" + i,                  // nombres
-                "Gonzalez" + i,                // apellidos
+                nombrePersonas[i % nombrePersonas.length] + apellidos[i % apellidos.length],                 // userName
+                nombrePersonas[i % nombrePersonas.length] + "password" + i + (i+1),                // password
+                nombrePersonas[i % nombrePersonas.length] + i + "@example.com", // correoElectronico
+                nombrePersonas[i % nombrePersonas.length],                  // nombres
+                apellidos[i % apellidos.length],             // apellidos
                 "90000" + i,                   // telefono
                 "80000" + i                    // telefonoAux
             );
             clienteRepository.save(cliente);
         }
 
-        String[] razas = {"Terrier", "Beagle", "Schnauzer", "Pitbull", "Golden", "Chihuahua", "Labrador", "Dálmata", "Boxer", "Bulldog"};
-        String[] problemas = {"Higiene bucal", "Displasia de cadera", "Glandulas oculares", "Sarna de la piel", "Rotura de pata izquierda posterior", "Ingesta de plásticos", "Alergias", "Problemas de corazón", "Ansiedad", "Sobrepeso"};
+        String[] imagenes = {"https://img.freepik.com/fotos-premium/lindo-perro-posando-aislado-sobre-fondo-hermoso_639785-1155.jpg",
+        "https://www.zooplus.es/magazine/wp-content/uploads/2023/07/Bergamasco.jpg", "https://www.zooplus.es/magazine/wp-content/uploads/2023/05/Bedlington-terrier.jpeg",
+    "https://www.zooplus.es/magazine/wp-content/uploads/2022/10/Beauceron.jpeg","https://www.zooplus.es/magazine/wp-content/uploads/2023/12/Beagle-harrier.jpg",
+"https://www.zooplus.es/magazine/wp-content/uploads/2017/10/Beagle-1.jpeg","https://www.zooplus.es/magazine/wp-content/uploads/2024/03/Basset-leonado-de-Bretana-768x512.jpeg",
+"https://www.zooplus.es/magazine/wp-content/uploads/2021/06/Basset-hound.jpg", "https://www.zooplus.es/magazine/wp-content/uploads/2023/04/Basenji.jpg",
+"https://www.zooplus.es/magazine/wp-content/uploads/2023/06/Barbet-3.jpg", "https://www.zooplus.es/magazine/wp-content/uploads/2022/08/Bandog.jpg", "https://www.zooplus.es/magazine/perros/razas-de-perro/azawakh", 
+"https://www.zooplus.es/magazine/wp-content/uploads/2020/07/American-Staffordshire-Terrier-Feldweg-768x512-1.jpg", "https://www.zooplus.es/magazine/wp-content/uploads/2021/05/American-bully.jpeg", "https://www.zooplus.es/magazine/wp-content/uploads/2019/11/akita-inu-768x512.jpg",
+"https://www.zooplus.es/magazine/wp-content/uploads/2019/11/akita-inu-768x512.jpg", "https://www.zooplus.es/magazine/wp-content/uploads/2021/06/akita-americano-768x511.jpg",
+"https://www.zooplus.es/magazine/wp-content/uploads/2021/12/Airedale-terrier-768x512.jpeg","https://www.zooplus.es/magazine/wp-content/uploads/2021/02/Boyero-de-Berna.jpg",
+"https://www.zooplus.es/magazine/wp-content/uploads/2023/07/Boyero-de-Appenzell.jpeg", "https://www.zooplus.es/magazine/wp-content/uploads/2017/03/fotolia_102829193-768x512.jpg", 
+"https://www.zooplus.es/magazine/wp-content/uploads/2021/06/Boston-terrier.jpg", "https://www.zooplus.es/magazine/wp-content/uploads/2023/05/Borzoi.jpg", "https://www.zooplus.es/magazine/wp-content/uploads/2023/05/Border-terrier.jpg",
+"https://www.zooplus.es/magazine/wp-content/uploads/2019/07/border-collie-.jpeg", "https://www.zooplus.es/magazine/wp-content/uploads/2023/07/Bolonka-zwetna.jpeg",
+"https://www.zooplus.es/magazine/wp-content/uploads/2021/07/Bolones-768x500.jpeg", "https://www.zooplus.es/magazine/wp-content/uploads/2023/01/Boerboel.jpg0 ","https://www.zooplus.es/magazine/wp-content/uploads/2020/05/Bobtail-o-antiguo-perro-de-pastor-ingles.jpg",
+"https://www.zooplus.es/magazine/wp-content/uploads/2023/07/Bloodhound.jpg", "https://www.zooplus.es/magazine/wp-content/uploads/2023/07/Black-and-tan-coonhound.jpeg", "https://www.zooplus.es/magazine/wp-content/uploads/2020/01/bich%C3%B3n-maltes-768x510.jpeg"
+,"https://www.zooplus.es/magazine/wp-content/uploads/2021/09/Bichon-habanero.jpg", "https://www.zooplus.es/magazine/wp-content/uploads/2020/08/Bich%C3%B3n-fris%C3%A9.jpg", "https://www.zooplus.es/magazine/wp-content/uploads/2021/11/Bernedoodle-768x512.jpeg", 
+"https://www.zooplus.es/magazine/wp-content/uploads/2023/07/Berger-picard.jpeg", "https://www.zooplus.es/magazine/wp-content/uploads/2023/07/Bergamasco.jpg"};
+        String[] nombrePerros = {"Max", "Luna", "Rocky", "Bella", "Coco", "Charlie", "Daisy", "Bailey", "Lucy", "Toby", "Sadie", "Milo", "Zoe", "Leo", "Ruby", "Rosie", "Oscar", "Chloe", "Riley", "Molly", "Bear", "Lola", "Buddy", "Stella", "Harley", "Gizmo", "Sophie", "Zeus", "Maggie", "Oliver", "Penny", "Winston", "Gracie", "Sammy", "Lucky", "Hazel", "Finn", "Cleo", "Rusty", "Nala"};
+        String[] razas = {"Terrier", "Beagle", "Schnauzer", "Pitbull", "Golden", "Chihuahua", "Labrador", "Dálmata", "Bulldog",  "Jack Russell Terrier","Pastor Alemán", "Fox Terrier Toy", "Yorkshire Terrier", "Chihuahua", "Akita Inu", "Labrador Retriever", "Bulldog", "Bóxer", "Border Terrier", "Boyero de Berna", "Spitz Japonés", "Bichón Boloñés", "West Highland White Terrier (Westy)", "Cairn Terrier", "Skye Terrier"};
+        String[] problemas = {"Higiene bucal", "Displasia de cadera", "Glandulas oculares", "Sarna de la piel", "Rotura de pata izquierda posterior", "Ingesta de plásticos", "Alergias", "Problemas de corazón", "Ansiedad", "Sobrepeso"
+        , "Parvovirus", "Moquillo", "Hepatitis canina", "Leptospirosis", "Rabia", "Brucelosis", "Borreliosis canina", "Traqueobronquitis infecciosa", "Coronavirus", "Toxoplasmosis", "Otitis", "Conjuntivitis", "Alergias cutáneas", "Gastritis aguda", "Diarrea", "Leishmaniosis", "Insuficiencia renal", "Cálculos urinarios", "Artritis", "Displasia de cadera"};
 
         // Generar mascotas sin asignarlas todavía
         List<Mascota> mascotas = new ArrayList<>();
         for (int i = 1; i <= 140; i++) {
             Mascota mascota = new Mascota(
-                "Perrito" + i,                                          // nombre
+                nombrePerros[i % nombrePerros.length],                                          // nombre
                 razas[i % razas.length],                                // raza
-                i * 2,                                                  // edad
-                "https://img.freepik.com/fotos-premium/lindo-perro-posando-aislado-sobre-fondo-hermoso_639785-1155.jpg" /*+ i + ".jpg"*/,              // imagen
-                i,                                                      // permanencia
+                random.nextInt(0, 16),
+                imagenes[i % imagenes.length], /*+ i + ".jpg"*/            // imagen
+                random.nextInt(0, 4),                                                      // permanencia
                 10 + i,                                                 // altura
-                5 + i * 2,                                              // peso
+                5 + i * 2,     
+                "Activo",                                         // peso
                 problemas[i % problemas.length]                         // antecedentes
             );
             mascotas.add(mascota);
@@ -141,7 +161,7 @@ public class DatabaseInit implements ApplicationRunner {
             veterinarioRepository.save(veterinario);
         }
         
-        
+        /* 
         //Generacion de estudiantes
         studentRepository.save(new Student("Sebastian Angarita","Sistemas",3,"juseanto@javeriana.edu.co"));
         studentRepository.save(new Student("Margarita Mendoza","Filosofia",2,"margarita@javeriana.edu.co"));
@@ -196,7 +216,7 @@ public class DatabaseInit implements ApplicationRunner {
             course.setStudent(student);
             course.setTeacher(teacher);
         }
-
+*/
         
         
         List<Veterinario> veterinarios = veterinarioRepository.findAll();
