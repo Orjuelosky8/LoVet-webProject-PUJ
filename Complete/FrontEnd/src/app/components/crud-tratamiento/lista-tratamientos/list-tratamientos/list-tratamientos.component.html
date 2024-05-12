@@ -2,7 +2,7 @@
 <div class = "bodyveterinarios">
     <div layout:fragment="content" class="generalContent">
 
-        <h1 class ="sectionTitles" data-text="NUESTROS VETERINARIOS">NUESTROS VETERINARIOS</h1>
+        <h1 class ="sectionTitles" data-text="NUESTROS VETERINARIOS">NUESTROS TRATAMIENTOS</h1>
         
         <table class="sectionTabla">
             <thead >
@@ -11,6 +11,8 @@
                     <th>Titulo </th>
                     <th>Descripcion</th>
                     <th>Estado</th>
+                    <th>Veterinario a Cargo</th>
+                    <th>Mascota</th>
                     <th>Medicamentos</th>
                 </tr>
             </thead>
@@ -20,15 +22,26 @@
                     <td>{{ tratamiento.titulo }} </td>
                     <td>{{ tratamiento.descripcion }}</td>
                     <td style="overflow-x: auto;">{{ tratamiento.estado }}</td> 
-                    <td>'{{ tratamiento.veterinarioId }}'</td>
+                    <td>'{{ tratamiento.veterinario.nombres }}'</td>
+                    <td>'{{ tratamiento.mascota.nombre }}'</td>
+                    <td>
+                        <tr *ngFor="let meds of tratamiento.medicamentos">
+                            <td>{{ meds.nombre }}</td>
+                        </tr>
+                    </td>
                     <!-- <td>
                         <a [routerLink]="['/veterinarios', veterinario.id]" title="Ver mas info"><i class="fa-solid fa-circle-info"></i></a>
                         
                     </td> -->
-                    
                 </tr>
             </tbody>
         </table>
+        <a [routerLink]="['/tratamientos/add']">
+            <button>Añadir Tratamiento</button>
+        </a>
+
+        
+        
         
         
     </div>

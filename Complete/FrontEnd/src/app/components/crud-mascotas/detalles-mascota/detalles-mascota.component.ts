@@ -22,7 +22,6 @@ export class DetallesMascotaComponent  {
   ) {}
 
   ngOnInit(): void {
-    alert("ngOnInit de detail");
     //LLamar un API   
     this.route.paramMap.subscribe(async params => {
       const id = Number(params.get('id')); 

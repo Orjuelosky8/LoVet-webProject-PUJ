@@ -37,15 +37,15 @@ export class CrearClienteComponent implements OnInit {
   }
 
   guardarCliente(): void {
-    if (this.esNuevo) {
-      this.clienteService.agregarCliente(this.cliente).subscribe(() => {
-        this.router.navigate(['/clientes']);
-      });
-    } else {
-      this.clienteService.actualizarCliente(this.cliente).subscribe(() => {
-        this.router.navigate(['/clientes']);
-      });
-    }
+      if (this.esNuevo) {
+        this.clienteService.agregarCliente(this.cliente).subscribe(() => {
+          this.router.navigate(['/clientes']);
+        });
+      } else {
+        this.clienteService.actualizarCliente(this.cliente).subscribe(() => {
+          this.router.navigate(['/clientes']);
+        });
+      }
   }
 
 }

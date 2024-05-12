@@ -1,9 +1,13 @@
+import { Mascota } from "./mascota";
+import { Medicamento } from "./medicamento";
+import { Veterinario } from "./veterinario";
+
 export interface Tratamiento{
     id?: number;
     titulo: string;
     descripcion: string;
     estado: string;
-    mascotaId: number;
-    veterinarioId: number;
-    medicamentosIds: number[];
+    mascota: Mascota;
+    veterinario: Veterinario;
+    medicamentos: Medicamento[];
 }

@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { FormsModule } from '@angular/forms';
+
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/authentication/login/login.component';
@@ -30,6 +32,7 @@ import { ListaClientesComponent } from './components/crud-clientes/lista-cliente
 import { ListTratamientosComponent } from './components/crud-tratamiento/lista-tratamientos/list-tratamientos/list-tratamientos.component';
 import { ListVeterinariosComponent } from './components/crud-veterinario/lista-veterinarios/list-veterinarios/list-veterinarios.component';
 import { NavBarVetsComponent } from './components/home/nav-bar-vets/nav-bar-vets.component';
+import { AddTratamientoComponent } from './components/crud-tratamiento/add-tratamiento/add-tratamiento/add-tratamiento.component';
 
 @NgModule({
   declarations: [
@@ -58,11 +61,13 @@ import { NavBarVetsComponent } from './components/home/nav-bar-vets/nav-bar-vets
     ListaClientesComponent,
     ListTratamientosComponent,
     ListVeterinariosComponent,
-    NavBarVetsComponent
+    NavBarVetsComponent,
+    AddTratamientoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule
   ],

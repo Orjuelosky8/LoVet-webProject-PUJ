@@ -27,8 +27,12 @@ export class TratamientoService {
     this.http.delete("http://localhost:8090/tratamientos/" + id).subscribe();
   }
 
-  addStudent(tratamiento:Tratamiento){
+  addTratamiento(tratamiento:Tratamiento){
     this.http.post("http://localhost:8090/tratamientos", tratamiento).subscribe();
+  }
+
+  addTratamiento2(tratamiento: Tratamiento): Observable<any> {
+    return this.http.post("http://localhost:8090/tratamientos", tratamiento);
   }
 
 }

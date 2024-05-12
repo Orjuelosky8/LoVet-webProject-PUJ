@@ -12,6 +12,7 @@ import { DetallesClienteComponent } from './components/crud-clientes/detalles-cl
 import { ListVeterinariosComponent } from './components/crud-veterinario/lista-veterinarios/list-veterinarios/list-veterinarios.component';
 import { ListTratamientosComponent } from './components/crud-tratamiento/lista-tratamientos/list-tratamientos/list-tratamientos.component';
 import { LoginComponent } from './components/authentication/login/login.component';
+import { AddTratamientoComponent } from './components/crud-tratamiento/add-tratamiento/add-tratamiento/add-tratamiento.component';
 //import { LogupComponent } from './components/authentication/logup/logup.component';
 // Importa otros componentes que necesitas para las rutas
 
@@ -30,7 +31,7 @@ const routes: Routes = [
   { path: 'cliente/:id', component: DetallesClienteComponent },
   // { path: 'clientes/mascotas/:id', component: DetallesClienteComponent },
   { path: 'Personal', component: PersonalComponent },
-  
+  { path: 'tratamientos/add', component: AddTratamientoComponent },
 ];
 
 @NgModule({

@@ -1,0 +1,47 @@
+<div layout:fragment="content" class="generalContent">
+
+    <h2 class="sectionTitles" data-text="REGISTRAR NUEVO CLIENTE">REGISTRAR NUEVO TRATAMIENTO</h2>
+    <div class="container">
+
+        <div class="form-content">
+            <h1 id="title">Registro</h1>
+
+            <form [formGroup]="tratamientoForm" (ngSubmit)="guardarTratamiento()">
+                <div>
+                  <label for="titulo">Título</label>
+                  <input id="titulo" type="text" formControlName="titulo" required>
+                </div>
+                <div>
+                  <label for="descripcion">Descripción</label>
+                  <input id="descripcion" type="text" formControlName="descripcion" required>
+                </div>
+                <div>
+                  <label for="estado">Estado</label>
+                  <input id="estado" type="text" formControlName="estado" required>
+                </div>
+                <div formGroupName="mascota">
+                  <label for="nombreMascota">Nombre de la Mascota</label>
+                  <input id="nombreMascota" type="text" formControlName="nombre" required>
+                </div>
+                <div formGroupName="veterinario">
+                  <label for="nombreVeterinario">Nombre del Veterinario</label>
+                  <input id="nombreVeterinario" type="text" formControlName="nombre">
+                </div>
+                <div formArrayName="medicamentos">
+                  <div *ngFor="let medicamento of medicamentos.controls; let i = index" [formGroupName]="i">
+                    <label for="nombreMedicamento">Nombre del Medicamento</label>
+                    <input id="nombreMedicamento" type="text" formControlName="nombre">
+                    <label for="dosisMedicamento">Dosis</label>
+                    <input id="dosisMedicamento" type="text" formControlName="dosis">
+                  </div>
+                  <button type="button" (click)="agregarMedicamento()">Agregar Medicamento</button>
+                </div>
+                
+                <button type="submit">Guardar Tratamiento</button>
+                
+              </form>
+              
+
+        </div>
+    </div>
+</div>
