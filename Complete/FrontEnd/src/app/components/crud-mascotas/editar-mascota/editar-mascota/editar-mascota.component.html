@@ -1,16 +1,54 @@
 <app-nav-bar></app-nav-bar>
 
-<form class="generalContent" [formGroup]="editMascotaForm" (ngSubmit)="guardarMascota()">
-    <input formControlName="nombre" placeholder="Nombre" required="true" />
-    <input formControlName="raza" placeholder="Raza" required="true" />
-    <input formControlName="edad" placeholder="Edad" required="true" />
-    <input formControlName="imagen" placeholder="Imagen" required="true" />
-    <input formControlName="permanencia" placeholder="Permanencia" required="true" />
-    <input formControlName="altura" placeholder="Altura" required="true" />
-    <input formControlName="peso" placeholder="Peso" required="true"/>
-    <br>
-    <textarea name="antcdnt" formControlName="antecedentes" id="" cols="30" rows="10" placeholder="Antecedentes"></textarea>
-    <button type="submit">Guardar Cambios</button>
+<section class="sectionrelleno" style="height: 1000px;">
+<form class="generalContent" class='signup-container' [formGroup]="editMascotaForm" (ngSubmit)="guardarMascota()" style="margin-top: 150px;  margin-left: 50px; margin-bottom: 50px; text-align: center; justify-content: center;">
+    <div class='left-container'>
+        <h1 style="font-family: 'Contrail One'; font-size: 40px; color: white">
+          <i class='fas fa-paw'></i>
+          EDITA TU MASCOTA
+        </h1>
+        <div class='puppy'>
+          <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-542207-jpeg.png'>
+        </div>
+      </div>
+      <div class='right-container' style="justify-content: left; align-items: center;">
+        <div style="display: flex; margin-top: 20px;">
+            <label style="margin: 10px; margin-top: 20px; font-family: 'Roboto'; justify-content: left; ">Nombre</label>
+            <input formControlName="nombre" placeholder="Nombre" required="true" style="margin: 10px; font-family: 'Roboto';"/>
+        </div>
+        <div style="display: flex;">
+            <label style="margin: 10px; margin-top: 20px; font-family: 'Roboto'; justify-content: center;">Raza</label>
+            <input formControlName="raza" placeholder="Raza" required="true" style="margin: 10px;font-family: 'Roboto';"/>
+        </div>
+        <div style="display: flex;">
+            <label style="margin: 10px; margin-top: 20px; font-family: 'Roboto'; justify-content: center;">Edad</label>
+            <input formControlName="edad" placeholder="Edad" required="true" style="margin: 10px;font-family: 'Roboto';"/>
+        </div>
+        <div style="display: flex;">
+            <label style="margin: 10px; margin-top: 20px; font-family: 'Roboto'; justify-content: center;">Imagen</label>
+            <input formControlName="imagen" placeholder="Imagen" required="true" style="margin: 10px;font-family: 'Roboto';"/>
+        </div>
+        <div style="display: flex;">
+            <label style="margin: 10px; margin-top: 20px; font-family: 'Roboto'; justify-content: center;">Permanencia</label>
+            <input formControlName="permanencia" placeholder="Permanencia" required="true" style="margin: 10px;font-family: 'Roboto';"/>
+        </div>
+        <div style="display: flex;">
+            <label style="margin: 10px; margin-top: 20px; font-family: 'Roboto'; justify-content: center;">Altura</label>
+            <input formControlName="altura" placeholder="Altura" required="true" style="margin: 10px;font-family: 'Roboto';"/>
+        </div>
+        <div style="display: flex;">
+            <label style="margin: 10px; margin-top: 20px; font-family: 'Roboto'; justify-content: center;">Peso</label>
+            <input formControlName="peso" placeholder="Peso" required="true"style="margin: 10px;font-family: 'Roboto';"/>
+        </div>
+        <div style="display: flex; margin: 20px;">
+            <label style="margin: 10px; margin-top: 20px; font-family: 'Roboto'; justify-content: center;">Antecedentes</label>
+            <br>
+            <textarea name="antcdnt" formControlName="antecedentes" id="" cols="30" rows="10" placeholder="Antecedentes" style="font-family: 'Roboto';"></textarea>
+        </div>
+        <button type="submit" style="border-radius: 20%; background-color: #9f8474; font-family: 'Roboto'; color: white; width: 200px; height: 50px ;margin: 30px; align-items: right;">Guardar Cambios</button>
+        </div>
 </form>
+
+
 
 <app-footer></app-footer>

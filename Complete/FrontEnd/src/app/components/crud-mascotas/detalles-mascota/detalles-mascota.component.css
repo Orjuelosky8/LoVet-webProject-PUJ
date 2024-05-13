@@ -191,3 +191,40 @@
     border-color: rgb(189, 0, 0);
     background-color: rgb(189, 0, 0);
 }
+
+.infoMascotaLeft h2{
+    display: flex;
+    font-family: 'Contrail One', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 60px;
+    color: #9f8474;
+}
+
+.infoMascotaLeft {
+    padding-left: 30px;
+    font-family: 'roboto', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+}
+
+#infoMascota{
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.infoMascotaLeft{
+    width: 60%;
+    align-items: center;
+    justify-content: left;
+    padding-left: 30px;
+    user-select: none;
+    text-align: left;
+}
+
+.infoMascotaRight{
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    padding-right: 30px;
+    user-select: none;
+    text-align: center;
+}
