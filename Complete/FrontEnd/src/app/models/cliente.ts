@@ -1,5 +1,7 @@
+import { Mascota } from "./mascota";
+
 export interface Cliente{
-    id?: number;
+    id: number;
     userName: string;
     password: string;
     correoElectronico: string;
@@ -7,5 +9,5 @@ export interface Cliente{
     apellidos: string;
     telefono: string;
     telefonoAux: string;
-    mascotasIds?: number[];
+    mascotasIds?: Mascota[];
 }

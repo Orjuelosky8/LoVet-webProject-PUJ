@@ -5,6 +5,7 @@ import { Mascota } from '../../../models/mascota';
 import { mergeMap } from 'rxjs';
 import { MascotasService } from 'src/app/services/mascotas.service';
 
+
 @Component({
   selector: 'app-detalles-mascota',
   templateUrl: './detalles-mascota.component.html',
@@ -22,12 +23,26 @@ export class DetallesMascotaComponent  {
   ) {}
 
   ngOnInit(): void {
-    //LLamar un API   
-    this.route.paramMap.subscribe(async params => {
-      const id = Number(params.get('id')); 
-      this.mascota = await this.mascotaService.findById(id)
+    console.log("ngOnInit de detail");
+    this.route.paramMap.subscribe(params => {
+      const id = Number(params.get('id'));
+      console.log("ID", id );
+      this.mascotaService.findById(id)
+        .subscribe(
+          (data) => {
+            this.mascota = data;
+            console.log("Mascota cargada:", this.mascota);
+            return this.mascotaService.findById(this.mascota.id);
+          },
+          (error) => {
+            console.error("Error al obtener datos:", error);
+          }
+        );
     });
-    alert(this.mascota);
+  }
+
+  ngOnChanges(): void {
+    console.log("ngOnChanges de detail");
   }
 
   

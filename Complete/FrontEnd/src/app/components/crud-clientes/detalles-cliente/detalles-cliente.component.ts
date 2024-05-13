@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Cliente } from 'src/app/models/cliente';
 import { Mascota } from 'src/app/models/mascota';
+import { mergeMap } from 'rxjs';
 import { ClienteService } from 'src/app/services/clientes.service';
 import { MascotasService } from 'src/app/services/mascotas.service';
 
@@ -13,8 +14,8 @@ import { MascotasService } from 'src/app/services/mascotas.service';
 })
 export class DetallesClienteComponent  {
   @Input()
-  cliente?: Cliente;
-  mascotas: Mascota[] = [];
+  cliente!: Cliente;
+  mascotas!: Mascota[];
   loading = true; // Puedes mantener una sola bandera de carga si eso tiene sentido para tu UI
 
   constructor(
@@ -25,10 +26,20 @@ export class DetallesClienteComponent  {
 
   ngOnInit(): void {
     console.log("ngOnInit de detail");
-    //LLamar un API   
-    this.route.paramMap.subscribe(async params => {
+    //LLamar un API
+    this.route.paramMap.subscribe(params => {
       const id = Number(params.get('id')); 
-      this.cliente = await this.clienteService.findById(id)
+      this.clienteService.findById(id).pipe(
+        mergeMap(
+          (data) => {
+            this.cliente = data;
+            return this.mascotasService.findMascotasByStudent(this.cliente.id);
+          }
+        )).subscribe(
+          (data) => {
+            this.cliente.mascotasIds = data
+          }
+        )
     })
   }
 

@@ -15,11 +15,11 @@ export class EditarMascotaComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private mascotasService: MascotasService, // Asume que tienes este servicio.
+    private mascotasService: MascotasService,  //Asume que tienes este servicio.
     private route: ActivatedRoute,
     private router: Router
   ) {
-    // Inicializa el formulario con los controles y las validaciones necesarias.
+     //Inicializa el formulario con los controles y las validaciones necesarias.
     this.editMascotaForm = this.formBuilder.group({
       nombre: ['', Validators.required],
       raza: ['', Validators.required],
@@ -31,42 +31,43 @@ export class EditarMascotaComponent implements OnInit {
       antecedentes: ['', Validators.required]
     });
   }
+  
 
   ngOnInit(): void {
-    // this.route.params.subscribe(params => {
-    //   this.mascotaId = +params['idMascota']; // Obtén el id de la ruta.
-    //   if (this.mascotaId) {
-    //     // Carga la información de la mascota para editar.
-    //     this.mascotasService.obtenerMascotasPorIds([this.mascotaId]).subscribe(mascota => {
-    //       if (mascota) {
-    //         this.editMascotaForm.patchValue(mascota);
-    //       } else {
-    //         // Si no hay mascota, redirige al usuario a otro lugar o maneja como veas conveniente.
-    //         this.router.navigate(['/mascotas']);
-    //       }
-    //     });
-    //   }
-    // });
+    this.route.paramMap.subscribe(params => {
+      const id = Number(params.get('id'));  //Obtén el id de la ruta.
+       
+          //Carga la información de la mascota para editar.
+         this.mascotasService.findById(id).subscribe(mascota => {
+           if (mascota) {
+             this.editMascotaForm.patchValue(mascota);
+           } else {
+              //Si no hay mascota, redirige al usuario a otro lugar o maneja como veas conveniente.
+             this.router.navigate(['/mascotas']);
+           }
+         });
+       
+ });
   }
 
-  // guardarMascota(): void {
-  //   if (this.editMascotaForm.valid) {
-  //     const formValue = this.editMascotaForm.value;
-  //     const mascotaActualizada: Mascota = {
-  //       id: this.mascotaId, // Asegúrate de que el ID esté asignado.
-  //       ...formValue
-  //     };
+   guardarMascota(): void {
+     if (this.editMascotaForm.valid) {
+       const formValue = this.editMascotaForm.value;
+       const mascotaActualizada: Mascota = {
+         id: this.mascotaId,  //Asegúrate de que el ID esté asignado.
+         ...formValue
+       };
       
-  //     this.mascotasService.actualizarmascota(mascotaActualizada).subscribe({
-  //       next: () => {
-  //         // Si la actualización es exitosa, navega a la lista de mascotas.
-  //         this.router.navigate(['/mascotas']);
-  //       },
-  //       error: (error) => {
-  //         // Manejo del error.
-  //         console.error(error);
-  //       }
-  //     });
-  //   }
-  // }
+       /*this.mascotasService.actualizarMascota(id).subscribe({
+         next: () => {
+            //Si la actualización es exitosa, navega a la lista de mascotas.
+           this.router.navigate(['/mascotas']);
+         },
+         error: (error) => {
+            //Manejo del error.
+           console.error(error);
+         }
+       });*/
+     }
+    }
 }

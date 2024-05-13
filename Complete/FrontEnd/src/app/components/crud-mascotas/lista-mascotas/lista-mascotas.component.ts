@@ -35,12 +35,12 @@ export class ListaMascotasComponent implements OnInit {
       this.mascotaService.addMascota(mascota);
   }
 
-  /*eliminarEstudiante(cliente: Cliente){
-    var index = this.clientesList.indexOf(cliente);
-    this.clientesList.splice(index, 1);
-    this.clienteService.deleteById(cliente.id);
-    console.log(cliente.id)
-  }*/
+  eliminarMascota(mascota: Mascota){
+    var index = this.mascotasList.indexOf(mascota);
+    this.mascotasList.splice(index, 1);
+    this.mascotaService.deleteById(mascota.id); 
+    console.log(mascota.id)
+  }
 
   mostrarFormulario(){
     this.mostrarForm = true;

@@ -39,6 +39,13 @@ export class ListaClientesComponent  {
       this.clienteService.addStudent(cliente);
   }
 
+  eliminarCliente(cliente: Cliente){
+    var index = this.clientesList.indexOf(cliente);
+    this.clientesList.splice(index, 1);
+    this.clienteService.deleteById(cliente.id); 
+    console.log(cliente.id)
+  }
+
   /*eliminarEstudiante(cliente: Cliente){
     var index = this.clientesList.indexOf(cliente);
     this.clientesList.splice(index, 1);

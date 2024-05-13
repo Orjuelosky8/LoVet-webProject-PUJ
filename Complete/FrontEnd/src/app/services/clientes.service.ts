@@ -18,9 +18,9 @@ export class ClienteService {
     return this.http.get<Cliente[]>('http://localhost:8090/clientes/all');
   }
 
-  async findById(id:number): Promise<Cliente>{
-    const cliente = await axios.get<Cliente>("http://localhost:8090/clientes/find/" + id);
-    return cliente.data;
+  findById(id:number): Observable<Cliente>{
+    const cliente = this.http.get<Cliente>("http://localhost:8090/clientes/find/" + id);
+    return cliente;
   }
 
   deleteById(id:number){

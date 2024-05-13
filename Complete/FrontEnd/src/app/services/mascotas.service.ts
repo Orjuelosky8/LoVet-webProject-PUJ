@@ -252,9 +252,9 @@
       return this.http.get<Mascota[]>('http://localhost:8090/mascotas/all');
     }
 
-    async findById(id:number): Promise<Mascota>{
-      const mascota = await axios.get<Mascota>("http://localhost:8090/mascotas/find/" + id);
-      return mascota.data;
+    findById(id:number): Observable<Mascota>{
+      const mascota = this.http.get<Mascota>("http://localhost:8090/mascotas/find/" + id);
+      return mascota;
     }
 
     deleteById(id:number){
@@ -265,6 +265,12 @@
     addMascota(mascota:Mascota){
       this.http.post("http://localhost:8090/mascotas/add", mascota).subscribe();
     }
+
+    actualizarMascota(id:number){
+      this.http.post("http://localhost:8090/mascotas/update", id).subscribe();
+    }
+
+    
 
     findMascotasByStudent(id:number):Observable<Mascota[]>{
       return this.http.get<Mascota[]>("http://localhost:8090/clientes/mascotas/" + id);

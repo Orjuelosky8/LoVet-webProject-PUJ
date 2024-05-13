@@ -9,6 +9,7 @@ import { MascotaMockService } from '../../../services/mascotas/mascota-mock.serv
 })
 export class CrearMascotaComponent {
   nuevaMascota: Mascota = {
+    id: 0,
     nombre: '',
     raza: '',
     edad: 0,
