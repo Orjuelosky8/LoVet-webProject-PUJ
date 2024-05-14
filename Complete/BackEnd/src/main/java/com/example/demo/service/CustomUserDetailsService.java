@@ -23,14 +23,17 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        
         Cliente cliente = clienteRepository.findByUserName(username);
         if (cliente != null) {
+            System.out.println("************************************************************CLIENTEEE: " + username);
             return new org.springframework.security.core.userdetails.User(
                 cliente.getUserName(), cliente.getPassword(),
                 AuthorityUtils.createAuthorityList("ROLE_CLIENTE"));
         }
         Veterinario veterinario = veterinarioRepository.findByUserName(username);
         if (veterinario != null) {
+            System.out.println("************************************************************VETERINARIOOO: " + username);
             return new org.springframework.security.core.userdetails.User(
                 veterinario.getUserName(), veterinario.getPassword(),
                 AuthorityUtils.createAuthorityList("ROLE_VETERINARIO"));

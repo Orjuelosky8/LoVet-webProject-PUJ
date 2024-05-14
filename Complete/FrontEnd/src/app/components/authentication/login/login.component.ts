@@ -43,13 +43,26 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   login() {
-    this.authService.login(this.username, this.password).subscribe(
-      data => {
-        this.router.navigate(['/home']); // Redireccionar al inicio o donde sea necesario
+    this.authService.login(this.username, this.password).subscribe({
+      next: (user) => {
+        // alert('Login exitoso :)');
+        Swal.fire({
+          icon: "success",
+          title: "Login Exitoso, bienvenido!",
+          showConfirmButton: false,
+          timer: 2000
+        });
+        // Redireccionar a la página de inicio o dashboard, por ejemplo
+        this.router.navigate(['/Servicios']);
       },
-      error => {
-        this.error = 'Login failed. Please check your credentials.';
+      error: (error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Login Fallido...",
+          text: "Al parecer ingresaste mal tus credenciales!, intentalo nuevamente."
+        });
+        // console.error('Error durante el login', error);
       }
-    );
+    });
   }
 }

@@ -70,7 +70,7 @@ public class DatabaseInit implements ApplicationRunner {
         Random random = new Random(42);
 
         String[] nombrePersonas = {"Antonio", "Arturo", "Armando", "Alissa", "Ana", "Adán", "Azul", "Bárbara", "Bastidas", "Bartolomé", "Betzaida", "Betania", "Berta", "Bernarda", "Carlos", "Castillo", "Costa", "Celeste", "Cindy", "Cecilia", "Carmona", "Constantino", "Edgardo", "Fátima", "Florencia", "Fausto", "Fernando", "Francisco", "Franyer", "Gerardo", "Gustavo", "Gabriela", "González", "Guzmán", "Juan", "José", "Jacinto", "Juvenal", "Julián", "Juliana", "Jesús", "Julio", "Luis", "López", "Luisana", "Maria", "Marcos", "Mariana", "Montenegro", "Rodriguez", "Rosa", "Ricardo", "Rebeca", "Raúl", "Renata", "Roberto", "Roxana", "Ramón", "Rosario", "Rubén", "Rita", "Rafael", "Romina", "Rodrigo", "Regina", "Rolando", "Ruth", "Rogelio", "Rosita", "Rafaela", "Ricardina"};
-        String[] apellidos = { "García", "González", "Rodríguez", "Fernández", "López", "Martínez", "Sánchez", "Pérez", "Gómez", "Martin", "Jiménez", "Ruiz", "Hernández", "Diaz", "Moreno", "Muñoz", "Álvarez", "Romero", "Alonso", "Gutiérrez", "Navarro", "Torres", "Domínguez", "Vázquez", "Ramos", "Gil", "Ramírez", "Serrano", "Blanco", "Molina", "Morales", "Suarez", "Ortega", "Delgado", "Castro", "Ortiz", "Rubio", "Cabrera", "Nieto", "Reyes", "Mendez", "Iglesias", "Guerrero", "Santos", "Castillo", "Cortés", "Lozano", "Peña", "Cano", "Prieto", "Cruz", "Calvo", "Gallego", "Herrera", "Marín", "Soto", "Mora", "Esteban", "Parra", "Bravo", "Aguilar", "Pascual", "Vega", "Campos", "Flores", "Vidal", "Carrasco", "Fuentes", "Caballero", "Diez", "Rey", "Núñez", "León", "Carrillo", "Merino", "Peinado", "Redondo", "Rojas", "Soria", "Rivas", "Paredes", "Crespo", "Bueno", "Galán", "Moya", "Villar", "Sanz", "Peralta"};
+        String[] apellidos = { "Garcia", "Gonzalez", "Rodriguez", "Fernández", "Lopez", "Martinez", "Sanchez", "Perez", "Gomez", "Martin", "Jiménez", "Ruiz", "Hernández", "Diaz", "Moreno", "Muñoz", "Álvarez", "Romero", "Alonso", "Gutiérrez", "Navarro", "Torres", "Domínguez", "Vázquez", "Ramos", "Gil", "Ramírez", "Serrano", "Blanco", "Molina", "Morales", "Suarez", "Ortega", "Delgado", "Castro", "Ortiz", "Rubio", "Cabrera", "Nieto", "Reyes", "Mendez", "Iglesias", "Guerrero", "Santos", "Castillo", "Cortés", "Lozano", "Peña", "Cano", "Prieto", "Cruz", "Calvo", "Gallego", "Herrera", "Marín", "Soto", "Mora", "Esteban", "Parra", "Bravo", "Aguilar", "Pascual", "Vega", "Campos", "Flores", "Vidal", "Carrasco", "Fuentes", "Caballero", "Diez", "Rey", "Núñez", "León", "Carrillo", "Merino", "Peinado", "Redondo", "Rojas", "Soria", "Rivas", "Paredes", "Crespo", "Bueno", "Galán", "Moya", "Villar", "Sanz", "Peralta"};
 
         for (int i = 1; i <= 123; i++) {
             Cliente cliente = new Cliente(
@@ -154,6 +154,8 @@ public class DatabaseInit implements ApplicationRunner {
             Veterinario veterinario = new Veterinario(
                 "Carlos" + i,
                 "Gutierrez" + i,
+                "CarlosUsername" + i,
+                "CarlosPassword" + i,
                 "Cirujano" + i,
                 Long.parseLong("90000" + i),
                 "bettervet" + i + "@lovet.com"

@@ -31,7 +31,7 @@ public class Veterinario {
     
     
     public Veterinario(Long id, String nombres, String apellidos, String userName, String password, String especialidad,
-            Long numeroContacto, String correo, Set<Tratamiento> tratamientos) {
+            Long numeroContacto, String correo) {
         this.id = id;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -40,11 +40,10 @@ public class Veterinario {
         this.especialidad = especialidad;
         this.numeroContacto = numeroContacto;
         this.correo = correo;
-        this.tratamientos = tratamientos;
     }    
 
     public Veterinario(String nombres, String apellidos, String userName, String password, String especialidad,
-            Long numeroContacto, String correo, Set<Tratamiento> tratamientos) {
+            Long numeroContacto, String correo) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.userName = userName;
@@ -52,7 +51,6 @@ public class Veterinario {
         this.especialidad = especialidad;
         this.numeroContacto = numeroContacto;
         this.correo = correo;
-        this.tratamientos = tratamientos;
     }
 
     public Veterinario(Long id, String nombres, String apellidos, String especialidad, Long numeroContacto, String correo, Set<Tratamiento> tratamientos) {
