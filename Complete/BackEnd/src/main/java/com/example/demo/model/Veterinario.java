@@ -30,6 +30,31 @@ public class Veterinario {
 
     
     
+    public Veterinario(Long id, String nombres, String apellidos, String userName, String password, String especialidad,
+            Long numeroContacto, String correo, Set<Tratamiento> tratamientos) {
+        this.id = id;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.userName = userName;
+        this.password = password;
+        this.especialidad = especialidad;
+        this.numeroContacto = numeroContacto;
+        this.correo = correo;
+        this.tratamientos = tratamientos;
+    }    
+
+    public Veterinario(String nombres, String apellidos, String userName, String password, String especialidad,
+            Long numeroContacto, String correo, Set<Tratamiento> tratamientos) {
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.userName = userName;
+        this.password = password;
+        this.especialidad = especialidad;
+        this.numeroContacto = numeroContacto;
+        this.correo = correo;
+        this.tratamientos = tratamientos;
+    }
+
     public Veterinario(Long id, String nombres, String apellidos, String especialidad, Long numeroContacto, String correo, Set<Tratamiento> tratamientos) {
         this.id = id;
         this.nombres = nombres;
@@ -85,6 +110,22 @@ public class Veterinario {
 
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEspecialidad() {

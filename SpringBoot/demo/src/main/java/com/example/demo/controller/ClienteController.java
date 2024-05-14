@@ -143,7 +143,7 @@ public class ClienteController {
         } else {
             // No es necesario el uso de model aquí, RedirectAttributes puede manejar esto.
             redirectAttributes.addFlashAttribute("error", "Usuario o contraseña incorrectos");
-            return "redirect:/clientes/login"; // Asegúrate de tener una ruta mapeada para "/login" que muestre la página de login.
+            return "redirect:/login"; // Asegúrate de tener una ruta mapeada para "/login" que muestre la página de login.
         }
     }
     

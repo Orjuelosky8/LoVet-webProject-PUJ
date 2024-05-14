@@ -12,7 +12,7 @@
                 <form (ngSubmit)="login()">
                     <div class="form-group">
                         <label for="userName">Nombre de Usuario</label>
-                        <input type="text" id="userName" class="form-control input-field" [(ngModel)]="userName" placeholder="Escribe tu nombre de usuario aqui..." name="userName"
+                        <input type="text" id="userName" class="form-control input-field" [(ngModel)]="username" placeholder="Escribe tu nombre de usuario aqui..." name="userName"
                             required>
                     </div>
                     <div class="form-group">
@@ -27,5 +27,105 @@
         </div>
     </div>
 
-    <section style="height: 30px;"></section>
+    <div class="container-form register">
+        <div class="information">
+            <div class="info-childs">
+                <h2>Bienvenido</h2>
+                <p>Para unirte a nuestra comunidad por favor Inicia Sesión con tus datos</p>
+                <input type="button" value="Iniciar Sesión" id="sign-in">
+            </div>
+        </div>
+        <div class="form-information">
+            <div class="form-information-childs">
+                <h2>Crear una Cuenta</h2>
+                <div class="icons">
+                    <i class='bx bxl-google'></i>
+                    <i class='bx bxl-github'></i>
+                    <i class='bx bxl-linkedin' ></i>
+                </div>
+                <p>o usa tu email para registrarte</p>
+                <form class="form form-register" novalidate>
+                    <div>
+                        <label>
+                            <i class='bx bx-user' ></i>
+                            <input type="text" placeholder="Nombre Usuario" name="userName" >
+                        </label>
+                    </div>
+                    <div>
+                        <label >
+                            <i class='bx bx-envelope' ></i>
+                            <input type="email" placeholder="Correo Electronico" name="userEmail" >
+                        </label>
+                    </div>
+                   <div>
+                        <label>
+                            <i class='bx bx-lock-alt' ></i>
+                            <input type="password" placeholder="Contraseña" name="userPassword">
+                        </label>
+                   </div>
+                   
+                    <input type="submit" value="Registrarse">
+                    <div class="alerta-error">Todos los campos son obligatorios</div>
+                    <div class="alerta-exito">Te registraste correctamente</div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-form login hide">
+        <div class="information">
+            <div class="info-childs">
+                <h2>¡¡Bienvenido nuevamente!!</h2>
+                <p>Para unirte a nuestra comunidad por favor Inicia Sesión con tus datos</p>
+                <input type="button" value="Registrarse" id="sign-up">
+            </div>
+        </div>
+        <div class="form-information">
+            <div class="form-information-childs">
+                <h2>Iniciar Sesión</h2>
+                <div class="icons">
+                    <i class='bx bxl-google'></i>
+                    <i class='bx bxl-github'></i>
+                    <i class='bx bxl-linkedin' ></i>
+                </div>
+                <p>o Iniciar Sesión con una cuenta</p>
+                <form class="form form-login"novalidate>
+                    <div>
+                        <label >
+                            <i class='bx bx-envelope' ></i>
+                            <input type="email" placeholder="Correo Electronico" name="userPassword">
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <i class='bx bx-lock-alt' ></i>
+                            <input type="password" placeholder="Contraseña" name="userPassword">
+                        </label>
+                    </div>
+                    <input type="submit" value="Iniciar Sesión">
+                    <div class="alerta-error">Todos los campos son obligatorios</div>
+                    <div class="alerta-exito">Te registraste correctamente</div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const btnSignIn = document.getElementById("sign-in"),
+        btnSignUp = document.getElementById("sign-up"),
+        containerFormRegister = document.querySelector(".register"),
+        containerFormLogin = document.querySelector(".login");
+
+        btnSignIn.addEventListener("click", e => {
+            containerFormRegister.classList.add("hide");
+            containerFormLogin.classList.remove("hide")
+        })
+
+
+        btnSignUp.addEventListener("click", e => {
+            containerFormLogin.classList.add("hide");
+            containerFormRegister.classList.remove("hide")
+        })
+    </script>
 <app-footer></app-footer>
