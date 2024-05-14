@@ -29,8 +29,8 @@ public class ExcelLoadService {
         logger.debug("\n\n   ENTRE FUNCION LOADING. *******************************************************");
         List<Medicamento> meds = new ArrayList<>();
         logger.debug("\n\n   DECLARE LISTA MEDS. *******************************************************");
-        // Resource resource = new FileSystemResource("D:\\Apps Programación\\medicamentos.xlsx");
-        Resource resource = new FileSystemResource("C:\\Users\\estudiante\\Desktop\\Web\\medicamentos.xlsx");
+        Resource resource = new FileSystemResource("D:\\Apps Programación\\medicamentos.xlsx");
+        // Resource resource = new FileSystemResource("C:\\Users\\estudiante\\Desktop\\Web\\medicamentos.xlsx");
         InputStream is = resource.getInputStream();
         logger.debug("\n\n   RECIBI EL ARCCHIVO. *******************************************************");
         try {
