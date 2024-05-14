@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,24 +42,41 @@ public class AuthController {
     private UserDetailsService userDetailsService;
     // private CustomUserDetailsService userDetailsService;
 
+    // @PostMapping("/authenticate")
+    // public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
+    //     logger.debug("\n\n //////////// AUTENTICANDO...");
+    //     logger.debug("\n\n //////////// "+ authenticationRequest.getUsername()+  "..." + authenticationRequest.getPassword());
+    //     authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
+    //     final UserDetails userDetails = userDetailsService
+    //         .loadUserByUsername(authenticationRequest.getUsername());
+
+    //     logger.debug("\n\n //////////// AUTENTICADOOOO... :D");
+        
+    //     // final String token = jwtTokenUtil.generateToken(userDetails);
+    //     // logger.debug("\n\n //////////// asignamos tokensito... :D");
+
+    //     // return ResponseEntity.ok(new JwtResponse(token));
+    //     return ResponseEntity.ok()
+    //                      .contentType(MediaType.APPLICATION_JSON)
+    //                      .body("{\"message\": \"Autenticación exitosa para el usuario: " + userDetails.getUsername() + "\"}");
+    // }
     @PostMapping("/authenticate")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
-        logger.debug("\n\n //////////// AUTENTICANDO...");
-        logger.debug("\n\n //////////// "+ authenticationRequest.getUsername()+  "..." + authenticationRequest.getPassword());
         authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
-        final UserDetails userDetails = userDetailsService
-            .loadUserByUsername(authenticationRequest.getUsername());
+        UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
+        String role = userDetails.getAuthorities().stream()
+                                .findFirst()
+                                .map(GrantedAuthority::getAuthority)
+                                .orElse("ROLE_UNKNOWN");
 
-        logger.debug("\n\n //////////// AUTENTICADOOOO... :D");
-        
-        // final String token = jwtTokenUtil.generateToken(userDetails);
-        // logger.debug("\n\n //////////// asignamos tokensito... :D");
+        String body = String.format("{\"message\": \"Autenticación exitosa para el usuario: %s\", \"role\": \"%s\"}",
+                                    userDetails.getUsername(), role);
 
-        // return ResponseEntity.ok(new JwtResponse(token));
         return ResponseEntity.ok()
-                         .contentType(MediaType.APPLICATION_JSON)
-                         .body("{\"message\": \"Autenticación exitosa para el usuario: " + userDetails.getUsername() + "\"}");
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .body(body);
     }
+
 
     private void authenticate(String username, String password) throws Exception {
         try {

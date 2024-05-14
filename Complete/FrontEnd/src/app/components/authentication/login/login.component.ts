@@ -45,10 +45,10 @@ export class LoginComponent {
   login() {
     this.authService.login(this.username, this.password).subscribe({
       next: (user) => {
-        // alert('Login exitoso :)');
+        alert('Login exitoso :)');
         Swal.fire({
           icon: "success",
-          title: "Login Exitoso, bienvenido!",
+          title: "Login Exitoso, bienvenido!" + user.role,
           showConfirmButton: false,
           timer: 2000
         });
