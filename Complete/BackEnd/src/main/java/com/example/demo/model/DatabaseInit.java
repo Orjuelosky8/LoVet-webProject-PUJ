@@ -13,6 +13,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Controller;
 
+import com.example.demo.repository.AdminRepository;
 import com.example.demo.repository.ClienteRepository;
 import com.example.demo.repository.CourseRepository;
 import com.example.demo.repository.HomeWorkRepository;
@@ -57,6 +58,9 @@ public class DatabaseInit implements ApplicationRunner {
 
     @Autowired
     TratamientoRepository tratamientoRepository;
+
+    @Autowired
+    AdminRepository adminRepository;
 
     private static final Logger logger = LoggerFactory.getLogger(MedicamentoService.class);
 
@@ -165,6 +169,19 @@ public class DatabaseInit implements ApplicationRunner {
                 "bettervet" + i + "@lovet.com"
             );
             veterinarioRepository.save(veterinario);
+        }
+        // GENERACION DE ADMINS
+        for (int i = 1; i <= 123; i++) {
+            Admin admin = new Admin(
+                "Laura" + i,
+                "Triana" + i,
+                "LauraUsername" + i,
+                "LauraPassword" + i,
+                "Cirujano" + i,
+                "1234"+i,
+                "bettervet" + i + "@lovet.com"
+            );
+            adminRepository.save(admin);
         }
         
         /* 
