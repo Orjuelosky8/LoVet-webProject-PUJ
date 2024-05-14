@@ -21,7 +21,14 @@
                     <td style="overflow-x: auto;">{{ cliente.correoElectronico }}</td> 
                     <td>{{ cliente.telefono }}</td>
                     <td>
-                        <a [routerLink]="['/clientes', cliente.id]" title="Ver mas info"><i class="fa-solid fa-circle-info"></i></a>
+                        <a [routerLink]="['/cliente', cliente.id]">
+                            <i class="fa-solid fa-circle-info"></i>
+                          </a>
+                        <a (click)="eliminarCliente(cliente)"><i class="fa-solid fa-trash"></i></a>
+                        
+                        <a [routerLink]="['/clientes/editar', cliente.id]">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                          </a>
                         
                     </td>
                     

@@ -22,7 +22,13 @@
                     <td style="display: flex; justify-content: center; align-items: center; padding: 4px;"><img src="{{mascota.imagen}}" width="100px" height="100px"/></td>
                     <td style="color: brown;">{{mascota.estado}}</td>
                     <td>
-                        <a [routerLink]="['/mascota', mascota.id]" title="Ver mas info"><i class="fa-solid fa-circle-info"></i></a>
+                        <a [routerLink]="['/mascota', mascota.id]">
+                            <i class="fa-solid fa-circle-info"></i>
+                          </a>
+                        <a (click)="eliminarMascota(mascota)"><i class="fa-solid fa-trash"></i></a>
+                        <a [routerLink]="['/mascotas/editar', mascota.id]">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                          </a>
                         
                     </td>
                     

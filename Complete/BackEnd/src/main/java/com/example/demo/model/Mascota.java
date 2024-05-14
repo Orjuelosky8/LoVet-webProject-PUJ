@@ -23,6 +23,15 @@ public class Mascota {
     private int permanencia;
     private int altura;
     private int peso;
+    private String estado;
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
     private String antecedentes;
 
     @Id
@@ -33,7 +42,7 @@ public class Mascota {
     @ManyToOne
     private Cliente cliente;    
 
-    public Mascota( Long id, String nombre, String raza, int edad, String imagen, int permanencia, int altura, int peso, String antecedentes) {
+    public Mascota( Long id, String nombre, String raza, int edad, String imagen, int permanencia, int altura, int peso, String estado,String antecedentes) {
         this.id = id;
         this.nombre = nombre;
         this.raza = raza;
@@ -42,10 +51,11 @@ public class Mascota {
         this.permanencia = permanencia;
         this.altura = altura;
         this.peso = peso;
+        this.estado = estado;
         this.antecedentes = antecedentes;
     }
 
-    public Mascota( String nombre, String raza, int edad, String imagen, int permanencia, int altura, int peso, String antecedentes) {
+    public Mascota( String nombre, String raza, int edad, String imagen, int permanencia, int altura, int peso, String estado,String antecedentes) {
         this.nombre = nombre;
         this.raza = raza;
         this.edad = edad;
@@ -53,6 +63,7 @@ public class Mascota {
         this.permanencia = permanencia;
         this.altura = altura;
         this.peso = peso;
+        this.estado = estado;
         this.antecedentes = antecedentes;
     }
 

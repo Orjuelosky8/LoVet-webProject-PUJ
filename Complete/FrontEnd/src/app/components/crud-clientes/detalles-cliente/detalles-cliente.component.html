@@ -5,32 +5,30 @@
     <div id="headerXSection">
         <h1 class="sectionTitles" data-text="Mis Mascotas"></h1>
         <h4>
-            ¡Bienvenid@ {{ cliente?.nombres }} {{ cliente?.apellidos }} ! <br> Estas son las mascotas que tienes
+            ¡Bienvenid@ {{ cliente.nombres }} {{ cliente.apellidos }} ! <br> Estas son las mascotas que tienes
             registradas:
         </h4>
     </div>
 
     <div style="display: flex;">
-        <div *ngIf="!loading; else loadingTemplate" style="width: 50%;">
+        <div  style="width: 50%;">
             <br>
             <h2 style="padding-left: 20px;">Esta es tu Informacion Registrada en nuestro sistema:</h2>
             <br>
             <ul>
-                <li>Nombre: {{ cliente?.nombres }} {{ cliente?.apellidos }}</li>
-                <li>Usuario: {{ cliente?.userName }}</li>
-                <li>Correo: {{ cliente?.correoElectronico }}</li>
-                <li>Telef.: {{ cliente?.telefono }}</li>
-                <li>Telef. Aux.: {{ cliente?.telefonoAux }}</li>
+                <li>Nombre: {{ cliente.nombres }} {{ cliente.apellidos }}</li>
+                <li>Usuario: {{ cliente.userName }}</li>
+                <li>Correo: {{ cliente.correoElectronico }}</li>
+                <li>Telef.: {{ cliente.telefono }}</li>
+                <li>Telef. Aux.: {{ cliente.telefonoAux }}</li>
             </ul>
         </div>
     
-        <ng-template #loadingTemplate>
-            <p>Cargando detalles del cliente...</p>
-        </ng-template>
+        
     
         <h3 style="padding-left: 100px;">Mascotas:</h3>
-        <div *ngIf="mascotas && mascotas.length" class="cardsPets">
-            <div *ngFor="let mascota of mascotas" class="cardPet">
+        <div  class="cardsPets">
+            <div *ngFor="let mascota of cliente.mascotasIds" class="cardPet">
                 <img [src]="mascota.imagen" width="100px" alt="Imagen de la mascota">
                 <h3>{{ mascota.nombre }}</h3>
                 <p><span>Raza: </span><span>{{ mascota.raza }}</span></p>

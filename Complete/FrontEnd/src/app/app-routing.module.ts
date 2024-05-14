@@ -4,6 +4,7 @@ import { ListaMascotasComponent } from './components/crud-mascotas/lista-mascota
 import { CrearMascotaComponent } from './components/crud-mascotas/crear-mascota/crear-mascota.component';
 import { DetallesMascotaComponent } from './components/crud-mascotas/detalles-mascota/detalles-mascota.component';
 import { LandingPageComponent } from './components/home/landing-page/landing-page.component';
+import { EditarMascotaComponent } from './components/crud-mascotas/editar-mascota/editar-mascota/editar-mascota.component';
 import { ServiciosComponent } from './components/home/servicios/servicios.component';
 import { PersonalComponent } from './components/home/personal/personal.component';
 import { ListaClientesComponent } from './components/crud-clientes/lista-clientes/lista-clientes.component';
@@ -13,6 +14,7 @@ import { ListVeterinariosComponent } from './components/crud-veterinario/lista-v
 import { ListTratamientosComponent } from './components/crud-tratamiento/lista-tratamientos/list-tratamientos/list-tratamientos.component';
 import { LoginComponent } from './components/authentication/login/login.component';
 import { AddTratamientoComponent } from './components/crud-tratamiento/add-tratamiento/add-tratamiento/add-tratamiento.component';
+import { EditarClienteComponent } from './components/crud-clientes/editar-cliente/editar-cliente/editar-cliente.component';
 //import { LogupComponent } from './components/authentication/logup/logup.component';
 // Importa otros componentes que necesitas para las rutas
 
@@ -26,9 +28,11 @@ const routes: Routes = [
   { path: 'veterinarios', component: ListVeterinariosComponent },
   { path: 'tratamientos', component: ListTratamientosComponent },
   { path: 'mascotas/agregar', component: CrearMascotaComponent },
-  { path: 'mascota/:idMascota', component: DetallesMascotaComponent },
+  { path: 'mascota/:id', component: DetallesMascotaComponent },
   { path: 'clientes', component: ListaClientesComponent },
   { path: 'cliente/:id', component: DetallesClienteComponent },
+  { path: 'clientes/editar/:id', component: EditarClienteComponent},
+  { path: 'mascotas/editar/:id', component: EditarMascotaComponent},
   // { path: 'clientes/mascotas/:id', component: DetallesClienteComponent },
   { path: 'Personal', component: PersonalComponent },
   { path: 'tratamientos/add', component: AddTratamientoComponent },

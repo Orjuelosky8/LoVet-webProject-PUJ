@@ -33,6 +33,8 @@ import { ListTratamientosComponent } from './components/crud-tratamiento/lista-t
 import { ListVeterinariosComponent } from './components/crud-veterinario/lista-veterinarios/list-veterinarios/list-veterinarios.component';
 import { NavBarVetsComponent } from './components/home/nav-bar-vets/nav-bar-vets.component';
 import { AddTratamientoComponent } from './components/crud-tratamiento/add-tratamiento/add-tratamiento/add-tratamiento.component';
+import { EditarMascotaComponent } from './components/crud-mascotas/editar-mascota/editar-mascota/editar-mascota.component';
+import { EditarClienteComponent } from './components/crud-clientes/editar-cliente/editar-cliente/editar-cliente.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { AddTratamientoComponent } from './components/crud-tratamiento/add-trata
     ListTratamientosComponent,
     ListVeterinariosComponent,
     NavBarVetsComponent,
-    AddTratamientoComponent
+    AddTratamientoComponent,
+    EditarMascotaComponent,
+    EditarClienteComponent
   ],
   imports: [
     BrowserModule,
