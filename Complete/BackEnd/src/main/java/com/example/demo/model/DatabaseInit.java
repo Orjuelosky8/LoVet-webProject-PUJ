@@ -173,16 +173,20 @@ public class DatabaseInit implements ApplicationRunner {
         // GENERACION DE ADMINS
         for (int i = 1; i <= 123; i++) {
             Admin admin = new Admin(
-                "Laura" + i,
-                "Triana" + i,
                 "LauraUsername" + i,
                 "LauraPassword" + i,
+                "Laura" + i,
+                "Triana" + i,
                 "Cirujano" + i,
                 "1234"+i,
                 "bettervet" + i + "@lovet.com"
             );
             adminRepository.save(admin);
         }
+        Admin admin = new Admin(
+                "LAURA", "LAURA", "Joaquin", "Joaquin", "Joaquin", "1", "2"
+            );
+        adminRepository.save(admin);
         
         /* 
         //Generacion de estudiantes
