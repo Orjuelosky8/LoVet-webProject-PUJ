@@ -52,8 +52,17 @@ export class LoginComponent {
           showConfirmButton: false,
           timer: 2000
         });
-        // Redireccionar a la página de inicio o dashboard, por ejemplo
-        this.router.navigate(['/Servicios']);
+        
+        if(user.role === "ROLE_ADMIN"){
+          this.router.navigate(['/veterinarios']);
+        }else if(user.role === "ROLE_VETERINARIO"){
+          this.router.navigate(['/mascotas']);
+        }else if(user.role === "ROLE_CLIENTE"){
+          this.router.navigate(['/Servicios']);
+        } else{
+          alert("Credenciales validas pero error al cargar rango.")
+          this.router.navigate(['/login']);
+        }
       },
       error: (error) => {
         Swal.fire({

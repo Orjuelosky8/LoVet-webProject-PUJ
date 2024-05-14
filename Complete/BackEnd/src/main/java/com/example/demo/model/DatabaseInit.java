@@ -84,6 +84,10 @@ public class DatabaseInit implements ApplicationRunner {
             );
             clienteRepository.save(cliente);
         }
+        Cliente cliente = new Cliente(
+                "Joaquin", "Joaquin", "Joaquin", "Joaquin", "Joaquin", "1", "2"
+            );
+        clienteRepository.save(cliente);
 
         String[] imagenes = {"https://img.freepik.com/fotos-premium/lindo-perro-posando-aislado-sobre-fondo-hermoso_639785-1155.jpg",
         "https://www.zooplus.es/magazine/wp-content/uploads/2023/07/Bergamasco.jpg", "https://www.zooplus.es/magazine/wp-content/uploads/2023/05/Bedlington-terrier.jpeg",
