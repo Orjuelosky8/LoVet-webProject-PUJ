@@ -11,7 +11,7 @@ import org.springframework.security.web.header.writers.StaticHeadersWriter;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.userdetails.UserDetailsService;
-
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
 @SuppressWarnings("deprecation")
@@ -65,14 +65,17 @@ public class SecurityConfig {
         return http.build();
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
-    }
+    // Loggea pero no encripta
     // @Bean
     // public PasswordEncoder passwordEncoder() {
-    // return new BCryptPasswordEncoder();
+    //     return NoOpPasswordEncoder.getInstance();
     // }
+
+    // Encripta pero no loggea
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
     @Bean
     public AuthenticationManager authManager(HttpSecurity http) throws Exception {

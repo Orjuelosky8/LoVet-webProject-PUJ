@@ -19,7 +19,7 @@ public class Rol {
 
     private String userName;
 
-    private Rol(String userName){
+    public Rol(String userName){
         this.userName = userName;
     }
 }

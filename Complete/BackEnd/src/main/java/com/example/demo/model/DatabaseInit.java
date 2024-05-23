@@ -11,16 +11,19 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 
 import com.example.demo.repository.AdminRepository;
 import com.example.demo.repository.ClienteRepository;
 import com.example.demo.repository.MascotaRepository;
 import com.example.demo.repository.TratamientoRepository;
+import com.example.demo.repository.UserRepository;
 import com.example.demo.repository.VeterinarioRepository;
 import com.example.demo.service.ExcelLoadService;
 import com.example.demo.service.MedicamentoService;
 import com.example.demo.repository.MedsRepository;
+import com.example.demo.repository.RolRepository;
 
 import jakarta.transaction.Transactional;
 
@@ -58,6 +61,15 @@ public class DatabaseInit implements ApplicationRunner {
     @Autowired
     AdminRepository adminRepository;
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
+    @Autowired
+    RolRepository rolRepository;
+
+    @Autowired
+    UserRepository userRepository;
+
     private static final Logger logger = LoggerFactory.getLogger(MedicamentoService.class);
 
 
@@ -68,6 +80,13 @@ public class DatabaseInit implements ApplicationRunner {
 
         //Pnemos una semilla para los datos random
         Random random = new Random(42);
+
+        rolRepository.save(new Rol("ADMIN"));
+        rolRepository.save(new Rol("VETERINARIO"));
+        rolRepository.save(new Rol("CLIENTE"));
+
+        Admin adminSave;
+        UserEntity userEntity;
 
         String[] nombrePersonas = {"Antonio", "Arturo", "Armando", "Alissa", "Ana", "Adán", "Azul", "Bárbara", "Bastidas", "Bartolomé", "Betzaida", "Betania", "Berta", "Bernarda", "Carlos", "Castillo", "Costa", "Celeste", "Cindy", "Cecilia", "Carmona", "Constantino", "Edgardo", "Fátima", "Florencia", "Fausto", "Fernando", "Francisco", "Franyer", "Gerardo", "Gustavo", "Gabriela", "González", "Guzmán", "Juan", "José", "Jacinto", "Juvenal", "Julián", "Juliana", "Jesús", "Julio", "Luis", "López", "Luisana", "Maria", "Marcos", "Mariana", "Montenegro", "Rodriguez", "Rosa", "Ricardo", "Rebeca", "Raúl", "Renata", "Roberto", "Roxana", "Ramón", "Rosario", "Rubén", "Rita", "Rafael", "Romina", "Rodrigo", "Regina", "Rolando", "Ruth", "Rogelio", "Rosita", "Rafaela", "Ricardina"};
         String[] apellidos = { "Garcia", "Gonzalez", "Rodriguez", "Fernández", "Lopez", "Martinez", "Sanchez", "Perez", "Gomez", "Martin", "Jiménez", "Ruiz", "Hernández", "Diaz", "Moreno", "Muñoz", "Álvarez", "Romero", "Alonso", "Gutiérrez", "Navarro", "Torres", "Domínguez", "Vázquez", "Ramos", "Gil", "Ramírez", "Serrano", "Blanco", "Molina", "Morales", "Suarez", "Ortega", "Delgado", "Castro", "Ortiz", "Rubio", "Cabrera", "Nieto", "Reyes", "Mendez", "Iglesias", "Guerrero", "Santos", "Castillo", "Cortés", "Lozano", "Peña", "Cano", "Prieto", "Cruz", "Calvo", "Gallego", "Herrera", "Marín", "Soto", "Mora", "Esteban", "Parra", "Bravo", "Aguilar", "Pascual", "Vega", "Campos", "Flores", "Vidal", "Carrasco", "Fuentes", "Caballero", "Diez", "Rey", "Núñez", "León", "Carrillo", "Merino", "Peinado", "Redondo", "Rojas", "Soria", "Rivas", "Paredes", "Crespo", "Bueno", "Galán", "Moya", "Villar", "Sanz", "Peralta"};
@@ -184,12 +203,19 @@ public class DatabaseInit implements ApplicationRunner {
         //     );
         // adminRepository.save(admin);
 
-        Admin adminEntity = Admin.builder().userName("Lau1").nombres("Laura").apellidos("Sofia").correoElectronico("lauras@gmail.com").password("lau123").telefono("911").telefonoAux("119").build();
-        adminRepository.save(adminEntity);
-        adminEntity = Admin.builder().userName("Lau2").nombres("Lauraa").apellidos("Sofiaa").correoElectronico("lauraas@gmail.com").password("laau123").telefono("911").telefonoAux("119").build();
-        adminRepository.save(adminEntity);
-        adminEntity = Admin.builder().userName("Lau3").nombres("Lauraaa").apellidos("Sofiaaa").correoElectronico("lauraaas@gmail.com").password("laaau123").telefono("911").telefonoAux("119").build();
-        adminRepository.save(adminEntity);
+        adminSave = Admin.builder().userName("Lau1").nombres("Laura").apellidos("Sofia").correoElectronico("lauras@gmail.com").password("lau123").telefono("911").telefonoAux("119").build();
+        userEntity = saveUserAdmin(adminSave);
+        adminSave.setUser(userEntity);
+        adminRepository.save(adminSave);
+        adminSave = Admin.builder().userName("Lau2").nombres("Lauraa").apellidos("Sofiaa").correoElectronico("lauraas@gmail.com").password("laau123").telefono("911").telefonoAux("119").build();
+        userEntity = saveUserAdmin(adminSave);
+        adminSave.setUser(userEntity);
+        adminRepository.save(adminSave);
+        adminSave = Admin.builder().userName("Lau3").nombres("Lauraaa").apellidos("Sofiaaa").correoElectronico("lauraaas@gmail.com").password("laaau123").telefono("911").telefonoAux("119").build();
+        userEntity = saveUserAdmin(adminSave);
+        adminSave.setUser(userEntity);
+        adminRepository.save(adminSave);
+        // adminRepository.save(adminSave);
         /* 
         //Generacion de estudiantes
         studentRepository.save(new Student("Sebastian Angarita","Sistemas",3,"juseanto@javeriana.edu.co"));
@@ -273,6 +299,15 @@ public class DatabaseInit implements ApplicationRunner {
         }
 
         logger.debug("\n\n   tratamiento 1/2. *******************************************************" + tratamientoRepository.findAll().get(2).getMascota().getNombre() + "\n\n");
+    }
+
+    private UserEntity saveUserAdmin(Admin admin){
+        UserEntity userEntity = new UserEntity();
+        userEntity.setUserName(admin.getUserName());
+        userEntity.setPassword(passwordEncoder.encode(admin.getPassword()));
+        Rol roles = rolRepository.findByUserName("ADMIN").get();
+        userEntity.setRoles(List.of(roles));
+        return userRepository.save(userEntity);
     }
 
 }
