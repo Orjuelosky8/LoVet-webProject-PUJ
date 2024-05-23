@@ -40,7 +40,7 @@ public class SecurityConfig {
         http    
                 .csrf(csrf -> csrf.disable())
                 .authorizeRequests(authz -> authz
-                        .requestMatchers("/**").permitAll()
+                        .requestMatchers("/**", "/h2-console/**").permitAll()
                         // .requestMatchers("/Servicios", "/Personal").hasAuthority("ROLE_CLIENTE")
                         // .requestMatchers("/clientes/**", "/mascotas/**").hasAuthority("ROLE_VETERINARIO")
                         // .requestMatchers("/veterinarios/**").hasAuthority("ROLE_ADMIN")
@@ -51,6 +51,11 @@ public class SecurityConfig {
                         .defaultSuccessUrl("/", true)
                         .permitAll())
                 .logout(logout -> logout.permitAll());
+        
+                // Permitir que la consola H2 se ejecute en un iframe y deshabilitar CSRF para H2
+        http.headers(headers -> headers
+        .frameOptions().sameOrigin()  // Permitir que se muestre en marcos del mismo dominio
+);
 
         return http.build();
     }
