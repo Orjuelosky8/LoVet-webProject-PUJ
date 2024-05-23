@@ -15,11 +15,7 @@ import org.springframework.stereotype.Controller;
 
 import com.example.demo.repository.AdminRepository;
 import com.example.demo.repository.ClienteRepository;
-import com.example.demo.repository.CourseRepository;
-import com.example.demo.repository.HomeWorkRepository;
 import com.example.demo.repository.MascotaRepository;
-import com.example.demo.repository.StudentRepository;
-import com.example.demo.repository.TeacherRepository;
 import com.example.demo.repository.TratamientoRepository;
 import com.example.demo.repository.VeterinarioRepository;
 import com.example.demo.service.ExcelLoadService;
@@ -94,7 +90,7 @@ public class DatabaseInit implements ApplicationRunner {
         clienteRepository.save(cliente);
 
         String[] imagenes = {"https://img.freepik.com/fotos-premium/lindo-perro-posando-aislado-sobre-fondo-hermoso_639785-1155.jpg",
-        "https://www.zooplus.es/magazine/wp-content/uploads/2023/07/Bergamasco.jpg", "https://www.zooplus.es/magazine/wp-content/uploads/2023/05/Bedlington-terrier.jpeg",
+        "http://localhost:8090/Jazz.jpg",
     "https://www.zooplus.es/magazine/wp-content/uploads/2022/10/Beauceron.jpeg","https://www.zooplus.es/magazine/wp-content/uploads/2023/12/Beagle-harrier.jpg",
 "https://www.zooplus.es/magazine/wp-content/uploads/2017/10/Beagle-1.jpeg","https://www.zooplus.es/magazine/wp-content/uploads/2024/03/Basset-leonado-de-Bretana-768x512.jpeg",
 "https://www.zooplus.es/magazine/wp-content/uploads/2021/06/Basset-hound.jpg", "https://www.zooplus.es/magazine/wp-content/uploads/2023/04/Basenji.jpg",
@@ -109,8 +105,8 @@ public class DatabaseInit implements ApplicationRunner {
 "https://www.zooplus.es/magazine/wp-content/uploads/2023/07/Bloodhound.jpg", "https://www.zooplus.es/magazine/wp-content/uploads/2023/07/Black-and-tan-coonhound.jpeg", "https://www.zooplus.es/magazine/wp-content/uploads/2020/01/bich%C3%B3n-maltes-768x510.jpeg"
 ,"https://www.zooplus.es/magazine/wp-content/uploads/2021/09/Bichon-habanero.jpg", "https://www.zooplus.es/magazine/wp-content/uploads/2020/08/Bich%C3%B3n-fris%C3%A9.jpg", "https://www.zooplus.es/magazine/wp-content/uploads/2021/11/Bernedoodle-768x512.jpeg", 
 "https://www.zooplus.es/magazine/wp-content/uploads/2023/07/Berger-picard.jpeg", "https://www.zooplus.es/magazine/wp-content/uploads/2023/07/Bergamasco.jpg"};
-        String[] nombrePerros = {"Max", "Luna", "Rocky", "Bella", "Coco", "Charlie", "Daisy", "Bailey", "Lucy", "Toby", "Sadie", "Milo", "Zoe", "Leo", "Ruby", "Rosie", "Oscar", "Chloe", "Riley", "Molly", "Bear", "Lola", "Buddy", "Stella", "Harley", "Gizmo", "Sophie", "Zeus", "Maggie", "Oliver", "Penny", "Winston", "Gracie", "Sammy", "Lucky", "Hazel", "Finn", "Cleo", "Rusty", "Nala"};
-        String[] razas = {"Terrier", "Beagle", "Schnauzer", "Pitbull", "Golden", "Chihuahua", "Labrador", "Dálmata", "Bulldog",  "Jack Russell Terrier","Pastor Alemán", "Fox Terrier Toy", "Yorkshire Terrier", "Chihuahua", "Akita Inu", "Labrador Retriever", "Bulldog", "Bóxer", "Border Terrier", "Boyero de Berna", "Spitz Japonés", "Bichón Boloñés", "West Highland White Terrier (Westy)", "Cairn Terrier", "Skye Terrier"};
+        String[] nombrePerros = {"Max", "Jazz", "Luna", "Rocky", "Bella", "Coco", "Charlie", "Daisy", "Bailey", "Lucy", "Toby", "Sadie", "Milo", "Zoe", "Leo", "Ruby", "Rosie", "Oscar", "Chloe", "Riley", "Molly", "Bear", "Lola", "Buddy", "Stella", "Harley", "Gizmo", "Sophie", "Zeus", "Maggie", "Oliver", "Penny", "Winston", "Gracie", "Sammy", "Lucky", "Hazel", "Finn", "Cleo", "Rusty", "Nala"};
+        String[] razas = {"Terrier", "Criolla", "Beagle", "Schnauzer", "Pitbull", "Golden", "Chihuahua", "Labrador", "Dálmata", "Bulldog",  "Jack Russell Terrier","Pastor Alemán", "Fox Terrier Toy", "Yorkshire Terrier", "Chihuahua", "Akita Inu", "Labrador Retriever", "Bulldog", "Bóxer", "Border Terrier", "Boyero de Berna", "Spitz Japonés", "Bichón Boloñés", "West Highland White Terrier (Westy)", "Cairn Terrier", "Skye Terrier"};
         String[] problemas = {"Higiene bucal", "Displasia de cadera", "Glandulas oculares", "Sarna de la piel", "Rotura de pata izquierda posterior", "Ingesta de plásticos", "Alergias", "Problemas de corazón", "Ansiedad", "Sobrepeso"
         , "Parvovirus", "Moquillo", "Hepatitis canina", "Leptospirosis", "Rabia", "Brucelosis", "Borreliosis canina", "Traqueobronquitis infecciosa", "Coronavirus", "Toxoplasmosis", "Otitis", "Conjuntivitis", "Alergias cutáneas", "Gastritis aguda", "Diarrea", "Leishmaniosis", "Insuficiencia renal", "Cálculos urinarios", "Artritis", "Displasia de cadera"};
 
@@ -171,23 +167,29 @@ public class DatabaseInit implements ApplicationRunner {
             veterinarioRepository.save(veterinario);
         }
         // GENERACION DE ADMINS
-        for (int i = 1; i <= 123; i++) {
-            Admin admin = new Admin(
-                "LauraUsername" + i,
-                "LauraPassword" + i,
-                "Laura" + i,
-                "Triana" + i,
-                "Cirujano" + i,
-                "1234"+i,
-                "bettervet" + i + "@lovet.com"
-            );
-            adminRepository.save(admin);
-        }
-        Admin admin = new Admin(
-                "LAURA", "LAURA", "Joaquin", "Joaquin", "Joaquin", "1", "2"
-            );
-        adminRepository.save(admin);
-        
+        // for (int i = 1; i <= 123; i++) {
+        //     Admin admin = new Admin(
+        //         "LauraUsername" + i,
+        //         "LauraPassword" + i,
+        //         "Laura" + i,
+        //         "Triana" + i,
+        //         "Cirujano" + i,
+        //         "1234"+i,
+        //         "bettervet" + i + "@lovet.com"
+        //     );
+        //     adminRepository.save(admin);
+        // }
+        // Admin admin = new Admin(
+        //         "LAURA", "LAURA", "Joaquin", "Joaquin", "Joaquin", "1", "2"
+        //     );
+        // adminRepository.save(admin);
+
+        Admin adminEntity = Admin.builder().userName("Lau1").nombres("Laura").apellidos("Sofia").correoElectronico("lauras@gmail.com").password("lau123").telefono("911").telefonoAux("119").build();
+        adminRepository.save(adminEntity);
+        adminEntity = Admin.builder().userName("Lau2").nombres("Lauraa").apellidos("Sofiaa").correoElectronico("lauraas@gmail.com").password("laau123").telefono("911").telefonoAux("119").build();
+        adminRepository.save(adminEntity);
+        adminEntity = Admin.builder().userName("Lau3").nombres("Lauraaa").apellidos("Sofiaaa").correoElectronico("lauraaas@gmail.com").password("laaau123").telefono("911").telefonoAux("119").build();
+        adminRepository.save(adminEntity);
         /* 
         //Generacion de estudiantes
         studentRepository.save(new Student("Sebastian Angarita","Sistemas",3,"juseanto@javeriana.edu.co"));

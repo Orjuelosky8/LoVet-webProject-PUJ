@@ -3,7 +3,6 @@ package com.example.demo.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Admin;
@@ -16,14 +15,13 @@ public class AdminServiceImpl implements AdminService {
     
     @Override
     public Admin SearchById(Long id) {
-        return repo.findById(id).get();
+        return repo.findById(id).orElse(null);
     }
 
     @Override
     public Admin SearchByUserName(String userName) {
         return repo.findByUserName(userName);
     }
-    
 
     @Override
     public List<Admin> SearchAll() {
